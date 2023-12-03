@@ -1,6 +1,6 @@
 <?php
 include '../koneksi.php';
-$genres = mysqli_query($conn, "SELECT * FROM genres ");
+$genres = mysqli_query($conn, "SELECT * FROM genres");
 
 ?>
 <!DOCTYPE html>
@@ -24,6 +24,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres ");
 
     <link rel="stylesheet" href="../css/slick-animation.css" />
     <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -50,15 +51,6 @@ $genres = mysqli_query($conn, "SELECT * FROM genres ");
                                         <li class="menu-item"><a href="director.php">Director</a></li>
                                         <li class="menu-item"><a href="genre.php">Genre</a></li>
                                         <li class="menu-item"><a href="coment.php">Coment</a></li>
-                                        <!-- <li class="menu-item">
-                                            <a href="#">CRUD</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item"><a href="movies.php">Movies</a></li>
-                                                <li class="menu-item"><a href="director.php">Director</a></li>
-                                                <li class="menu-item"><a href="#">Genre</a></li>
-                                                <li class="menu-item"><a href="#">Coment</a></li>
-                                            </ul>
-                                        </li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -141,12 +133,6 @@ $genres = mysqli_query($conn, "SELECT * FROM genres ");
                                         </div>
                                     </li>
                                     <li class="nav-item nav-icon">
-                                        <a href="#" class="search-toggle" data-toggle="search-toggle">
-                                            <i class="fa fa-bell"></i>
-                                            <span class="bg-danger dots"></span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item nav-icon">
                                         <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
                                             <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
                                         </a>
@@ -189,36 +175,41 @@ $genres = mysqli_query($conn, "SELECT * FROM genres ");
 
     <!-- main content starts  -->
     <div class="main-content">
-        <!-- favorite section starts   -->
-
-        <section id="iq-favorites">
-            <div class="container-fluid" style="margin-top: 150px">
-                <div class="row">
-                    <div class="col-sm-12 overflow-hidden">
-                    <a href="genre/addgenre.php" class="btn btn-hover iq-button" style="margin-bottom: 20px">
-    ADD GENRE
-</a>
-                        <div class="row">
-                            <?php foreach ($genres as $genre) : ?>
-                                <div class="col-md-3 col-sm-6 mb-3">
-                                    <div class="card-body border border-light rounded" style="border-radius: 15px;">
-                                        <h5 class="card-title text-center"><?= $genre['genre_name']; ?></h5>
-                                        <div class="d-flex justify-content-center">
-                                        <a href="genre/edit.php?genre_id=<?php echo $genre['genre_id']; ?>" class="btn btn-hover iq-button">
-                                                <i class="fa fa-pencil mr-1"></i>
-                                            </a>
-                                            <a href="genre/delete.php?genre_id=<?php echo $genre['genre_id']; ?>" onclick="return confirm ('Hapus data ini?')" class="btn btn-hover iq-button ml-2">
-                                                <i class="fa fa-trash mr-1"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
+        <div class="container-fluid" style="margin-top: 70px">
+            <div class="row">
+                <div class="col-sm-12 overflow-hidden">
+                    <button type="button" class="btn btn-hover iq-button" data-toggle="modal" data-target="#tambah" style="margin-bottom: 20px">ADD GENRE</button>
+                    <table class="table table-bordered" id="Table">
+                        <thead>
+                            <tr>
+                                <th scope="col">NO</th>
+                                <th scope="col">GENRE</th>
+                                <th scope="col">ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $no = 1;
+                            while ($genre = mysqli_fetch_array($genres)) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $no++ ?></td>
+                                    <td><?php echo $genre['genre_name'] ?></td>
+                                    <td class="text-center" style="vertical-align: middle;">
+                                        <a class="btn btn-hover iq-button" data-toggle="modal" name="edit" data-target="#edit<?= $no ?>">
+                                            <i class="fa fa-pencil mr-1"></i>
+                                        </a>
+                                        <a class="btn btn-hover iq-button ml-2" data-toggle="modal" name="hapus" data-target="#hapus<?= $no ?>">
+                                            <i class="fa fa-trash mr-1"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
 
     <!-- main content ends  -->
@@ -279,6 +270,12 @@ $genres = mysqli_query($conn, "SELECT * FROM genres ");
     <script src="../js/jquery.magnific-popup.min.js"></script>
     <script src="../js/slick-animation.min.js"></script>
     <script src="../main.js"></script>
+    <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#Table').DataTable();
+        });
+    </script>
 </body>
 
 </html>
