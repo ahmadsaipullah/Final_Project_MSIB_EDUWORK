@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="css/magnific-popup.css" />
   <link rel="stylesheet" href="css/select2.min.css" />
   <link rel="stylesheet" href="css/select2-bootstrap4.min.css" />
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/slick-animation.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -36,40 +36,15 @@
                   <span class="navbar-menu-icon navbar-menu-icon--bottom"></span>
                 </div>
               </a>
-              <a href="index.html" class="navbar-brand">
+              <a href="index.php" class="navbar-brand">
                 <img src="images/logo.png" class="img-fluid logo" alt="" />
               </a>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="menu-main-menu-container">
                   <ul id="top-menu" class="navbar-nav ml-auto">
-                    <li class="menu-item"><a href="#">Home</a></li>
-                    <li class="menu-item"><a href="#">Movies</a></li>
-                    <li class="menu-item"><a href="#">Shows</a></li>
-                    <li class="menu-item">
-                      <a href="#">Contact Us</a>
-                      <ul class="sub-menu">
-                        <li class="menu-item"><a href="#">About Us</a></li>
-                        <li class="menu-item"><a href="#">Contact</a></li>
-                        <li class="menu-item"><a href="#">FAQ</a></li>
-                        <li class="menu-item">
-                          <a href="#">Privacy-Policy</a>
-                        </li>
-                        <li class="menu-item">
-                          <a href="#">Pricing</a>
-                          <ul class="sub-menu">
-                            <li class="menu-item">
-                              <a href="#">Gold Membership</a>
-                            </li>
-                            <li class="menu-item">
-                              <a href="#">Silver Membership</a>
-                            </li>
-                            <li class="menu-item">
-                              <a href="#">Bronze Membership</a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
+                    <li class="active menu-item"><a href="index.php">Home</a></li>
+                    <li class="menu-item"><a href="movies.php">Movies</a></li>
+                    <li class="menu-item"><a href="about.php">About Us</a></li>
                   </ul>
                 </div>
               </div>
@@ -95,97 +70,10 @@
                           </form>
                         </div>
                       </li>
-                      <li class="nav-item nav-icon">
-                        <a href="#" class="search-toggle position-relative">
-                          <i class="fa fa-bell"></i>
-                          <span class="bg-danger dots"></span>
-                        </a>
-                        <div class="iq-sub-dropdown">
-                          <div class="iq-card shadow-none m-0">
-                            <div class="iq-card-body">
-                              <a href="#" class="iq-sub-card">
-                                <div class="media align-items-center">
-                                  <img src="images/notify/thumb-1.jpg" alt="" class="img-fluid mr-3" />
-                                  <div class="media-body">
-                                    <h6 class="mb-0">Captain Marvel</h6>
-                                    <small class="font-size-12">just now</small>
-                                  </div>
-                                </div>
-                              </a>
-                              <a href="#" class="iq-sub-card">
-                                <div class="media align-items-center">
-                                  <img src="images/notify/thumb-2.jpg" alt="" class="img-fluid mr-3" />
-                                  <div class="media-body">
-                                    <h6 class="mb-0">
-                                      Dora and The Lost City of Gold
-                                    </h6>
-                                    <small class="font-size-12">25 mins ago</small>
-                                  </div>
-                                </div>
-                              </a>
-                              <a href="#" class="iq-sub-card">
-                                <div class="media align-items-center">
-                                  <img src="images/notify/thumb-3.jpg" alt="" class="img-fluid mr-3" />
-                                  <div class="media-body">
-                                    <h6 class="mb-0">Mulan</h6>
-                                    <small class="font-size-12">1h 30 mins ago</small>
-                                  </div>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
                       <li>
                         <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center">
-                          <img src="images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
+                        <i class="bi bi-person-fill"></i>
                         </a>
-                        <div class="iq-sub-dropdown iq-user-dropdown">
-                          <div class="iq-card shadow-none m-0">
-                            <div class="iq-card-body p-0 pl-3 pr-3">
-                              <a href="#" class="iq-sub-card setting-dropdown">
-                                <div class="media align-items-center">
-                                  <div class="right-icon">
-                                    <i class="fa fa-user text-primary"></i>
-                                  </div>
-                                  <div class="media-body ml-3">
-                                    <h6 class="mb-0">Manage Profile</h6>
-                                  </div>
-                                </div>
-                              </a>
-                              <a href="#" class="iq-sub-card setting-dropdown">
-                                <div class="media align-items-center">
-                                  <div class="right-icon">
-                                    <i class="fa fa-cog text-primary"></i>
-                                  </div>
-                                  <div class="media-body ml-3">
-                                    <h6 class="mb-0">Settings</h6>
-                                  </div>
-                                </div>
-                              </a>
-                              <a href="#" class="iq-sub-card setting-dropdown">
-                                <div class="media align-items-center">
-                                  <div class="right-icon">
-                                    <i class="fa fa-inr text-primary"></i>
-                                  </div>
-                                  <div class="media-body ml-3">
-                                    <h6 class="mb-0">Pricing Plan</h6>
-                                  </div>
-                                </div>
-                              </a>
-                              <a href="#" class="iq-sub-card setting-dropdown">
-                                <div class="media align-items-center">
-                                  <div class="right-icon">
-                                    <i class="fa fa-sign-out text-primary"></i>
-                                  </div>
-                                  <div class="media-body ml-3">
-                                    <h6 class="mb-0">Logout</h6>
-                                  </div>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
                       </li>
                     </ul>
                   </div>
@@ -209,96 +97,7 @@
                     </div>
                   </li>
                   <li class="nav-item nav-icon">
-                    <a href="#" class="search-toggle" data-toggle="search-toggle">
-                      <i class="fa fa-bell"></i>
-                      <span class="bg-danger dots"></span>
-                    </a>
-                    <div class="iq-sub-dropdown">
-                      <div class="iq-card shadow-none m-0">
-                        <div class="iq-card-body">
-                          <a href="#" class="iq-sub-card">
-                            <div class="media align-items-center">
-                              <img src="images/notify/thumb-1.jpg" alt="" class="img-fluid mr-3" />
-                              <div class="media-body">
-                                <h6 class="mb-0">Captain Marvel</h6>
-                                <small class="font-size-12">just now</small>
-                              </div>
-                            </div>
-                          </a>
-                          <a href="#" class="iq-sub-card">
-                            <div class="media align-items-center">
-                              <img src="images/notify/thumb-2.jpg" alt="" class="img-fluid mr-3" />
-                              <div class="media-body">
-                                <h6 class="mb-0">
-                                  Dora and The Lost City of Gold
-                                </h6>
-                                <small class="font-size-12">25 mins ago</small>
-                              </div>
-                            </div>
-                          </a>
-                          <a href="#" class="iq-sub-card">
-                            <div class="media align-items-center">
-                              <img src="images/notify/thumb-3.jpg" alt="" class="img-fluid mr-3" />
-                              <div class="media-body">
-                                <h6 class="mb-0">Mulan</h6>
-                                <small class="font-size-12">1h 30 mins ago</small>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="nav-item nav-icon">
-                    <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
-                      <img src="images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
-                    </a>
-                    <div class="iq-sub-dropdown iq-user-dropdown">
-                      <div class="iq-card shadow-none m-0">
-                        <div class="iq-card-body p-0 pl-3 pr-3">
-                          <a href="#" class="iq-sub-card setting-dropdown">
-                            <div class="media align-items-center">
-                              <div class="right-icon">
-                                <i class="fa fa-user text-primary"></i>
-                              </div>
-                              <div class="media-body ml-3">
-                                <h6 class="mb-0">Manage Profile</h6>
-                              </div>
-                            </div>
-                          </a>
-                          <a href="#" class="iq-sub-card setting-dropdown">
-                            <div class="media align-items-center">
-                              <div class="right-icon">
-                                <i class="fa fa-cog text-primary"></i>
-                              </div>
-                              <div class="media-body ml-3">
-                                <h6 class="mb-0">Settings</h6>
-                              </div>
-                            </div>
-                          </a>
-                          <a href="#" class="iq-sub-card setting-dropdown">
-                            <div class="media align-items-center">
-                              <div class="right-icon">
-                                <i class="fa fa-inr text-primary"></i>
-                              </div>
-                              <div class="media-body ml-3">
-                                <h6 class="mb-0">Pricing Plan</h6>
-                              </div>
-                            </div>
-                          </a>
-                          <a href="#" class="iq-sub-card setting-dropdown">
-                            <div class="media align-items-center">
-                              <div class="right-icon">
-                                <i class="fa fa-sign-out text-primary"></i>
-                              </div>
-                              <div class="media-body ml-3">
-                                <h6 class="mb-0">Logout</h6>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                  <i class="bi bi-person-fill"></i>
                   </li>
                 </ul>
               </div>
@@ -364,17 +163,11 @@
                     <span class="text-body">Action, Adventure, Horror</span>
                   </div>
                 </div>
-                <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
-                  <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Play Now</a>
-                  <a href="#" class="btn btn-link">More Details</a>
-                </div>
+                  <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
+                    <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Watch Trailer</a>
+                    <a href="#" class="btn btn-link">More Details</a>
+                  </div>
               </div>
-            </div>
-            <div class="col-xl-5 col-lg-12 col-md-12 trailor-video">
-              <a href="video/trailer.mp4" class="video-open playbtn">
-                <img src="images/play.png" class="play" alt="" />
-                <span class="w-trailor">Watch Trailer</span>
-              </a>
             </div>
           </div>
         </div>
@@ -432,16 +225,10 @@
                   </div>
                 </div>
                 <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
-                  <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Play Now</a>
+                  <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Watch Trailer</a>
                   <a href="#" class="btn btn-link">More Details</a>
                 </div>
               </div>
-            </div>
-            <div class="col-xl-5 col-lg-12 col-md-12 trailor-video">
-              <a href="video/trailer.mp4" class="video-open playbtn">
-                <img src="images/play.png" class="play" alt="" />
-                <span class="w-trailor">Watch Trailer</span>
-              </a>
             </div>
           </div>
         </div>
@@ -496,16 +283,10 @@
                   </div>
                 </div>
                 <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
-                  <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Play Now</a>
+                  <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Watch Trailer</a>
                   <a href="#" class="btn btn-link">More Details</a>
                 </div>
               </div>
-            </div>
-            <div class="col-xl-5 col-lg-12 col-md-12 trailor-video">
-              <a href="video/trailer.mp4" class="video-open playbtn">
-                <img src="images/play.png" class="play" alt="" />
-                <span class="w-trailor">Watch Trailer</span>
-              </a>
             </div>
           </div>
         </div>
@@ -528,15 +309,22 @@
             </div>
             <div class="favorite-contens">
               <ul class="favorites-slider list-inline row p-0 mb-0">
+              <?php 
+                include "config.php";
+
+                $movies = mysqli_query($con, "SELECT * FROM movies LIMIT 5");
+
+                foreach ($movies as $movie) {
+              ?>
                 <!-- slide item 1 -->
                 <li class="slide-item">
                   <div class="block-images position-relative">
                     <div class="img-box">
-                      <img src="images/favorite/f1.jpg" class="img-fluid" alt="" />
+                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
                     </div>
                     <div class="block-description">
                       <h6 class="iq-title">
-                        <a href="#"> Insidious </a>
+                        <a href="#"> <?php echo $movie["judul"]; ?> </a>
                       </h6>
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">16+</div>
@@ -545,7 +333,7 @@
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button">
                           <i class="fa fa-play mr-1"></i>
-                          Play Now
+                          Watch Trailer
                         </span>
                       </div>
                     </div>
@@ -572,183 +360,9 @@
                     </div>
                   </div>
                 </li>
-                <!-- slide item 2 -->
-                <li class="slide-item">
-                  <div class="block-images position-relative">
-                    <div class="img-box">
-                      <img src="images/favorite/f2.jpg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
-                        <a href="#"> War </a>
-                      </h6>
-                      <div class="movie-time d-flex align-items-center my-2">
-                        <div class="badge badge-secondary p-1 mr-2">12+</div>
-                        <span class="text-white">2h 34min</span>
-                      </div>
-                      <div class="hover-buttons">
-                        <span class="btn btn-hover iq-button">
-                          <i class="fa fa-play mr-1"></i>
-                          Play Now
-                        </span>
-                      </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">58+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <!-- slide item 3 -->
-                <li class="slide-item">
-                  <div class="block-images position-relative">
-                    <div class="img-box">
-                      <img src="images/favorite/f3.jpg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
-                        <a href="#"> Five Feet Apart </a>
-                      </h6>
-                      <div class="movie-time d-flex align-items-center my-2">
-                        <div class="badge badge-secondary p-1 mr-2">18+</div>
-                        <span class="text-white">2h 57min</span>
-                      </div>
-                      <div class="hover-buttons">
-                        <span class="btn btn-hover iq-button">
-                          <i class="fa fa-play mr-1"></i>
-                          Play Now
-                        </span>
-                      </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">19+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <!-- slide item 4 -->
-                <li class="slide-item">
-                  <div class="block-images position-relative">
-                    <div class="img-box">
-                      <img src="images/favorite/f4.jpg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
-                        <a href="#"> Chhichore </a>
-                      </h6>
-                      <div class="movie-time d-flex align-items-center my-2">
-                        <div class="badge badge-secondary p-1 mr-2">10+</div>
-                        <span class="text-white">2h 23min</span>
-                      </div>
-                      <div class="hover-buttons">
-                        <span class="btn btn-hover iq-button">
-                          <i class="fa fa-play mr-1"></i>
-                          Play Now
-                        </span>
-                      </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">19+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <!-- slide item 5 -->
-                <li class="slide-item">
-                  <div class="block-images position-relative">
-                    <div class="img-box">
-                      <img src="images/favorite/f5.jpg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
-                        <a href="#"> Doctor Strange </a>
-                      </h6>
-                      <div class="movie-time d-flex align-items-center my-2">
-                        <div class="badge badge-secondary p-1 mr-2">12+</div>
-                        <span class="text-white">1h 55min</span>
-                      </div>
-                      <div class="hover-buttons">
-                        <span class="btn btn-hover iq-button">
-                          <i class="fa fa-play mr-1"></i>
-                          Play Now
-                        </span>
-                      </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">19+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
+              <?php } ?>
               </ul>
+
             </div>
           </div>
         </div>
@@ -769,14 +383,19 @@
             <div class="favorite-contens">
               <ul class="favorites-slider list-inline row p-0 mb-0">
                 <!-- slide item 1 -->
+                <?php 
+                  $movies = mysqli_query($con, "SELECT * FROM movies WHERE genre_id = 1");
+
+                  foreach ($movies as $movie) {
+                ?>
                 <li class="slide-item">
                   <div class="block-images position-relative">
                     <div class="img-box">
-                      <img src="images/popular/u1.jpg" class="img-fluid" alt="" />
+                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
                     </div>
                     <div class="block-description">
                       <h6 class="iq-title">
-                        <a href="#"> Mulan </a>
+                        <a href="#"><?php echo $movie["judul"]; ?></a>
                       </h6>
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">10+</div>
@@ -785,7 +404,7 @@
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button">
                           <i class="fa fa-play mr-1"></i>
-                          Play Now
+                          Watch Trailer
                         </span>
                       </div>
                     </div>
@@ -812,182 +431,7 @@
                     </div>
                   </div>
                 </li>
-                <!-- slide item 2 -->
-                <li class="slide-item">
-                  <div class="block-images position-relative">
-                    <div class="img-box">
-                      <img src="images/popular/u2.jpg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
-                        <a href="#"> Laxmii </a>
-                      </h6>
-                      <div class="movie-time d-flex align-items-center my-2">
-                        <div class="badge badge-secondary p-1 mr-2">18+</div>
-                        <span class="text-white">2h 21min</span>
-                      </div>
-                      <div class="hover-buttons">
-                        <span class="btn btn-hover iq-button">
-                          <i class="fa fa-play mr-1"></i>
-                          Play Now
-                        </span>
-                      </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">35+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <!-- slide item 3 -->
-                <li class="slide-item">
-                  <div class="block-images position-relative">
-                    <div class="img-box">
-                      <img src="images/popular/u3.jpg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
-                        <a href="#"> Captain America </a>
-                      </h6>
-                      <div class="movie-time d-flex align-items-center my-2">
-                        <div class="badge badge-secondary p-1 mr-2">12+</div>
-                        <span class="text-white">2h 4min</span>
-                      </div>
-                      <div class="hover-buttons">
-                        <span class="btn btn-hover iq-button">
-                          <i class="fa fa-play mr-1"></i>
-                          Play Now
-                        </span>
-                      </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">99+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <!-- slide item 4 -->
-                <li class="slide-item">
-                  <div class="block-images position-relative">
-                    <div class="img-box">
-                      <img src="images/popular/u4.jpg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
-                        <a href="#"> Life of Pie </a>
-                      </h6>
-                      <div class="movie-time d-flex align-items-center my-2">
-                        <div class="badge badge-secondary p-1 mr-2">11+</div>
-                        <span class="text-white">2h 7min</span>
-                      </div>
-                      <div class="hover-buttons">
-                        <span class="btn btn-hover iq-button">
-                          <i class="fa fa-play mr-1"></i>
-                          Play Now
-                        </span>
-                      </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">19+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <!-- slide item 5 -->
-                <li class="slide-item">
-                  <div class="block-images position-relative">
-                    <div class="img-box">
-                      <img src="images/popular/u5.jpg" class="img-fluid" alt="" />
-                    </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
-                        <a href="#"> Mission Mangal </a>
-                      </h6>
-                      <div class="movie-time d-flex align-items-center my-2">
-                        <div class="badge badge-secondary p-1 mr-2">12+</div>
-                        <span class="text-white">2h 10min</span>
-                      </div>
-                      <div class="hover-buttons">
-                        <span class="btn btn-hover iq-button">
-                          <i class="fa fa-play mr-1"></i>
-                          Play Now
-                        </span>
-                      </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">19+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
+                <?php } ?>
               </ul>
             </div>
           </div>
@@ -1007,54 +451,33 @@
                 Trending Movies
               </h4>
               <ul id="top-ten-slider" class="list-inline p-0 m-0 d-flex align-items-center">
+                <?php 
+                  $movies = mysqli_query($con, "SELECT * FROM movies WHERE genre_id = 3");
+
+                  foreach ($movies as $movie) {
+                ?>
                 <li class="slick-bg">
                   <a href="#">
-                    <img src="images/top-10/01.jpg" class="img-fluid w-100" alt="" />
-                    <h6 class="iq-title"><a href="#">Harry Potter</a></h6>
+                    <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid w-100" alt="" />
+                    <h6 class="iq-title"><a href="#"><?php echo $movie["judul"]; ?></a></h6>
                   </a>
                 </li>
-                <li class="slick-bg">
-                  <a href="#">
-                    <img src="images/top-10/02.jpg" class="img-fluid w-100" alt="" />
-                    <h6 class="iq-title">
-                      <a href="#">The Queen's Gambit</a>
-                    </h6>
-                  </a>
-                </li>
-                <li class="slick-bg">
-                  <a href="#">
-                    <img src="images/top-10/03.jpg" class="img-fluid w-100" alt="" />
-                    <h6 class="iq-title"><a href="#">Scam 1992</a></h6>
-                  </a>
-                </li>
-                <li class="slick-bg">
-                  <a href="#">
-                    <img src="images/top-10/04.jpg" class="img-fluid w-100" alt="" />
-                    <h6 class="iq-title"><a href="#">Stranger Things</a></h6>
-                  </a>
-                </li>
-                <li class="slick-bg">
-                  <a href="#">
-                    <img src="images/top-10/05.jpg" class="img-fluid w-100" alt="" />
-                    <h6 class="iq-title"><a href="#">BoJack Horsemen</a></h6>
-                  </a>
-                </li>
-                <li class="slick-bg">
-                  <a href="#">
-                    <img src="images/top-10/06.jpg" class="img-fluid w-100" alt="" />
-                    <h6 class="iq-title"><a href="#">Peaky Blinders</a></h6>
-                  </a>
-                </li>
+                <?php } ?>
               </ul>
               <div class="vertical_s">
                 <ul id="top-ten-slider-nav" class="list-inline p-0 m-0 d-flex align-items-center">
+                  <?php 
+                    $movies = mysqli_query($con, "SELECT * FROM movies WHERE genre_id = 3");
+
+                    foreach ($movies as $movie) {
+                  ?>
                   <li>
                     <div class="block-images position-relative">
                       <a href="#">
-                        <img src="images/top-10/01.jpg" class="img-fluid w-100" alt="" />
+                        <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid w-100" alt=""  style="weight :300px; height:169px;" />
                       </a>
                       <div class="block-description">
-                        <h5>Harry Potter</h5>
+                        <h5><?php echo $movie["judul"]; ?></h5>
                         <div class="movie-time d-flex align-items-center my-2">
                           <div class="badge badge-secondary p-1 mr-2">
                             10+
@@ -1064,122 +487,13 @@
                         <div class="hover-buttons">
                           <a href="#" class="btn btn-hover" tabindex="0">
                             <i class="fa fa-play mr-1" aria-hidden="true"></i>
-                            Play Now
+                            Watch Trailer
                           </a>
                         </div>
                       </div>
                     </div>
                   </li>
-                  <li>
-                    <div class="block-images position-relative">
-                      <a href="#">
-                        <img src="images/top-10/02.jpg" class="img-fluid w-100" alt="" />
-                      </a>
-                      <div class="block-description">
-                        <h5>The Queen's Gambit</h5>
-                        <div class="movie-time d-flex align-items-center my-2">
-                          <div class="badge badge-secondary p-1 mr-2">
-                            18+
-                          </div>
-                          <span class="text-white">1 Season</span>
-                        </div>
-                        <div class="hover-buttons">
-                          <a href="#" class="btn btn-hover" tabindex="0">
-                            <i class="fa fa-play mr-1" aria-hidden="true"></i>
-                            Play Now
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="block-images position-relative">
-                      <a href="#">
-                        <img src="images/top-10/03.jpg" class="img-fluid w-100" alt="" />
-                      </a>
-                      <div class="block-description">
-                        <h5>Scam 1992</h5>
-                        <div class="movie-time d-flex align-items-center my-2">
-                          <div class="badge badge-secondary p-1 mr-2">
-                            12+
-                          </div>
-                          <span class="text-white">1 Season</span>
-                        </div>
-                        <div class="hover-buttons">
-                          <a href="#" class="btn btn-hover" tabindex="0">
-                            <i class="fa fa-play mr-1" aria-hidden="true"></i>
-                            Play Now
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="block-images position-relative">
-                      <a href="#">
-                        <img src="images/top-10/04.jpg" class="img-fluid w-100" alt="" />
-                      </a>
-                      <div class="block-description">
-                        <h5>Stranger Things</h5>
-                        <div class="movie-time d-flex align-items-center my-2">
-                          <div class="badge badge-secondary p-1 mr-2">
-                            16+
-                          </div>
-                          <span class="text-white">3 Season</span>
-                        </div>
-                        <div class="hover-buttons">
-                          <a href="#" class="btn btn-hover" tabindex="0">
-                            <i class="fa fa-play mr-1" aria-hidden="true"></i>
-                            Play Now
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="block-images position-relative">
-                      <a href="#">
-                        <img src="images/top-10/05.jpg" class="img-fluid w-100" alt="" />
-                      </a>
-                      <div class="block-description">
-                        <h5>BoJack Horseman</h5>
-                        <div class="movie-time d-flex align-items-center my-2">
-                          <div class="badge badge-secondary p-1 mr-2">
-                            15+
-                          </div>
-                          <span class="text-white">6 Season</span>
-                        </div>
-                        <div class="hover-buttons">
-                          <a href="#" class="btn btn-hover" tabindex="0">
-                            <i class="fa fa-play mr-1" aria-hidden="true"></i>
-                            Play Now
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="block-images position-relative">
-                      <a href="#">
-                        <img src="images/top-10/06.jpg" class="img-fluid w-100" alt="" />
-                      </a>
-                      <div class="block-description">
-                        <h5>Peaky Blinders</h5>
-                        <div class="movie-time d-flex align-items-center my-2">
-                          <div class="badge badge-secondary p-1 mr-2">
-                            20+
-                          </div>
-                          <span class="text-white">5 Season</span>
-                        </div>
-                        <div class="hover-buttons">
-                          <a href="#" class="btn btn-hover" tabindex="0">
-                            <i class="fa fa-play mr-1" aria-hidden="true"></i>
-                            Play Now
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
+                  <?php } ?>
                 </ul>
               </div>
             </div>
@@ -1215,7 +529,7 @@
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button">
                           <i class="fa fa-play mr-1"></i>
-                          Play Now
+                          Watch Trailer
                         </span>
                       </div>
                     </div>
@@ -1259,7 +573,7 @@
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button">
                           <i class="fa fa-play mr-1"></i>
-                          Play Now
+                          Watch Trailer
                         </span>
                       </div>
                     </div>
@@ -1303,7 +617,7 @@
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button">
                           <i class="fa fa-play mr-1"></i>
-                          Play Now
+                          Watch Trailer
                         </span>
                       </div>
                     </div>
@@ -1347,7 +661,7 @@
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button">
                           <i class="fa fa-play mr-1"></i>
-                          Play Now
+                          Watch Trailer
                         </span>
                       </div>
                     </div>
@@ -1391,7 +705,7 @@
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button">
                           <i class="fa fa-play mr-1"></i>
-                          Play Now
+                          Watch Trailer
                         </span>
                       </div>
                     </div>
@@ -1465,7 +779,7 @@
                 protecting the world he feels is his home.
               </p>
               <div class="parallax-buttons">
-                <a href="#" class="btn btn-hover">Play Now</a>
+                <a href="#" class="btn btn-hover">Watch Trailer</a>
                 <a href="#" class="btn btn-link">More Details</a>
               </div>
             </div>
@@ -1591,7 +905,7 @@
                               <div class="d-flex align-items-center p-0">
                                 <a href="#" class="btn btn-hover mr-2" tabindex="0">
                                   <i class="fa fa-play mr-2"></i>
-                                  Play Now
+                                  Watch Trailer
                                 </a>
                                 <a href="#" class="btn btn-link" tabindex="0">
                                   <i class="fa fa-plus pr-2"></i>
@@ -2061,7 +1375,7 @@
                               <div class="d-flex align-items-center p-0">
                                 <a href="#" class="btn btn-hover mr-2" tabindex="0">
                                   <i class="fa fa-play mr-2"></i>
-                                  Play Now
+                                  Watch Trailer
                                 </a>
                                 <a href="#" class="btn btn-link" tabindex="0">
                                   <i class="fa fa-plus pr-2"></i>
@@ -2537,7 +1851,7 @@
                               <div class="d-flex align-items-center p-0">
                                 <a href="#" class="btn btn-hover mr-2" tabindex="0">
                                   <i class="fa fa-play mr-2"></i>
-                                  Play Now
+                                  Watch Trailer
                                 </a>
                                 <a href="#" class="btn btn-link" tabindex="0">
                                   <i class="fa fa-plus pr-2"></i>
@@ -3007,7 +2321,7 @@
                               <div class="d-flex align-items-center p-0">
                                 <a href="#" class="btn btn-hover mr-2" tabindex="0">
                                   <i class="fa fa-play mr-2"></i>
-                                  Play Now
+                                  Watch Trailer
                                 </a>
                                 <a href="#" class="btn btn-link" tabindex="0">
                                   <i class="fa fa-plus pr-2"></i>
@@ -3477,7 +2791,7 @@
                               <div class="d-flex align-items-center p-0">
                                 <a href="#" class="btn btn-hover mr-2" tabindex="0">
                                   <i class="fa fa-play mr-2"></i>
-                                  Play Now
+                                  Watch Trailer
                                 </a>
                                 <a href="#" class="btn btn-link" tabindex="0">
                                   <i class="fa fa-plus pr-2"></i>
@@ -3948,7 +3262,7 @@
                               <div class="d-flex align-items-center p-0">
                                 <a href="#" class="btn btn-hover mr-2" tabindex="0">
                                   <i class="fa fa-play mr-2"></i>
-                                  Play Now
+                                  Watch Trailer
                                 </a>
                                 <a href="#" class="btn btn-link" tabindex="0">
                                   <i class="fa fa-plus pr-2"></i>
@@ -4393,7 +3707,7 @@
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button">
                           <i class="fa fa-play mr-1"></i>
-                          Play Now
+                          Watch Trailer
                         </span>
                       </div>
                     </div>
@@ -4437,7 +3751,7 @@
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button">
                           <i class="fa fa-play mr-1"></i>
-                          Play Now
+                          Watch Trailer
                         </span>
                       </div>
                     </div>
@@ -4481,7 +3795,7 @@
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button">
                           <i class="fa fa-play mr-1"></i>
-                          Play Now
+                          Watch Trailer
                         </span>
                       </div>
                     </div>
@@ -4525,7 +3839,7 @@
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button">
                           <i class="fa fa-play mr-1"></i>
-                          Play Now
+                          Watch Trailer
                         </span>
                       </div>
                     </div>
@@ -4569,7 +3883,7 @@
                       <div class="hover-buttons">
                         <span class="btn btn-hover iq-button">
                           <i class="fa fa-play mr-1"></i>
-                          Play Now
+                          Watch Trailer
                         </span>
                       </div>
                     </div>
