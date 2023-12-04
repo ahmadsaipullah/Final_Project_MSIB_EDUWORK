@@ -24,6 +24,7 @@ $directors = mysqli_query($conn, "SELECT * FROM director");
 
     <link rel="stylesheet" href="../css/slick-animation.css" />
     <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -41,7 +42,7 @@ $directors = mysqli_query($conn, "SELECT * FROM director");
                                 </div>
                             </a>
                             <a href="movies.php" class="navbar-brand">
-                                <img src="../images/logo.png" class="img-fluid logo" alt="" />
+                                <img src="../images/logo2.png" class="img-fluid logo" alt="" style="width: 100px; height: 100px;" />
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div class="menu-main-menu-container">
@@ -50,15 +51,6 @@ $directors = mysqli_query($conn, "SELECT * FROM director");
                                         <li class="menu-item"><a href="director.php">Director</a></li>
                                         <li class="menu-item"><a href="genre.php">Genre</a></li>
                                         <li class="menu-item"><a href="coment.php">Coment</a></li>
-                                        <!-- <li class="menu-item">
-                                            <a href="#">CRUD</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item"><a href="movies.php">Movies</a></li>
-                                                <li class="menu-item"><a href="director.php">Director</a></li>
-                                                <li class="menu-item"><a href="#">Genre</a></li>
-                                                <li class="menu-item"><a href="#">Coment</a></li>
-                                            </ul>
-                                        </li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -141,12 +133,6 @@ $directors = mysqli_query($conn, "SELECT * FROM director");
                                         </div>
                                     </li>
                                     <li class="nav-item nav-icon">
-                                        <a href="#" class="search-toggle" data-toggle="search-toggle">
-                                            <i class="fa fa-bell"></i>
-                                            <span class="bg-danger dots"></span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item nav-icon">
                                         <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
                                             <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
                                         </a>
@@ -189,44 +175,99 @@ $directors = mysqli_query($conn, "SELECT * FROM director");
 
     <!-- main content starts  -->
     <div class="main-content">
-        <!-- favorite section starts   -->
-
-        <section id="iq-favorites">
-            <div class="container-fluid" style="margin-top: 130px">
-                <div class="row">
-                <a href="director/addirector.php" class="btn btn-hover iq-button" style="margin-bottom: 20px">
-    ADD DIRECTOR
-</a>
-
-
-                    <div class="row">
-                        <?php foreach ($directors as $director) : ?>
-                            <div class="col-md-3 col-sm-6 mb-3">
-                                <div class="card-body border border-light rounded" style="border-radius: 15px;">
-                                    <h5 class="card-title text-center"><?= $director['nama']; ?></h5>
-                                    <p class="card-text text-center"><?= $director['email']; ?></p>
-                                    <div class="d-flex justify-content-center">
-                                        <div class="card-boy rounded-5 mt-2">
-                                            <a href="director/edit.php?director_id=<?php echo $director['director_id']; ?>" class="btn btn-hover iq-button">
-                                                <i class="fa fa-pencil mr-1"></i>
-                                            </a>
-                                            <a href="director/delete.php?director_id=<?php echo $director['director_id']; ?>" onclick="return confirm ('Hapus data ini?')" class="btn btn-hover iq-button ml-2">
-                                                <i class="fa fa-trash mr-1"></i>
-                                            </a>
+        <div class="container-fluid" style="margin-top: 70px">
+            <div class="row">
+                <div class="col-sm-12 overflow-hidden">
+                    <button type="button" class="btn btn-hover iq-button" data-toggle="modal" data-target="#tambah" style="margin-bottom: 20px">ADD DIRECTOR</button>
+                    <table class="table table-bordered" id="Table">
+                        <thead>
+                            <tr>
+                                <th scope="col">NO</th>
+                                <th scope="col">NAME</th>
+                                <th scope="col">EMAIL</th>
+                                <th scope="col">ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $no = 1;
+                            while ($director = mysqli_fetch_array($directors)) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $no++ ?></td>
+                                    <td><?php echo $director['nama'] ?></td>
+                                    <td><?php echo $director['email'] ?></td>
+                                    <td class="text-center" style="vertical-align: middle;">
+                                        <a class="btn btn-hover iq-button" data-toggle="modal" name="edit" data-target="#edit<?= $no ?>">
+                                            <i class="fa fa-pencil mr-1"></i>
+                                        </a>
+                                        <a class="btn btn-hover iq-button ml-2" data-toggle="modal" name="hapus" data-target="#hapus<?= $no ?>">
+                                            <i class="fa fa-trash mr-1"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!-- Modal Edit -->
+                                <div id="edit<?= $no ?>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-dark">EDIT DIRECTOR</h5>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <form action="director/editdirector.php" method="POST" enctype="multipart/form-data">
+                                                <input type="hidden" name="director_id" value="<?= $director['director_id'] ?>">
+                                                <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="nama">NAME</label>
+                                                        <input type="text" name="nama" class="form-control" id="nama" value="<?= $director['nama'] ?>" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="email">EMAIL</label>
+                                                        <input type="text" name="email" class="form-control" id="email" value="<?= $director['email'] ?>" required>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="reset" class="btn btn-secondary">Reset</button>
+                                                        <button type="submit" class="btn btn-primary" name="tambah" value="simpan">Save</button>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
+                                <!-- Modal Edit Akhir -->
+                                <!-- Modal Hapus -->
+                                <div id="hapus<?= $no ?>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-dark">DELETE DIRECTOR</h5>
+                                            </div>
+                                            <form action="director/deletedirector.php" method="POST" enctype="multipart/form-data">
+                                                <input type="hidden" name="director_id" value="<?= $director['director_id'] ?>">
+                                                <div class="modal-body">
+                                                    <h5 class="text-center text-dark"> Apakah Anda Yakin Akan Hapus <br>
+                                                        <span class="text-danger"><?= $director['nama'] ?></span>
+                                                    </h5>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-danger" name="hapus">Hapus</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Keluar</button>
+                                                </div>
+                                            </form>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal Hapus Akhir -->
+                            <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-    </div>
-    </section>
+        </div>
     </div>
 
     <!-- main content ends  -->
-
 
     <footer class="iq-bg-dark">
         <div class="footer-top">
@@ -273,6 +314,35 @@ $directors = mysqli_query($conn, "SELECT * FROM director");
         </div>
     </footer>
 
+    <!-- Modal Tambah -->
+    <div id="tambah" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark">ADD DIRECTOR</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <form action="director/adddirector.php" method="POST" enctype="multipart/form-data">
+                    <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="nama">NAME</label>
+                            <input type="text" name="nama" class="form-control" id="nama" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="email">EMAIL</label>
+                            <input type="text" name="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-secondary">Reset</button>
+                            <button type="submit" class="btn btn-primary" name="tambah" value="simpan">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Tambah Akhir -->
+
     <!-- js files  -->
     <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
@@ -283,6 +353,12 @@ $directors = mysqli_query($conn, "SELECT * FROM director");
     <script src="../js/jquery.magnific-popup.min.js"></script>
     <script src="../js/slick-animation.min.js"></script>
     <script src="../main.js"></script>
+    <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#Table').DataTable();
+        });
+    </script>
 </body>
 
 </html>
