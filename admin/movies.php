@@ -45,7 +45,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                 </div>
                             </a>
                             <a href="movies.php" class="navbar-brand">
-                                <img src="../images/logo2.png" class="img-fluid logo" alt="" style="width: 100px; height: 100px;" />
+                                <img src="../images/logosaaf.png" class="img-fluid logo" alt="" style="width: 150px; height: 100px;" />
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div class="menu-main-menu-container">
@@ -169,7 +169,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             <form action="movies/editmovie.php" method="POST" enctype="multipart/form-data">
-                                                <input type="hidden" name="id_sepatu" value="<?= $all['movie_id'] ?>">
+                                                <input type="hidden" name="movie_id" value="<?= $all['movie_id'] ?>">
                                                 <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
                                                     <div class="form-group">
                                                         <label class="control-label text-dark" for="judul">Judul</label>
@@ -184,8 +184,8 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                                         <select class="form-control" name="director_id">
                                                             <?php foreach ($directors as $director) { ?>
                                                                 <option value="<?php echo $director['director_id'] ?>" <?php if ($director['director_id'] == $all['director_id']) echo 'selected'; ?>>
-                                                                <?php echo $all['nama'] ?>
-                                                            </option>
+                                                                    <?php echo $all['nama'] ?>
+                                                                </option>
                                                             <?php } ?>
                                                         </select>
                                                     </div>
@@ -194,7 +194,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                                         <select class="form-control" name="genre_id">
                                                             <?php foreach ($genres as $genre) { ?>
                                                                 <option value="<?php echo $genre['genre_id'] ?>" <?php if ($genre['genre_id'] == $all['genre_id']) echo 'selected'; ?>>
-                                                                <?php echo $genre['genre_name'] ?></option>
+                                                                    <?php echo $genre['genre_name'] ?></option>
                                                             <?php } ?>
                                                         </select>
                                                     </div>
@@ -212,7 +212,8 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label text-dark" for="cover_image">Cover Image:</label>
-                                                        <input type="file" class="form-control border-0" id="cover_image" name="cover_image" required>
+                                                        <img src="../images/img/<?php echo $all ['cover_image']; ?> " width="100px";> 
+                                                        <input type="file" class="form-control border-0" id="cover_image" name="cover_image" >
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="reset" class="btn btn-secondary">Reset</button>
