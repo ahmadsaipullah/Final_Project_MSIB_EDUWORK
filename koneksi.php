@@ -2,6 +2,6 @@
 $hostName = "localhost";
 $userName = "root";
 $password = "";
-$dbName = "db_film";
+$dbName = "dbfilm";
 
 $conn = new mysqli($hostName, $userName, $password, $dbName);
