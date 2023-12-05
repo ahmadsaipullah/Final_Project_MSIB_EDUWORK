@@ -186,7 +186,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                                         <select class="form-control" name="director_id">
                                                             <?php foreach ($directors as $director) { ?>
                                                                 <option value="<?php echo $director['director_id'] ?>" <?php if ($director['director_id'] == $all['director_id']) echo 'selected'; ?>>
-                                                                    <?php echo $all['nama'] ?>
+                                                                    <?php echo $director['nama'] ?>
                                                                 </option>
                                                             <?php } ?>
                                                         </select>
