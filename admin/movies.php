@@ -1,7 +1,10 @@
 <?php
 include '../koneksi.php';
-$alls = mysqli_query($conn, "SELECT *FROM movies");
-
+$alls = mysqli_query($conn, "SELECT * FROM movies
+    LEFT JOIN director ON movies.director_id = director.director_id
+    LEFT JOIN genres ON movies.genre_id = genres.genre_id");
+$directors = mysqli_query($conn, "SELECT * FROM director");
+$genres = mysqli_query($conn, "SELECT * FROM genres");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +27,7 @@ $alls = mysqli_query($conn, "SELECT *FROM movies");
 
     <link rel="stylesheet" href="../css/slick-animation.css" />
     <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -50,80 +54,10 @@ $alls = mysqli_query($conn, "SELECT *FROM movies");
                                         <li class="menu-item"><a href="director.php">Director</a></li>
                                         <li class="menu-item"><a href="genre.php">Genre</a></li>
                                         <li class="menu-item"><a href="coment.php">Coment</a></li>
-                                        <!-- <li class="menu-item">
-                                            <a href="#">CRUD</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item"><a href="movies.php">Movies</a></li>
-                                                <li class="menu-item"><a href="director.php">Director</a></li>
-                                                <li class="menu-item"><a href="#">Genre</a></li>
-                                                <li class="menu-item"><a href="#">Coment</a></li>
-                                            </ul>
-                                        </li> -->
                                     </ul>
                                 </div>
                             </div>
-                            <div class="mobile-more-menu">
-                                <a href="../javascript:void(0);" class="more-toggle" id="dropdownMenuButton" data-toggle="more-toggle" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-ellipsis-h"></i>
-                                </a>
-                                <div class="more-menu" aria-labelledby="dropdownMenuButton">
-                                    <div class="navbar-right position-relative">
-                                        <ul class="d-flex align-items-center justify-content-end list-inline m-0">
-                                            <li>
-                                                <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center">
-                                                    <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
-                                                </a>
-                                                <div class="iq-sub-dropdown iq-user-dropdown">
-                                                    <div class="iq-card shadow-none m-0">
-                                                        <div class="iq-card-body p-0 pl-3 pr-3">
-                                                            <a href="#" class="iq-sub-card setting-dropdown">
-                                                                <div class="media align-items-center">
-                                                                    <div class="right-icon">
-                                                                        <i class="fa fa-user text-primary"></i>
-                                                                    </div>
-                                                                    <div class="media-body ml-3">
-                                                                        <h6 class="mb-0">Manage Profile</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#" class="iq-sub-card setting-dropdown">
-                                                                <div class="media align-items-center">
-                                                                    <div class="right-icon">
-                                                                        <i class="fa fa-cog text-primary"></i>
-                                                                    </div>
-                                                                    <div class="media-body ml-3">
-                                                                        <h6 class="mb-0">Settings</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#" class="iq-sub-card setting-dropdown">
-                                                                <div class="media align-items-center">
-                                                                    <div class="right-icon">
-                                                                        <i class="fa fa-inr text-primary"></i>
-                                                                    </div>
-                                                                    <div class="media-body ml-3">
-                                                                        <h6 class="mb-0">Pricing Plan</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#" class="iq-sub-card setting-dropdown">
-                                                                <div class="media align-items-center">
-                                                                    <div class="right-icon">
-                                                                        <i class="fa fa-sign-out text-primary"></i>
-                                                                    </div>
-                                                                    <div class="media-body ml-3">
-                                                                        <h6 class="mb-0">Logout</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+
 
                             <div class="navbar-right menu-right">
                                 <ul class="d-flex align-items-center list-inline m-0">
@@ -139,12 +73,6 @@ $alls = mysqli_query($conn, "SELECT *FROM movies");
                                                 </div>
                                             </form>
                                         </div>
-                                    </li>
-                                    <li class="nav-item nav-icon">
-                                        <a href="#" class="search-toggle" data-toggle="search-toggle">
-                                            <i class="fa fa-bell"></i>
-                                            <span class="bg-danger dots"></span>
-                                        </a>
                                     </li>
                                     <li class="nav-item nav-icon">
                                         <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
@@ -216,19 +144,40 @@ $alls = mysqli_query($conn, "SELECT *FROM movies");
                                         </a>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
+                                <!-- Modal Edit Akhir -->
+                                <!-- Modal Hapus -->
+                                <div id="hapus<?= $no ?>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-dark">DELETE MOVIE</h5>
+                                            </div>
+                                            <form action="movies/delete.php" method="POST" enctype="multipart/form-data">
+                                                <input type="hidden" name="movie_id" value="<?= $all['movie_id'] ?>">
+                                                <div class="modal-body">
+                                                    <h5 class="text-center text-dark"> Apakah Anda Yakin Akan Hapus <br>
+                                                        <span class="text-danger"><?= $all['judul'] ?></span>
+                                                    </h5>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-danger" name="hapus">Hapus</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Keluar</button>
+                                                </div>
+                                            </form>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal Hapus Akhir -->
+                            <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-    </div>
-    </div>
-    </section>
+        </div>
     </div>
 
     <!-- main content ends  -->
-
-
     <footer class="iq-bg-dark">
         <div class="footer-top">
             <div class="container-fluid">
@@ -274,6 +223,72 @@ $alls = mysqli_query($conn, "SELECT *FROM movies");
         </div>
     </footer>
 
+    <!-- Modal Tambah -->
+    <div id="tambah" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark">ADD MOVIES</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <form action="movies/addmovie.php" method="POST" enctype="multipart/form-data">
+                    <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="judul">Judul</label>
+                            <input type="text" name="judul" class="form-control" id="judul" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="deskripsi">Deskripsi</label>
+                            <textarea class="form-control" name="deskripsi" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="director_id">Director</label>
+                            <select class="form-control" name="director_id">
+                                <option selected>Pilih Director</option>
+                                <?php foreach ($directors as $director) { ?>
+                                    <option value="<?php echo $director['director_id'] ?>"><?php echo $director['nama'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="genre_id">Genre</label>
+                            <select class="form-control" name="genre_id">
+                                <option selected>Pilih Genre</option>
+                                <?php foreach ($genres as $genre) { ?>
+                                    <option value="<?php echo $genre['genre_id'] ?>"><?php echo $genre['genre_name'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="movie_link">Movie Link</label>
+                            <input type="text" name="movie_link" class="form-control" id="movie_link">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="actor">Actor</label>
+                            <textarea class="form-control" name="actor" rows="2" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="durasi">Durasi</label>
+                            <input type="text" name="durasi" class="form-control" id="durasi" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="cover_image">Cover Image:</label>
+                            <input type="file" class="form-control border-0" id="cover_image" name="cover_image" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-secondary">Reset</button>
+                            <button type="submit" class="btn btn-primary" name="tambah" value="simpan">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Tambah Akhir -->
+
+
+
+
     <!-- js files  -->
     <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
@@ -284,6 +299,12 @@ $alls = mysqli_query($conn, "SELECT *FROM movies");
     <script src="../js/jquery.magnific-popup.min.js"></script>
     <script src="../js/slick-animation.min.js"></script>
     <script src="../main.js"></script>
+    <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#Table').DataTable();
+        });
+    </script>
 </body>
 
 </html>

@@ -1,58 +1,33 @@
-<!DOCTYPE html>
-<html>
+<?php
+include '../../koneksi.php';
 
-<head>
-    <title>New Item</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .form-container {
-            max-width: 750px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-    </style>
-</head>
+if (isset($_POST['tambah']) && $_POST['tambah'] == 'simpan') {
+    $judul = $_POST['judul'];
+    $deskripsi = $_POST['deskripsi'];
+    $director_id = $_POST['director_id'];
+    $genre_id = $_POST['genre_id'];
+    $movie_link = $_POST['movie_link'];
+    $actor = $_POST['actor'];
+    $durasi = $_POST['durasi'];
 
-<body>
-    <div class="container">
-        <h2 class="text-center">Add Movie</h2>
-        <div class="form-container">
-            <form action="add_process.php" method="post" encytype="multipart/form-data">
-                <div class="form-group">
-                    <label for="judul">Judul:</label>
-                    <input type="text" class="form-control" id="judul" name="judul" required>
-                </div>
-                <div class="form-group">
-                    <label for="deskripsi">Deskripsi:</label>
-                    <textarea class="form-control" id="deskripsi" name="deskripsi" rows="4" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="cover_image">Cover Image:</label>
-                    <input type="file" class="form-control" id="cover_image" name="cover_image" required>
-                </div>
-                <div class="form-group">
-                    <label for="actor">Actor:</label>
-                    <input type="text" class="form-control" id="actor" name="actor" required>
-                </div>
-                <div class="form-group">
-                    <label for="durasi">Durasi :</label>
-                    <input type="text" class="form-control" id="durasi" name="durasi" required>
-                </div>
-                <div class="form-group">
-                    <label for="director_id">Director:</label>
-                    <input type="text" class="form-control" id="actor" name="actor" required>
-                </div>
+    // Proses upload gambar
+    $cover_image = $_FILES['cover_image']['name'];
+    $temp_image = $_FILES['cover_image']['tmp_name'];
+    $folder = "../../images/img/";
+    move_uploaded_file($temp_image, $folder . $cover_image);
 
-                <td></td>
-                <td>
-                    <button type="submit" class="btn btn-primary">Add</button>
-                </td>
-                </tr>
-                </table>
-            </form>
-        </div>
-    </div>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+    // Insert data ke database
+    $insert_query = "INSERT INTO movies (judul, deskripsi, director_id, genre_id, movie_link, actor, durasi, cover_image) VALUES ('$judul', '$deskripsi', '$director_id', '$genre_id', '$movie_link', '$actor', '$durasi', '$cover_image')";
 
-</html>
+    $result = mysqli_query($conn, $insert_query);
+
+    if ($result) {
+        echo "<script>alert('Movie added successfully');</script>";
+    } else {
+        echo "<script>alert('Failed to add movie');</script>";
+    }
+}
+
+header("Location: ../movies.php"); // Redirect back to movies.php
+exit();
+?>
