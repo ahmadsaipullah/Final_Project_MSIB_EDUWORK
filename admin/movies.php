@@ -151,13 +151,15 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                     <td><?php echo $all['movie_link'] ?></td>
                                     <td><?php echo $all['actor'] ?></td>
                                     <td><?php echo $all['durasi'] ?></td>
-                                    <td class="text-center" style="vertical-align: middle;">
-                                        <a class="btn btn-hover iq-button" data-toggle="modal" name="edit" data-target="#edit<?= $no ?>">
-                                            <i class="fa fa-pencil mr-1"></i>
-                                        </a>
-                                        <a class="btn btn-hover iq-button ml-2" data-toggle="modal" name="hapus" data-target="#hapus<?= $no ?>">
-                                            <i class="fa fa-trash mr-1"></i>
-                                        </a>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a class="btn btn-hover iq-button" data-toggle="modal" name="edit" data-target="#edit<?= $no ?>">
+                                                <i class="fa fa-pencil mr-1"></i>
+                                            </a>
+                                            <a class="btn btn-hover iq-button ml-2" data-toggle="modal" name="hapus" data-target="#hapus<?= $no ?>">
+                                                <i class="fa fa-trash mr-1"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
                                 <!-- Modal Edit -->
@@ -212,8 +214,8 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label text-dark" for="cover_image">Cover Image:</label>
-                                                        <img src="../images/img/<?php echo $all ['cover_image']; ?> " width="100px";> 
-                                                        <input type="file" class="form-control border-0" id="cover_image" name="cover_image" >
+                                                        <img src="../images/img/<?php echo $all['cover_image']; ?> " width="100px" ;>
+                                                        <input type="file" class="form-control border-0" id="cover_image" name="cover_image">
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="reset" class="btn btn-secondary">Reset</button>
