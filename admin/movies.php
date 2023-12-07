@@ -45,7 +45,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                 </div>
                             </a>
                             <a href="movies.php" class="navbar-brand">
-                                <img src="../images/logosaaf.png" class="img-fluid logo" alt="" style="width: 150px; height: 100px;" />
+                                <img src="../images/logo.png" class="img-fluid logo" alt="" />
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div class="menu-main-menu-container">
@@ -117,6 +117,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
 
     <!-- main content starts  -->
     <div class="main-content">
+<<<<<<< HEAD
         <div class="container-fluid" style="margin-top: 70px">
             <div class="row">
                 <div class="col-sm-12 overflow-hidden">
@@ -224,6 +225,33 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                                 </div>
                                             </form>
                                         </div>
+=======
+        <!-- favorite section starts   -->
+
+        <section id="iq-favorites">
+            <div class="container-fluid" style="margin-top: 130px">
+                <div class="row">
+                <a href="MOVIES/addmovie.php" class="btn btn-hover iq-button" style="margin-bottom: 20px">
+    ADD MOVIE
+</a>
+
+                <div class="row">
+                    <?php foreach ($alls as $all) : ?>
+                        <div class="col-md-2">
+                            <div class="card mb-4 product-wap rounded-5" style="background-color: black; color: white; position: relative;">
+                                <a href="#">
+                                    <img class="card-img rounded-5 img-fluid" src="../images/img/<?= $all['cover_image']; ?>" style="width: 100%; height: 350px; object-fit: cover;">
+                                </a>
+                                <div class="card-body" style="position: absolute; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.5); height: 150px; display: flex; flex-direction: column; justify-content: space-between;">                                    <a href="#" class="h6 text-decoration-none text-light"><?= $all['judul']; ?></a>
+
+                                    <div class="card-boy rounded-5 mt-2">
+                                        <a href="movies/edit.php?movie_id=<?php echo $all['movie_id']; ?>" class="btn btn-hover iq-button">
+                                            <i class="fa fa-pencil mr-1"></i>
+                                        </a>
+                                        <a href="movies/delete.php?movie_id=<?php echo $all['movie_id']; ?>" onclick="return confirm ('Hapus data ini?')" class="btn btn-hover iq-button ml-2">
+                                            <i class="fa fa-trash mr-1"></i>
+                                        </a>
+>>>>>>> f017f93074479f449457d27ce4fc9d94f74aac69
                                     </div>
                                 </div>
                                 <!-- Modal Edit Akhir -->
