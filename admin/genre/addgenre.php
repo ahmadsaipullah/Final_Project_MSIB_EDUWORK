@@ -1,38 +1,23 @@
-<!DOCTYPE html>
-<html>
+<?php
+include '../../koneksi.php';
 
-<head>
-    <title>New Item</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .form-container {
-            max-width: 750px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-    </style>
-</head>
+if (isset($_POST['tambah'])) {
+    $genre_name = $_POST['genre_name'];
 
-<body>
-    <div class="container">
-        <h2 class="text-center">Add Genre</h2>
-        <div class="form-container">
-            <form action="add_process.php" method="post">
-                <div class="form-group">
-                    <label for="genre">genre:</label>
-                    <input type="text" class="form-control" id="genre" name="genre" required>
-                </div>             
-
-                <td></td>
-                <td>
-                    <button type="submit" class="btn btn-primary">Add</button>
-                </td>
-                </tr>
-                </table>
-            </form>
-        </div>
-    </div>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+    // Using prepared statements to prevent SQL injection
+    $query = "INSERT INTO genres (genre_name) VALUES (?)";
+    
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt, 's', $genre_name);
+    
+    if (mysqli_stmt_execute($stmt)) {
+        header('Location: ../genre.php');
+        exit();
+    } else {
+        echo "Error: " . $query . "<br>" . mysqli_error($conn);
+    }
+    
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
+}
+?>
