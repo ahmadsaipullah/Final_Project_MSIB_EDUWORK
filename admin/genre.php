@@ -21,10 +21,35 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
     <link rel="stylesheet" href="../css/magnific-popup.css" />
     <link rel="stylesheet" href="../css/select2.min.css" />
     <link rel="stylesheet" href="../css/select2-bootstrap4.min.css" />
-
     <link rel="stylesheet" href="../css/slick-animation.css" />
     <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <!-- <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"> -->
+    <!-- css datatable -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+    
+    <style>
+    /* CSS untuk mengatur lebar kolom nomor */
+    table#Table th:first-child,
+    table#Table td:first-child {
+        width: 60px; /* Ubah lebar sesuai kebutuhan */
+        max-width: 60px;
+        word-break: break-word;
+    }
+
+    /* CSS untuk mengatur tampilan tabel secara keseluruhan */
+    table#Table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table#Table th,
+    table#Table td {
+        padding: 8px; /* Sesuaikan padding sesuai kebutuhan */
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+</style>
 </head>
 
 <body>
@@ -176,15 +201,15 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
     <!-- main content starts  -->
     <div class="main-content">
         <div class="container-fluid" style="margin-top: 70px">
-            <div class="row">
-                <div class="col-sm-12 overflow-hidden">
-                    <button type="button" class="btn btn-hover iq-button" data-toggle="modal" data-target="#tambah" style="margin-bottom: 20px">ADD GENRE</button>
-                    <table class="table table-bordered" id="Table">
+        <div class="row">
+            <div class="col-md-12">
+                         <button type="button" class="btn btn-hover iq-button" data-toggle="modal" data-target="#tambah" style="margin-bottom: 20px">ADD GENRE</button>
+                    <table id="Table">
                         <thead>
                             <tr>
-                                <th scope="col">NO</th>
-                                <th scope="col">GENRE</th>
-                                <th scope="col">ACTION</th>
+                                <td scope="col">NO</td>
+                                <td scope="col">GENRE</td>
+                                <td scope="col">ACTION</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -204,64 +229,12 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                         </a>
                                     </td>
                                 </tr>
-<<<<<<< HEAD
-=======
-                                <!-- Modal Edit -->
-                                <div id="edit<?= $no ?>" class="modal fade" role="dialog">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title text-dark">EDIT GENRE</h5>
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            </div>
-                                            <form action="genre/editgenre.php" method="POST">
-                                                <input type="hidden" name="genre_id" value="<?= $genre['genre_id'] ?>">
-                                                <div class="modal-body" style="max-height: calc(100vh -  200px); overflow-y: auto;">
-                                                    <div class="form-group">
-                                                        <label class="control-label text-dark" for="genre_name">NAME</label>
-                                                        <input type="text" name="genre_name" class="form-control" id="genre_name" value="<?= $genre['genre_name'] ?>" required>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="reset" class="btn btn-secondary">Reset</button>
-                                                        <button type="submit" class="btn btn-primary" name="tambah" value="simpan">Save</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Modal Edit Akhir -->
-                                <!-- Modal Hapus -->
-                                <div id="hapus<?= $no ?>" class="modal fade" role="dialog">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title text-dark">DELETE GENRE</h5>
-                                            </div>
-                                            <form action="genre/delete.php" method="POST" enctype="multipart/form-data">
-                                                <input type="hidden" name="genre_id" value="<?= $genre['genre_id'] ?>">
-                                                <div class="modal-body">
-                                                    <h5 class="text-center text-dark"> Apakah Anda Yakin Akan Hapus <br>
-                                                        <span class="text-danger"><?= $genre['genre_name'] ?></span>
-                                                    </h5>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-danger" name="hapus">Hapus</button>
-                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Keluar</button>
-                                                </div>
-                                            </form>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Modal Hapus Akhir -->
->>>>>>> 4f374f26714ed141a18b9aa668455d160df52c63
                             <?php } ?>
                         </tbody>
                     </table>
-                </div>
             </div>
+        </div>
+                   
         </div>
     </div>
 
