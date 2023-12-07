@@ -25,6 +25,29 @@ $coments = mysqli_query($conn, "SELECT * FROM reviews JOIN movies ON reviews.mov
     <link rel="stylesheet" href="../css/slick-animation.css" />
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <style>
+    /* CSS untuk mengatur lebar kolom nomor */
+    table#Table th:first-child,
+    table#Table td:first-child {
+        width: 60px; /* Ubah lebar sesuai kebutuhan */
+        max-width: 60px;
+        word-break: break-word;
+    }
+
+    /* CSS untuk mengatur tampilan tabel secara keseluruhan */
+    table#Table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table#Table th,
+    table#Table td {
+        padding: 8px; /* Sesuaikan padding sesuai kebutuhan */
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+</style>
 </head>
 
 <body>
@@ -42,7 +65,11 @@ $coments = mysqli_query($conn, "SELECT * FROM reviews JOIN movies ON reviews.mov
                                 </div>
                             </a>
                             <a href="movies.php" class="navbar-brand">
+<<<<<<< HEAD
                                 <img src="../images/logo.png" class="img-fluid logo" alt="" />
+=======
+                                <img src="../images/logo2.png" class="img-fluid logo" alt="" />
+>>>>>>> 03acf66e23b6df5fc0b123905a5034ac206d5d63
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div class="menu-main-menu-container">

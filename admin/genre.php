@@ -21,10 +21,35 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
     <link rel="stylesheet" href="../css/magnific-popup.css" />
     <link rel="stylesheet" href="../css/select2.min.css" />
     <link rel="stylesheet" href="../css/select2-bootstrap4.min.css" />
-
     <link rel="stylesheet" href="../css/slick-animation.css" />
     <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <!-- <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"> -->
+    <!-- css datatable -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+    
+    <style>
+    /* CSS untuk mengatur lebar kolom nomor */
+    table#Table th:first-child,
+    table#Table td:first-child {
+        width: 60px; /* Ubah lebar sesuai kebutuhan */
+        max-width: 60px;
+        word-break: break-word;
+    }
+
+    /* CSS untuk mengatur tampilan tabel secara keseluruhan */
+    table#Table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table#Table th,
+    table#Table td {
+        padding: 8px; /* Sesuaikan padding sesuai kebutuhan */
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+</style>
 </head>
 
 <body>
@@ -42,7 +67,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                 </div>
                             </a>
                             <a href="movies.php" class="navbar-brand">
-                                <img src="../images/logo.png" class="img-fluid logo" alt="" />
+                                <img src="../images/logo2.png" class="img-fluid logo" alt="" />
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div class="menu-main-menu-container">
@@ -176,15 +201,15 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
     <!-- main content starts  -->
     <div class="main-content">
         <div class="container-fluid" style="margin-top: 70px">
-            <div class="row">
-                <div class="col-sm-12 overflow-hidden">
-                    <button type="button" class="btn btn-hover iq-button" data-toggle="modal" data-target="#tambah" style="margin-bottom: 20px">ADD GENRE</button>
-                    <table class="table table-bordered" id="Table">
+        <div class="row">
+            <div class="col-md-12">
+                         <button type="button" class="btn btn-hover iq-button" data-toggle="modal" data-target="#tambah" style="margin-bottom: 20px">ADD GENRE</button>
+                    <table id="Table">
                         <thead>
                             <tr>
-                                <th scope="col">NO</th>
-                                <th scope="col">GENRE</th>
-                                <th scope="col">ACTION</th>
+                                <td scope="col">NO</td>
+                                <td scope="col">GENRE</td>
+                                <td scope="col">ACTION</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -205,7 +230,6 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                     </td>
                                 </tr>
 <<<<<<< HEAD
-=======
                                 <!-- Modal Edit -->
                                 <div id="edit<?= $no ?>" class="modal fade" role="dialog">
                                     <div class="modal-dialog modal-dialog-centered">
@@ -256,12 +280,18 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                     </div>
                                 </div>
                                 <!-- Modal Hapus Akhir -->
->>>>>>> 4f374f26714ed141a18b9aa668455d160df52c63
+<<<<<<< HEAD
+
+=======
+>>>>>>> 03acf66e23b6df5fc0b123905a5034ac206d5d63
+=======
+>>>>>>> 558133d5fa95ced5d458f174b23971a8861bc4cd
                             <?php } ?>
                         </tbody>
                     </table>
-                </div>
             </div>
+        </div>
+                   
         </div>
     </div>
 
