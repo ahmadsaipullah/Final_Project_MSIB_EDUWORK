@@ -25,6 +25,8 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
     <link rel="stylesheet" href="../css/slick-animation.css" />
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css"/>
 </head>
 
 <body>
@@ -42,7 +44,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                 </div>
                             </a>
                             <a href="movies.php" class="navbar-brand">
-                                <img src="../images/logo.png" class="img-fluid logo" alt="" />
+                                <img src="../images/logosaaf.png" class="img-fluid logo" alt="" style="width: 150px; height: 100px;"  />
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div class="menu-main-menu-container">
@@ -120,19 +122,6 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                             <div class="navbar-right menu-right">
                                 <ul class="d-flex align-items-center list-inline m-0">
                                     <li class="nav-item nav-icon">
-                                        <a href="#" class="search-toggle device-search">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                        <div class="search-box iq-search-bar d-search">
-                                            <form action="#" class="searchbox">
-                                                <div class="form-group position-relative">
-                                                    <input type="text" class="text search-input font-size-12" placeholder="type here to search..." />
-                                                    <i class="search-link fa fa-search"></i>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item nav-icon">
                                         <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
                                             <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
                                         </a>
@@ -204,8 +193,6 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                         </a>
                                     </td>
                                 </tr>
-<<<<<<< HEAD
-=======
                                 <!-- Modal Edit -->
                                 <div id="edit<?= $no ?>" class="modal fade" role="dialog">
                                     <div class="modal-dialog modal-dialog-centered">
@@ -256,7 +243,6 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                     </div>
                                 </div>
                                 <!-- Modal Hapus Akhir -->
->>>>>>> 4f374f26714ed141a18b9aa668455d160df52c63
                             <?php } ?>
                         </tbody>
                     </table>
