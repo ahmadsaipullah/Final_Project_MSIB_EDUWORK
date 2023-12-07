@@ -145,14 +145,22 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                     <td><?php echo $no++ ?></td>
                                     <td><img src="../images/img/<?php echo $all['cover_image']; ?>" class="img-thumbnail" alt="Image" style="width: 80px; height: 100px; object-fit: cover;"></td>
                                     <td><?php echo $all['judul'] ?></td>
+<<<<<<< HEAD
                                     <td><?php echo substr($all['deskripsi'], 0 , 180) .'...'; ?></td>
+=======
+                                    <td><?php echo $all['deskripsi'] ?></td>
+>>>>>>> 558133d5fa95ced5d458f174b23971a8861bc4cd
                                     <td><?php echo $all['genre_name'] ?></td>
                                     <td><?php echo $all['nama'] ?></td>
                                     <td><?php echo $all['movie_link'] ?></td>
                                     <td><?php echo $all['actor'] ?></td>
                                     <td><?php echo $all['durasi'] ?></td>
                                     <td>
+<<<<<<< HEAD
                                     <div class="d-flex">
+=======
+                                        <div class="d-flex">
+>>>>>>> 558133d5fa95ced5d458f174b23971a8861bc4cd
                                             <a class="btn btn-hover iq-button" data-toggle="modal" name="edit" data-target="#edit<?= $no ?>">
                                                 <i class="fa fa-pencil mr-1"></i>
                                             </a>
@@ -214,8 +222,13 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label text-dark" for="cover_image">Cover Image:</label>
+<<<<<<< HEAD
                                                         <img src="../images/img/<?php echo $all ['cover_image']; ?> " width="100px";> 
                                                         <input type="file" class="form-control border-0" id="cover_image" name="cover_image" >
+=======
+                                                        <img src="../images/img/<?php echo $all['cover_image']; ?> " width="100px" ;>
+                                                        <input type="file" class="form-control border-0" id="cover_image" name="cover_image">
+>>>>>>> 558133d5fa95ced5d458f174b23971a8861bc4cd
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="reset" class="btn btn-secondary">Reset</button>
@@ -279,7 +292,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                             <div class="textwidget">
                                 <p><small>This is Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, quo tempore. Quasi rem rerum est in nulla atque quibusdam illo. this is footer and simple tsesxij is writen jkd. fsek hello how are you. please like and subscribe. footer ends .</small></p>
                             </div>
-                        </div>
+                    
                     </div>
                     <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
                         <h6 class="footer-link-title">
