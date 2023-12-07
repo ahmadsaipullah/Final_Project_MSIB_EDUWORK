@@ -67,10 +67,14 @@ $directors = mysqli_query($conn, "SELECT * FROM director");
                             </a>
                             <a href="movies.php" class="navbar-brand">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <img src="../images/logo2.png" class="img-fluid logo" alt="" style="width: 100px; height: 100px;" />
 =======
                                 <img src="../images/logo2.png" class="img-fluid logo" alt="" />
 >>>>>>> 03acf66e23b6df5fc0b123905a5034ac206d5d63
+=======
+                                <img src="../images/logo2.png" class="img-fluid logo" alt="" style="width: 100px; height: 100px;" />
+>>>>>>> 87312c90d02fff2c9a3c464d0d8b18560126a474
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div class="menu-main-menu-container">
@@ -273,13 +277,19 @@ $directors = mysqli_query($conn, "SELECT * FROM director");
                                             <form action="director/deletedirector.php" method="POST" enctype="multipart/form-data">
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+>>>>>>> 87312c90d02fff2c9a3c464d0d8b18560126a474
+<<<<<<< HEAD
                                                 <input type="hidden" name="director" value="<?= $director['director_id'] ?>">
 =======
                                                 <input type="hidden" name="director_id" value="<?= $director['director_id'] ?>">
 >>>>>>> 4f374f26714ed141a18b9aa668455d160df52c63
+<<<<<<< HEAD
 =======
                                                 <input type="hidden" name="director_id" value="<?= $director['director_id'] ?>">
 >>>>>>> 03acf66e23b6df5fc0b123905a5034ac206d5d63
+=======
+>>>>>>> 87312c90d02fff2c9a3c464d0d8b18560126a474
                                                 <div class="modal-body">
                                                     <h5 class="text-center text-dark"> Apakah Anda Yakin Akan Hapus <br>
                                                         <span class="text-danger"><?= $director['nama'] ?></span>
