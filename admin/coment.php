@@ -42,7 +42,11 @@ $coments = mysqli_query($conn, "SELECT * FROM reviews JOIN movies ON reviews.mov
                                 </div>
                             </a>
                             <a href="movies.php" class="navbar-brand">
+<<<<<<< HEAD
                                 <img src="../images/logo.png" class="img-fluid logo" alt="" />
+=======
+                                <img src="../images/logo2.png" class="img-fluid logo" alt="" />
+>>>>>>> 03acf66e23b6df5fc0b123905a5034ac206d5d63
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div class="menu-main-menu-container">

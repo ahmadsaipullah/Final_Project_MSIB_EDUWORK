@@ -22,13 +22,14 @@
 </head>
 
 <body>
-  <header id="main-header">
+<header id="main-header">
     <div class="main-header">
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-12">
             <nav class="navbar navbar-expand-lg navbar-light p-0">
-              <a href="#" class="navbar-toggler c-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <a href="#" class="navbar-toggler c-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="navbar-toggler-icon" data-toggle="collapse">
                   <span class="navbar-menu-icon navbar-menu-icon--top"></span>
                   <span class="navbar-menu-icon navbar-menu-icon--middle"></span>
@@ -36,30 +37,20 @@
                 </div>
               </a>
               <a href="index.php" class="navbar-brand">
-                <img src="images/logo.png" class="img-fluid logo" alt="" />
+                <img src="images/logo2.png" class="img-fluid logo" alt="" />
               </a>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="menu-main-menu-container">
                   <ul id="top-menu" class="navbar-nav ml-auto">
-                    <li class="menu-item"><a href="#">Home</a></li>
-                    <li class="menu-item"><a href="#">Movies</a></li>
-                    <li class="menu-item"><a href="#">Shows</a></li>
-                    <li class="menu-item"><a href="about.php">About</a></li>
-                    <li class="menu-item">
-                      <a href="#">Contact Us</a>
-                      <ul class="sub-menu">
-                        <li class="menu-item"><a href="#">About Us</a></li>
-                        <li class="menu-item"><a href="#">Contact</a></li>
-                        <li class="menu-item"><a href="#">FAQ</a></li>
-                        <li class="menu-item"><a href="#"></a></li>
-                      </ul>
-                    </li>
-                    <li class="menu-item"><a href="admin/login.php">Login</a></li>
+                    <li class="active menu-item"><a href="index.php">Home</a></li>
+                    <li class="menu-item"><a href="movies.php">Movies</a></li>
+                    <li class="menu-item"><a href="about.php">About Us</a></li>
                   </ul>
                 </div>
               </div>
               <div class="mobile-more-menu">
-                <a href="javascript:void(0);" class="more-toggle" id="dropdownMenuButton" data-toggle="more-toggle" aria-haspopup="true" aria-expanded="false">
+                <a href="javascript:void(0);" class="more-toggle" id="dropdownMenuButton" data-toggle="more-toggle"
+                  aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-ellipsis-h"></i>
                 </a>
                 <div class="more-menu" aria-labelledby="dropdownMenuButton">
@@ -72,103 +63,17 @@
                         <div class="search-box iq-search-bar">
                           <form action="#" class="searchbox">
                             <div class="form-group position-relative">
-                              <input type="text" class="text search-input font-size-12" placeholder="type here to search..." />
+                              <input type="text" class="text search-input font-size-12"
+                                placeholder="type here to search..." />
                               <i class="search-link fa fa-search"></i>
                             </div>
                           </form>
                         </div>
                       </li>
-                      <li class="nav-item nav-icon">
-                        <a href="#" class="search-toggle position-relative">
-                          <i class="fa fa-bell"></i>
-                          <span class="bg-danger dots"></span>
-                        </a>
-                        <div class="iq-sub-dropdown">
-                          <div class="iq-card shadow-none m-0">
-                            <div class="iq-card-body">
-                              <a href="#" class="iq-sub-card">
-                                <div class="media align-items-center">
-                                  <img src="images/notify/thumb-1.jpg" alt="" class="img-fluid mr-3" />
-                                  <div class="media-body">
-                                    <h6 class="mb-0">Captain Marvel</h6>
-                                    <small class="font-size-12">just now</small>
-                                  </div>
-                                </div>
-                              </a>
-                              <a href="#" class="iq-sub-card">
-                                <div class="media align-items-center">
-                                  <img src="images/notify/thumb-2.jpg" alt="" class="img-fluid mr-3" />
-                                  <div class="media-body">
-                                    <h6 class="mb-0">
-                                      Dora and The Lost City of Gold
-                                    </h6>
-                                    <small class="font-size-12">25 mins ago</small>
-                                  </div>
-                                </div>
-                              </a>
-                              <a href="#" class="iq-sub-card">
-                                <div class="media align-items-center">
-                                  <img src="images/notify/thumb-3.jpg" alt="" class="img-fluid mr-3" />
-                                  <div class="media-body">
-                                    <h6 class="mb-0">Mulan</h6>
-                                    <small class="font-size-12">1h 30 mins ago</small>
-                                  </div>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
                       <li>
                         <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center">
-                          <img src="images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
+                        <i class="bi bi-person-fill"></i>
                         </a>
-                        <div class="iq-sub-dropdown iq-user-dropdown">
-                          <div class="iq-card shadow-none m-0">
-                            <div class="iq-card-body p-0 pl-3 pr-3">
-                              <a href="#" class="iq-sub-card setting-dropdown">
-                                <div class="media align-items-center">
-                                  <div class="right-icon">
-                                    <i class="fa fa-user text-primary"></i>
-                                  </div>
-                                  <div class="media-body ml-3">
-                                    <h6 class="mb-0">Manage Profile</h6>
-                                  </div>
-                                </div>
-                              </a>
-                              <a href="#" class="iq-sub-card setting-dropdown">
-                                <div class="media align-items-center">
-                                  <div class="right-icon">
-                                    <i class="fa fa-cog text-primary"></i>
-                                  </div>
-                                  <div class="media-body ml-3">
-                                    <h6 class="mb-0">Settings</h6>
-                                  </div>
-                                </div>
-                              </a>
-                              <a href="#" class="iq-sub-card setting-dropdown">
-                                <div class="media align-items-center">
-                                  <div class="right-icon">
-                                    <i class="fa fa-inr text-primary"></i>
-                                  </div>
-                                  <div class="media-body ml-3">
-                                    <h6 class="mb-0">Pricing Plan</h6>
-                                  </div>
-                                </div>
-                              </a>
-                              <a href="#" class="iq-sub-card setting-dropdown">
-                                <div class="media align-items-center">
-                                  <div class="right-icon">
-                                    <i class="fa fa-sign-out text-primary"></i>
-                                  </div>
-                                  <div class="media-body ml-3">
-                                    <h6 class="mb-0">Logout</h6>
-                                  </div>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
                       </li>
                     </ul>
                   </div>
@@ -184,103 +89,15 @@
                     <div class="search-box iq-search-bar d-search">
                       <form action="#" class="searchbox">
                         <div class="form-group position-relative">
-                          <input type="text" class="text search-input font-size-12" placeholder="type here to search..." />
+                          <input type="text" class="text search-input font-size-12"
+                            placeholder="type here to search..." />
                           <i class="search-link fa fa-search"></i>
                         </div>
                       </form>
                     </div>
                   </li>
                   <li class="nav-item nav-icon">
-                    <a href="#" class="search-toggle" data-toggle="search-toggle">
-                      <i class="fa fa-bell"></i>
-                      <span class="bg-danger dots"></span>
-                    </a>
-                    <div class="iq-sub-dropdown">
-                      <div class="iq-card shadow-none m-0">
-                        <div class="iq-card-body">
-                          <a href="#" class="iq-sub-card">
-                            <div class="media align-items-center">
-                              <img src="images/notify/thumb-1.jpg" alt="" class="img-fluid mr-3" />
-                              <div class="media-body">
-                                <h6 class="mb-0">Captain Marvel</h6>
-                                <small class="font-size-12">just now</small>
-                              </div>
-                            </div>
-                          </a>
-                          <a href="#" class="iq-sub-card">
-                            <div class="media align-items-center">
-                              <img src="images/notify/thumb-2.jpg" alt="" class="img-fluid mr-3" />
-                              <div class="media-body">
-                                <h6 class="mb-0">
-                                  Dora and The Lost City of Gold
-                                </h6>
-                                <small class="font-size-12">25 mins ago</small>
-                              </div>
-                            </div>
-                          </a>
-                          <a href="#" class="iq-sub-card">
-                            <div class="media align-items-center">
-                              <img src="images/notify/thumb-3.jpg" alt="" class="img-fluid mr-3" />
-                              <div class="media-body">
-                                <h6 class="mb-0">Mulan</h6>
-                                <small class="font-size-12">1h 30 mins ago</small>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="nav-item nav-icon">
-                    <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
-                      <img src="images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
-                    </a>
-                    <div class="iq-sub-dropdown iq-user-dropdown">
-                      <div class="iq-card shadow-none m-0">
-                        <div class="iq-card-body p-0 pl-3 pr-3">
-                          <a href="#" class="iq-sub-card setting-dropdown">
-                            <div class="media align-items-center">
-                              <div class="right-icon">
-                                <i class="fa fa-user text-primary"></i>
-                              </div>
-                              <div class="media-body ml-3">
-                                <h6 class="mb-0">Manage Profile</h6>
-                              </div>
-                            </div>
-                          </a>
-                          <a href="#" class="iq-sub-card setting-dropdown">
-                            <div class="media align-items-center">
-                              <div class="right-icon">
-                                <i class="fa fa-cog text-primary"></i>
-                              </div>
-                              <div class="media-body ml-3">
-                                <h6 class="mb-0">Settings</h6>
-                              </div>
-                            </div>
-                          </a>
-                          <a href="#" class="iq-sub-card setting-dropdown">
-                            <div class="media align-items-center">
-                              <div class="right-icon">
-                                <i class="fa fa-inr text-primary"></i>
-                              </div>
-                              <div class="media-body ml-3">
-                                <h6 class="mb-0">Pricing Plan</h6>
-                              </div>
-                            </div>
-                          </a>
-                          <a href="#" class="iq-sub-card setting-dropdown">
-                            <div class="media align-items-center">
-                              <div class="right-icon">
-                                <i class="fa fa-sign-out text-primary"></i>
-                              </div>
-                              <div class="media-body ml-3">
-                                <h6 class="mb-0">Logout</h6>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                  <i class="bi bi-person-fill"></i>
                   </li>
                 </ul>
               </div>
@@ -302,15 +119,18 @@
               <div class="col-xl-6 col-lg-12 col-md-12">
                 <a href="javascript:void(0)">
                   <div class="channel-logo" data-animation-in="fadeInLeft" data-delay-in="0.5">
-                    <img src="images/logo.png" class="c-logo" alt="" />
+                    <img src="images/logo2.png" class="c-logo" alt="" />
                   </div>
                 </a>
-                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft" data-delay-in="0.6">
+                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft"
+                  data-delay-in="0.6">
                   Avengers
                 </h1>
-                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft" style="opacity: 1">
+                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft"
+                  style="opacity: 1">
                   <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
-                    <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+                    <ul
+                      class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
@@ -343,17 +163,11 @@
                     <span class="text-body">Action, Adventure, Horror</span>
                   </div>
                 </div>
-                <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
-                  <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Play Now</a>
-                  <a href="#" class="btn btn-link">More Details</a>
-                </div>
+                  <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
+                    <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Watch Trailer</a>
+                    <a href="#" class="btn btn-link">More Details</a>
+                  </div>
               </div>
-            </div>
-            <div class="col-xl-5 col-lg-12 col-md-12 trailor-video">
-              <a href="video/trailer.mp4" class="video-open playbtn">
-                <img src="images/play.png" class="play" alt="" />
-                <span class="w-trailor">Watch Trailer</span>
-              </a>
             </div>
           </div>
         </div>
@@ -368,12 +182,15 @@
                     <img src="images/logo.png" class="c-logo" alt="" />
                   </div>
                 </a>
-                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft" data-delay-in="0.6">
+                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft"
+                  data-delay-in="0.6">
                   Frozen
                 </h1>
-                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft" style="opacity: 1">
+                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft"
+                  style="opacity: 1">
                   <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
-                    <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+                    <ul
+                      class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
@@ -408,16 +225,10 @@
                   </div>
                 </div>
                 <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
-                  <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Play Now</a>
+                  <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Watch Trailer</a>
                   <a href="#" class="btn btn-link">More Details</a>
                 </div>
               </div>
-            </div>
-            <div class="col-xl-5 col-lg-12 col-md-12 trailor-video">
-              <a href="video/trailer.mp4" class="video-open playbtn">
-                <img src="images/play.png" class="play" alt="" />
-                <span class="w-trailor">Watch Trailer</span>
-              </a>
             </div>
           </div>
         </div>
@@ -432,12 +243,15 @@
                     <img src="images/logo.png" class="c-logo" alt="" />
                   </div>
                 </a>
-                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft" data-delay-in="0.6">
+                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft"
+                  data-delay-in="0.6">
                   The Conjuring
                 </h1>
-                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft" style="opacity: 1">
+                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft"
+                  style="opacity: 1">
                   <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
-                    <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+                    <ul
+                      class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
@@ -469,16 +283,10 @@
                   </div>
                 </div>
                 <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
-                  <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Play Now</a>
+                  <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Watch Trailer</a>
                   <a href="#" class="btn btn-link">More Details</a>
                 </div>
               </div>
-            </div>
-            <div class="col-xl-5 col-lg-12 col-md-12 trailor-video">
-              <a href="video/trailer.mp4" class="video-open playbtn">
-                <img src="images/play.png" class="play" alt="" />
-                <span class="w-trailor">Watch Trailer</span>
-              </a>
             </div>
           </div>
         </div>

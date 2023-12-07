@@ -42,7 +42,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                 </div>
                             </a>
                             <a href="movies.php" class="navbar-brand">
-                                <img src="../images/logo.png" class="img-fluid logo" alt="" />
+                                <img src="../images/logo2.png" class="img-fluid logo" alt="" />
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div class="menu-main-menu-container">
@@ -254,7 +254,10 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                     </div>
                                 </div>
                                 <!-- Modal Hapus Akhir -->
+<<<<<<< HEAD
 
+=======
+>>>>>>> 03acf66e23b6df5fc0b123905a5034ac206d5d63
                             <?php } ?>
                         </tbody>
                     </table>

@@ -45,7 +45,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                 </div>
                             </a>
                             <a href="movies.php" class="navbar-brand">
-                                <img src="../images/logo.png" class="img-fluid logo" alt="" />
+                                <img src="../images/logo2.png" class="img-fluid logo" alt=""  />
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div class="menu-main-menu-container">
@@ -117,31 +117,113 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
 
     <!-- main content starts  -->
     <div class="main-content">
-        <!-- favorite section starts   -->
-
-        <section id="iq-favorites">
-            <div class="container-fluid" style="margin-top: 130px">
-                <div class="row">
-                <a href="MOVIES/addmovie.php" class="btn btn-hover iq-button" style="margin-bottom: 20px">
-    ADD MOVIE
-</a>
-
-                <div class="row">
-                    <?php foreach ($alls as $all) : ?>
-                        <div class="col-md-2">
-                            <div class="card mb-4 product-wap rounded-5" style="background-color: black; color: white; position: relative;">
-                                <a href="#">
-                                    <img class="card-img rounded-5 img-fluid" src="../images/img/<?= $all['cover_image']; ?>" style="width: 100%; height: 350px; object-fit: cover;">
-                                </a>
-                                <div class="card-body" style="position: absolute; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.5); height: 150px; display: flex; flex-direction: column; justify-content: space-between;">                                    <a href="#" class="h6 text-decoration-none text-light"><?= $all['judul']; ?></a>
-
-                                    <div class="card-boy rounded-5 mt-2">
-                                        <a href="movies/edit.php?movie_id=<?php echo $all['movie_id']; ?>" class="btn btn-hover iq-button">
-                                            <i class="fa fa-pencil mr-1"></i>
-                                        </a>
-                                        <a href="movies/delete.php?movie_id=<?php echo $all['movie_id']; ?>" onclick="return confirm ('Hapus data ini?')" class="btn btn-hover iq-button ml-2">
-                                            <i class="fa fa-trash mr-1"></i>
-                                        </a>
+        <div class="container-fluid" style="margin-top: 70px">
+            <div class="row">
+                <div class="col-sm-12 overflow-hidden">
+                    <button type="button" class="btn btn-hover iq-button" data-toggle="modal" data-target="#tambah" style="margin-bottom: 20px">ADD MOVIES</button>
+                    <table class="table table-bordered" id="Table">
+                        <thead>
+                            <tr>
+                                <th scope="col">NO</th>
+                                <th scope="col">COVER</th>
+                                <th scope="col">TITLE</th>
+                                <th scope="col">DESCRIPTION</th>
+                                <th scope="col">GENRE</th>
+                                <th scope="col">DIRECTOR</th>
+                                <th scope="col">LINK</th>
+                                <th scope="col">ACTOR</th>
+                                <th scope="col">DURATION</th>
+                                <th scope="col">ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $no = 1;
+                            while ($all = mysqli_fetch_array($alls)) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $no++ ?></td>
+                                    <td><img src="../images/img/<?php echo $all['cover_image']; ?>" class="img-thumbnail" alt="Image" style="width: 80px; height: 100px; object-fit: cover;"></td>
+                                    <td><?php echo $all['judul'] ?></td>
+                                    <td><?php echo substr($all['deskripsi'], 0 , 180) .'...'; ?></td>
+                                    <td><?php echo $all['genre_name'] ?></td>
+                                    <td><?php echo $all['nama'] ?></td>
+                                    <td><?php echo $all['movie_link'] ?></td>
+                                    <td><?php echo $all['actor'] ?></td>
+                                    <td><?php echo $all['durasi'] ?></td>
+                                    <td>
+                                    <div class="d-flex">
+                                            <a class="btn btn-hover iq-button" data-toggle="modal" name="edit" data-target="#edit<?= $no ?>">
+                                                <i class="fa fa-pencil mr-1"></i>
+                                            </a>
+                                            <a class="btn btn-hover iq-button ml-2" data-toggle="modal" name="hapus" data-target="#hapus<?= $no ?>">
+                                                <i class="fa fa-trash mr-1"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Modal Edit -->
+                                <div id="edit<?= $no ?>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-dark">EDIT MOVIES</h5>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <form action="movies/editmovie.php" method="POST" enctype="multipart/form-data">
+                                                <input type="hidden" name="movie_id" value="<?= $all['movie_id'] ?>">
+                                                <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="judul">Judul</label>
+                                                        <input type="text" name="judul" class="form-control" id="judul" value="<?= $all['judul'] ?>" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="deskripsi">Deskripsi</label>
+                                                        <textarea class="form-control" name="deskripsi" rows="4" required><?php echo $all['deskripsi'] ?>"</textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="director_id">Director</label>
+                                                        <select class="form-control" name="director_id">
+                                                            <?php foreach ($directors as $director) { ?>
+                                                                <option value="<?php echo $director['director_id'] ?>" <?php if ($director['director_id'] == $all['director_id']) echo 'selected'; ?>>
+                                                                    <?php echo $director['nama'] ?>
+                                                                </option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="genre_id">Genre</label>
+                                                        <select class="form-control" name="genre_id">
+                                                            <?php foreach ($genres as $genre) { ?>
+                                                                <option value="<?php echo $genre['genre_id'] ?>" <?php if ($genre['genre_id'] == $all['genre_id']) echo 'selected'; ?>>
+                                                                    <?php echo $genre['genre_name'] ?></option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="movie_link">Movie Link</label>
+                                                        <input type="text" name="movie_link" class="form-control" id="movie_link" value="<?= $all['movie_link'] ?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="actor">Actor</label>
+                                                        <textarea class="form-control" name="actor" rows="2" required><?php echo $all['actor'] ?>"</textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="durasi">Durasi</label>
+                                                        <input type="text" name="durasi" class="form-control" id="durasi" value="<?= $all['durasi'] ?>" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="cover_image">Cover Image:</label>
+                                                        <img src="../images/img/<?php echo $all ['cover_image']; ?> " width="100px";> 
+                                                        <input type="file" class="form-control border-0" id="cover_image" name="cover_image" >
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="reset" class="btn btn-secondary">Reset</button>
+                                                        <button type="submit" class="btn btn-primary" name="tambah" value="simpan">Save</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- Modal Edit Akhir -->
