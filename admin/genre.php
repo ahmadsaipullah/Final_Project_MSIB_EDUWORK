@@ -204,8 +204,6 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                         </a>
                                     </td>
                                 </tr>
-<<<<<<< HEAD
-=======
                                 <!-- Modal Edit -->
                                 <div id="edit<?= $no ?>" class="modal fade" role="dialog">
                                     <div class="modal-dialog modal-dialog-centered">
@@ -256,7 +254,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                     </div>
                                 </div>
                                 <!-- Modal Hapus Akhir -->
->>>>>>> 4f374f26714ed141a18b9aa668455d160df52c63
+
                             <?php } ?>
                         </tbody>
                     </table>
