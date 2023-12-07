@@ -28,8 +28,7 @@
         <div class="row">
           <div class="col-sm-12">
             <nav class="navbar navbar-expand-lg navbar-light p-0">
-              <a href="#" class="navbar-toggler c-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <a href="#" class="navbar-toggler c-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="navbar-toggler-icon" data-toggle="collapse">
                   <span class="navbar-menu-icon navbar-menu-icon--top"></span>
                   <span class="navbar-menu-icon navbar-menu-icon--middle"></span>
@@ -49,8 +48,7 @@
                 </div>
               </div>
               <div class="mobile-more-menu">
-                <a href="javascript:void(0);" class="more-toggle" id="dropdownMenuButton" data-toggle="more-toggle"
-                  aria-haspopup="true" aria-expanded="false">
+                <a href="javascript:void(0);" class="more-toggle" id="dropdownMenuButton" data-toggle="more-toggle" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-ellipsis-h"></i>
                 </a>
                 <div class="more-menu" aria-labelledby="dropdownMenuButton">
@@ -63,8 +61,7 @@
                         <div class="search-box iq-search-bar">
                           <form action="#" class="searchbox">
                             <div class="form-group position-relative">
-                              <input type="text" class="text search-input font-size-12"
-                                placeholder="type here to search..." />
+                              <input type="text" class="text search-input font-size-12" placeholder="type here to search..." />
                               <i class="search-link fa fa-search"></i>
                             </div>
                           </form>
@@ -72,7 +69,7 @@
                       </li>
                       <li>
                         <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center">
-                        <i class="bi bi-person-fill"></i>
+                          <i class="bi bi-person-fill"></i>
                         </a>
                       </li>
                     </ul>
@@ -89,15 +86,14 @@
                     <div class="search-box iq-search-bar d-search">
                       <form action="#" class="searchbox">
                         <div class="form-group position-relative">
-                          <input type="text" class="text search-input font-size-12"
-                            placeholder="type here to search..." />
+                          <input type="text" class="text search-input font-size-12" placeholder="type here to search..." />
                           <i class="search-link fa fa-search"></i>
                         </div>
                       </form>
                     </div>
                   </li>
                   <li class="nav-item nav-icon">
-                  <i class="bi bi-person-fill"></i>
+                    <i class="bi bi-person-fill"></i>
                   </li>
                 </ul>
               </div>
@@ -122,15 +118,12 @@
                     <img src="images/logo.png" class="c-logo" alt="" />
                   </div>
                 </a>
-                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft"
-                  data-delay-in="0.6">
+                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft" data-delay-in="0.6">
                   Avengers
                 </h1>
-                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft"
-                  style="opacity: 1">
+                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft" style="opacity: 1">
                   <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
-                    <ul
-                      class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+                    <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
@@ -163,10 +156,10 @@
                     <span class="text-body">Action, Adventure, Horror</span>
                   </div>
                 </div>
-                  <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
-                    <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Watch Trailer</a>
-                    <a href="#" class="btn btn-link">More Details</a>
-                  </div>
+                <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
+                  <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Watch Trailer</a>
+                  <a href="#" class="btn btn-link">More Details</a>
+                </div>
               </div>
             </div>
           </div>
@@ -182,15 +175,12 @@
                     <img src="images/logo.png" class="c-logo" alt="" />
                   </div>
                 </a>
-                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft"
-                  data-delay-in="0.6">
+                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft" data-delay-in="0.6">
                   Frozen
                 </h1>
-                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft"
-                  style="opacity: 1">
+                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft" style="opacity: 1">
                   <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
-                    <ul
-                      class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+                    <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
@@ -243,15 +233,12 @@
                     <img src="images/logo.png" class="c-logo" alt="" />
                   </div>
                 </a>
-                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft"
-                  data-delay-in="0.6">
+                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft" data-delay-in="0.6">
                   The Conjuring
                 </h1>
-                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft"
-                  style="opacity: 1">
+                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft" style="opacity: 1">
                   <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
-                    <ul
-                      class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+                    <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
@@ -309,58 +296,58 @@
             </div>
             <div class="favorite-contens">
               <ul class="favorites-slider list-inline row p-0 mb-0">
-              <?php 
+                <?php
                 include "config.php";
 
                 $movies = mysqli_query($con, "SELECT * FROM movies LIMIT 5");
 
                 foreach ($movies as $movie) {
-              ?>
-                <!-- slide item 1 -->
-                <li class="slide-item">
-                  <div class="block-images position-relative">
-                    <div class="img-box">
-                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
-                    </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
-                        <a href="#"> <?php echo $movie["judul"]; ?> </a>
-                      </h6>
-                      <div class="movie-time d-flex align-items-center my-2">
-                        <div class="badge badge-secondary p-1 mr-2">16+</div>
-                        <span class="text-white">1h 43min</span>
+                ?>
+                  <!-- slide item 1 -->
+                  <li class="slide-item">
+                    <div class="block-images position-relative">
+                      <div class="img-box">
+                        <img src="images/img/<?php echo $movie["cover_image"]; ?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
                       </div>
-                      <div class="hover-buttons">
-                        <span class="btn btn-hover iq-button">
-                          <i class="fa fa-play mr-1"></i>
-                          Watch Trailer
-                        </span>
+                      <div class="block-description">
+                        <h6 class="iq-title">
+                          <a href="#"> <?php echo $movie["judul"]; ?> </a>
+                        </h6>
+                        <div class="movie-time d-flex align-items-center my-2">
+                          <div class="badge badge-secondary p-1 mr-2">16+</div>
+                          <span class="text-white">1h 43min</span>
+                        </div>
+                        <div class="hover-buttons">
+                          <span class="btn btn-hover iq-button">
+                            <i class="fa fa-play mr-1"></i>
+                            Watch Trailer
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
+                      <div class="block-social-info">
+                        <ul class="list-inline p-0 m-0 music-play-lists">
+                          <li class="share">
+                            <span><i class="fa fa-share-alt"></i></span>
+                            <div class="share-box">
+                              <div class="d-flex align-items-center">
+                                <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
+                                <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
+                                <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
+                              </div>
                             </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">19+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
+                          </li>
+                          <li>
+                            <span><i class="fa fa-heart"></i></span>
+                            <span class="count-box">19+</span>
+                          </li>
+                          <li>
+                            <span><i class="fa fa-plus"></i></span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              <?php } ?>
+                  </li>
+                <?php } ?>
               </ul>
 
             </div>
@@ -383,54 +370,54 @@
             <div class="favorite-contens">
               <ul class="favorites-slider list-inline row p-0 mb-0">
                 <!-- slide item 1 -->
-                <?php 
-                  $movies = mysqli_query($con, "SELECT * FROM movies WHERE genre_id = 1");
+                <?php
+                $movies = mysqli_query($con, "SELECT * FROM movies WHERE genre_id = 1");
 
-                  foreach ($movies as $movie) {
+                foreach ($movies as $movie) {
                 ?>
-                <li class="slide-item">
-                  <div class="block-images position-relative">
-                    <div class="img-box">
-                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
-                    </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
-                        <a href="#"><?php echo $movie["judul"]; ?></a>
-                      </h6>
-                      <div class="movie-time d-flex align-items-center my-2">
-                        <div class="badge badge-secondary p-1 mr-2">10+</div>
-                        <span class="text-white">2h</span>
+                  <li class="slide-item">
+                    <div class="block-images position-relative">
+                      <div class="img-box">
+                        <img src="images/img/<?php echo $movie["cover_image"]; ?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
                       </div>
-                      <div class="hover-buttons">
-                        <span class="btn btn-hover iq-button">
-                          <i class="fa fa-play mr-1"></i>
-                          Watch Trailer
-                        </span>
+                      <div class="block-description">
+                        <h6 class="iq-title">
+                          <a href="#"><?php echo $movie["judul"]; ?></a>
+                        </h6>
+                        <div class="movie-time d-flex align-items-center my-2">
+                          <div class="badge badge-secondary p-1 mr-2">10+</div>
+                          <span class="text-white">2h</span>
+                        </div>
+                        <div class="hover-buttons">
+                          <span class="btn btn-hover iq-button">
+                            <i class="fa fa-play mr-1"></i>
+                            Watch Trailer
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
+                      <div class="block-social-info">
+                        <ul class="list-inline p-0 m-0 music-play-lists">
+                          <li class="share">
+                            <span><i class="fa fa-share-alt"></i></span>
+                            <div class="share-box">
+                              <div class="d-flex align-items-center">
+                                <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
+                                <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
+                                <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
+                              </div>
                             </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">89+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
+                          </li>
+                          <li>
+                            <span><i class="fa fa-heart"></i></span>
+                            <span class="count-box">89+</span>
+                          </li>
+                          <li>
+                            <span><i class="fa fa-plus"></i></span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
                 <?php } ?>
               </ul>
             </div>
@@ -451,48 +438,48 @@
                 Trending Movies
               </h4>
               <ul id="top-ten-slider" class="list-inline p-0 m-0 d-flex align-items-center">
-                <?php 
-                  $movies = mysqli_query($con, "SELECT * FROM movies WHERE genre_id = 3");
+                <?php
+                $movies = mysqli_query($con, "SELECT * FROM movies WHERE genre_id = 3");
 
-                  foreach ($movies as $movie) {
+                foreach ($movies as $movie) {
                 ?>
-                <li class="slick-bg">
-                  <a href="#">
-                    <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid w-100" alt="" />
-                    <h6 class="iq-title"><a href="#"><?php echo $movie["judul"]; ?></a></h6>
-                  </a>
-                </li>
+                  <li class="slick-bg">
+                    <a href="#">
+                      <img src="images/img/<?php echo $movie["cover_image"]; ?>" class="img-fluid w-100" alt="" />
+                      <h6 class="iq-title"><a href="#"><?php echo $movie["judul"]; ?></a></h6>
+                    </a>
+                  </li>
                 <?php } ?>
               </ul>
               <div class="vertical_s">
                 <ul id="top-ten-slider-nav" class="list-inline p-0 m-0 d-flex align-items-center">
-                  <?php 
-                    $movies = mysqli_query($con, "SELECT * FROM movies WHERE genre_id = 3");
+                  <?php
+                  $movies = mysqli_query($con, "SELECT * FROM movies WHERE genre_id = 3");
 
-                    foreach ($movies as $movie) {
+                  foreach ($movies as $movie) {
                   ?>
-                  <li>
-                    <div class="block-images position-relative">
-                      <a href="#">
-                        <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid w-100" alt=""  style="weight :300px; height:169px;" />
-                      </a>
-                      <div class="block-description">
-                        <h5><?php echo $movie["judul"]; ?></h5>
-                        <div class="movie-time d-flex align-items-center my-2">
-                          <div class="badge badge-secondary p-1 mr-2">
-                            10+
+                    <li>
+                      <div class="block-images position-relative">
+                        <a href="#">
+                          <img src="images/img/<?php echo $movie["cover_image"]; ?>" class="img-fluid w-100" alt="" style="weight :300px; height:169px;" />
+                        </a>
+                        <div class="block-description">
+                          <h5><?php echo $movie["judul"]; ?></h5>
+                          <div class="movie-time d-flex align-items-center my-2">
+                            <div class="badge badge-secondary p-1 mr-2">
+                              10+
+                            </div>
+                            <span class="text-white">8 Parts</span>
                           </div>
-                          <span class="text-white">8 Parts</span>
-                        </div>
-                        <div class="hover-buttons">
-                          <a href="#" class="btn btn-hover" tabindex="0">
-                            <i class="fa fa-play mr-1" aria-hidden="true"></i>
-                            Watch Trailer
-                          </a>
+                          <div class="hover-buttons">
+                            <a href="#" class="btn btn-hover" tabindex="0">
+                              <i class="fa fa-play mr-1" aria-hidden="true"></i>
+                              Watch Trailer
+                            </a>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
+                    </li>
                   <?php } ?>
                 </ul>
               </div>
@@ -749,8 +736,7 @@
                 <h1 class="parallax-heading">Avatar</h1>
               </a>
               <div class="parallax-ratting d-flex align-items-center mt-3 mb-3">
-                <ul
-                  class="ratting-start p-o m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+                <ul class="ratting-start p-o m-0 list-inline text-primary d-flex align-items-center justify-content-left">
                   <li>
                     <a href="#" class="text-primary"><i class="fa fa-star"></i></a>
                   </li>
@@ -909,13 +895,13 @@
                                 </a>
                                 <a href="#" class="btn btn-link" tabindex="0">
                                   <i class="fa fa-plus pr-2"></i>
-                                  My List 
+                                  My List
                                 </a>
                               </div>
                             </div>
                             <div class="trending-list mt-4">
                               <div class="text-primary title">
-                                Starring : 
+                                Starring :
                                 <span class="text-body">
                                   Clarie Foy, Olivia Colman, Imelda Staunton
                                 </span>
@@ -946,7 +932,7 @@
                             <h1 class="trending-text big-title text-uppercase">the Crown</h1>
                             <div class="d-flex align-items-center text-white text-detail mb-4">
                               <span class="season_date">
-                                2 Seasons 
+                                2 Seasons
                               </span>
                               <span class="trending-year">Feb 2019</span>
                             </div>
@@ -1379,13 +1365,13 @@
                                 </a>
                                 <a href="#" class="btn btn-link" tabindex="0">
                                   <i class="fa fa-plus pr-2"></i>
-                                  My List 
+                                  My List
                                 </a>
                               </div>
                             </div>
                             <div class="trending-list mt-4">
                               <div class="text-primary title">
-                                Starring : 
+                                Starring :
                                 <span class="text-body">
                                   Jhonny Galecki, Jim Parsons , Kaley Cuoco
                                 </span>
@@ -1416,7 +1402,7 @@
                             <h1 class="trending-text big-title text-uppercase">Big Bang Theory</h1>
                             <div class="d-flex align-items-center text-white text-detail mb-4">
                               <span class="season_date">
-                                12 Seasons 
+                                12 Seasons
                               </span>
                               <span class="trending-year">Feb 2019</span>
                             </div>
@@ -1855,13 +1841,13 @@
                                 </a>
                                 <a href="#" class="btn btn-link" tabindex="0">
                                   <i class="fa fa-plus pr-2"></i>
-                                  My List 
+                                  My List
                                 </a>
                               </div>
                             </div>
                             <div class="trending-list mt-4">
                               <div class="text-primary title">
-                                Starring : 
+                                Starring :
                                 <span class="text-body">
                                   Cillian Murphy, Paul Anderson, Helen McCrory
                                 </span>
@@ -1892,7 +1878,7 @@
                             <h1 class="trending-text big-title text-uppercase">Peaky Blinders</h1>
                             <div class="d-flex align-items-center text-white text-detail mb-4">
                               <span class="season_date">
-                                2 Seasons 
+                                2 Seasons
                               </span>
                               <span class="trending-year">Feb 2019</span>
                             </div>
@@ -2325,13 +2311,13 @@
                                 </a>
                                 <a href="#" class="btn btn-link" tabindex="0">
                                   <i class="fa fa-plus pr-2"></i>
-                                  My List 
+                                  My List
                                 </a>
                               </div>
                             </div>
                             <div class="trending-list mt-4">
                               <div class="text-primary title">
-                                Starring : 
+                                Starring :
                                 <span class="text-body">
                                   Pedro Pascal, Wagner Moura, Boyd Holbrook
                                 </span>
@@ -2362,7 +2348,7 @@
                             <h1 class="trending-text big-title text-uppercase">Narcos</h1>
                             <div class="d-flex align-items-center text-white text-detail mb-4">
                               <span class="season_date">
-                                2 Seasons 
+                                2 Seasons
                               </span>
                               <span class="trending-year">Feb 2019</span>
                             </div>
@@ -2795,13 +2781,13 @@
                                 </a>
                                 <a href="#" class="btn btn-link" tabindex="0">
                                   <i class="fa fa-plus pr-2"></i>
-                                  My List 
+                                  My List
                                 </a>
                               </div>
                             </div>
                             <div class="trending-list mt-4">
                               <div class="text-primary title">
-                                Starring : 
+                                Starring :
                                 <span class="text-body">
                                   Jennifer Aniston, Courteney Cox, Lisa Kudrow
                                 </span>
@@ -2832,7 +2818,7 @@
                             <h1 class="trending-text big-title text-uppercase">FRIENDS</h1>
                             <div class="d-flex align-items-center text-white text-detail mb-4">
                               <span class="season_date">
-                                10 Seasons 
+                                10 Seasons
                               </span>
                               <span class="trending-year">Feb 2019</span>
                             </div>
@@ -3266,21 +3252,21 @@
                                 </a>
                                 <a href="#" class="btn btn-link" tabindex="0">
                                   <i class="fa fa-plus pr-2"></i>
-                                  My List 
+                                  My List
                                 </a>
                               </div>
                             </div>
                             <div class="trending-list mt-4">
                               <div class="text-primary title">
-                                Starring : 
+                                Starring :
                                 <span class="text-body">
-                                  Pankaj Tripathi, Ali Fazal, Divyendu Sharma 
+                                  Pankaj Tripathi, Ali Fazal, Divyendu Sharma
                                 </span>
                               </div>
                               <div class="text-primary title">
                                 Genres :
                                 <span class="text-body">
-                                  Action, Crime, Drama 
+                                  Action, Crime, Drama
                                 </span>
                               </div>
                               <div class="text-primary title">
@@ -3303,7 +3289,7 @@
                             <h1 class="trending-text big-title text-uppercase">Mirzapur</h1>
                             <div class="d-flex align-items-center text-white text-detail mb-4">
                               <span class="season_date">
-                                2 Seasons 
+                                2 Seasons
                               </span>
                               <span class="trending-year">Feb 2019</span>
                             </div>
@@ -3952,19 +3938,19 @@
               <li>
                 <a href="#">
                   <i>
-                  <fa class="fa fa-facebook"></fa>
+                    <fa class="fa fa-facebook"></fa>
                 </a>
               </li>
               <li>
                 <a href="#">
                   <i>
-                  <fa class="fa fa-youtube"></fa>
+                    <fa class="fa fa-youtube"></fa>
                 </a>
               </li>
               <li>
                 <a href="#">
                   <i>
-                  <fa class="fa fa-instagram"></fa>
+                    <fa class="fa fa-instagram"></fa>
                 </a>
               </li>
             </ul>
@@ -3973,7 +3959,7 @@
             <div class="widget text-left">
               <div class="textwidget">
                 <h6 class="footer-link-title">
-                  NetFlix App 
+                  NetFlix App
                 </h6>
                 <div class="d-flex align-items-center">
                   <a href="#"><img src="images/footer/01.jpg" alt=""></a>
