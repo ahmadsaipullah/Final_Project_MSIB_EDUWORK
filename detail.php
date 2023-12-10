@@ -1,3 +1,8 @@
+<?php
+include 'koneksi.php';
+$reviews = mysqli_query($conn, "SELECT * FROM reviews");
+$movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +20,7 @@
   <link rel="stylesheet" href="css/animate.min.css" />
   <link rel="stylesheet" href="css/magnific-popup.css" />
   <link rel="stylesheet" href="css/select2.min.css" />
+  <link rel="stylesheet" href="css/review.css" />
   <link rel="stylesheet" href="css/select2-bootstrap4.min.css" />
 
   <link rel="stylesheet" href="css/slick-animation.css" />
@@ -22,14 +28,13 @@
 </head>
 
 <body>
-<header id="main-header">
+  <header id="main-header">
     <div class="main-header">
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-12">
             <nav class="navbar navbar-expand-lg navbar-light p-0">
-              <a href="#" class="navbar-toggler c-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <a href="#" class="navbar-toggler c-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="navbar-toggler-icon" data-toggle="collapse">
                   <span class="navbar-menu-icon navbar-menu-icon--top"></span>
                   <span class="navbar-menu-icon navbar-menu-icon--middle"></span>
@@ -49,8 +54,7 @@
                 </div>
               </div>
               <div class="mobile-more-menu">
-                <a href="javascript:void(0);" class="more-toggle" id="dropdownMenuButton" data-toggle="more-toggle"
-                  aria-haspopup="true" aria-expanded="false">
+                <a href="javascript:void(0);" class="more-toggle" id="dropdownMenuButton" data-toggle="more-toggle" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-ellipsis-h"></i>
                 </a>
                 <div class="more-menu" aria-labelledby="dropdownMenuButton">
@@ -63,8 +67,7 @@
                         <div class="search-box iq-search-bar">
                           <form action="#" class="searchbox">
                             <div class="form-group position-relative">
-                              <input type="text" class="text search-input font-size-12"
-                                placeholder="type here to search..." />
+                              <input type="text" class="text search-input font-size-12" placeholder="type here to search..." />
                               <i class="search-link fa fa-search"></i>
                             </div>
                           </form>
@@ -72,7 +75,7 @@
                       </li>
                       <li>
                         <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center">
-                        <i class="bi bi-person-fill"></i>
+                          <i class="bi bi-person-fill"></i>
                         </a>
                       </li>
                     </ul>
@@ -89,15 +92,14 @@
                     <div class="search-box iq-search-bar d-search">
                       <form action="#" class="searchbox">
                         <div class="form-group position-relative">
-                          <input type="text" class="text search-input font-size-12"
-                            placeholder="type here to search..." />
+                          <input type="text" class="text search-input font-size-12" placeholder="type here to search..." />
                           <i class="search-link fa fa-search"></i>
                         </div>
                       </form>
                     </div>
                   </li>
                   <li class="nav-item nav-icon">
-                  <i class="bi bi-person-fill"></i>
+                    <i class="bi bi-person-fill"></i>
                   </li>
                 </ul>
               </div>
@@ -108,192 +110,6 @@
       </div>
     </div>
   </header>
-
-  <!-- slider starts  -->
-  <section id="home" class="iq-main-slider p-0">
-    <div id="home-slider" class="slider m-0 p-0">
-      <div class="slide slick-bg s-bg-1">
-        <div class="container-fluid position-relative h-100">
-          <div class="slider-inner h-100">
-            <div class="row align-items-center h--100">
-              <div class="col-xl-6 col-lg-12 col-md-12">
-                <a href="javascript:void(0)">
-                  <div class="channel-logo" data-animation-in="fadeInLeft" data-delay-in="0.5">
-                    <img src="images/logo2.png" class="c-logo" alt="" />
-                  </div>
-                </a>
-                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft"
-                  data-delay-in="0.6">
-                  Avengers
-                </h1>
-                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft"
-                  style="opacity: 1">
-                  <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
-                    <ul
-                      class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star-half"></i></li>
-                    </ul>
-                    <span class="text-white ml-2">7.3(imbd)</span>
-                  </div>
-                  <div class="d-flex align-items-center mt-2 mt-md-3">
-                    <span class="badge badge-secondary p-2">16+</span>
-                    <span class="ml-3">2h 21min</span>
-                  </div>
-                </div>
-                <p data-animation-in="fadeInUp">
-                  When Tony Stark and Bruce Banner try to jump-start a dormant
-                  peacekeeping program called Ultron, things go horribly wrong
-                  and it's up to Earth's nightest heroes to stop the
-                  villainous Ultron from enacting his terrible plan.
-                </p>
-                <div class="trending-list" data-animation-in="fadeInUp" data-delay-in="1.2">
-                  <div class="text-primary title starring">
-                    Starring :
-                    <span class="text-body">Robert Downey Jr., Chris Evans, Mark Ruffalo</span>
-                  </div>
-                  <div class="text-primary title genres">
-                    Genres : <span class="text-body">Action</span>
-                  </div>
-                  <div class="text-primary title tag">
-                    Tags :
-                    <span class="text-body">Action, Adventure, Horror</span>
-                  </div>
-                </div>
-                  <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
-                    <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Watch Trailer</a>
-                    <a href="#" class="btn btn-link">More Details</a>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="slide slick-bg s-bg-2">
-        <div class="container-fluid position-relative h-100">
-          <div class="slider-inner h-100">
-            <div class="row align-items-center h--100">
-              <div class="col-xl-6 col-lg-12 col-md-12">
-                <a href="javascript:void(0)">
-                  <div class="channel-logo" data-animation-in="fadeInLeft" data-delay-in="0.5">
-                    <img src="images/logo.png" class="c-logo" alt="" />
-                  </div>
-                </a>
-                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft"
-                  data-delay-in="0.6">
-                  Frozen
-                </h1>
-                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft"
-                  style="opacity: 1">
-                  <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
-                    <ul
-                      class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star-half"></i></li>
-                    </ul>
-                    <span class="text-white ml-2">7.4(imbd)</span>
-                  </div>
-                  <div class="d-flex align-items-center mt-2 mt-md-3">
-                    <span class="badge badge-secondary p-2">13+</span>
-                    <span class="ml-3">1h 42min</span>
-                  </div>
-                </div>
-                <p data-animation-in="fadeInUp">
-                  When the newly crowned Queen Elsa accidentally uses her
-                  power to turn things into ice to curse her home in infinte
-                  winter, her sister Anna teams up with a mountain man, his
-                  playful reindeer, and a snowman to change the weather
-                  condition.
-                </p>
-                <div class="trending-list" data-animation-in="fadeInUp" data-delay-in="1.2">
-                  <div class="text-primary title starring">
-                    Starring :
-                    <span class="text-body">Kristan Bell, Idina menzel, Jonathan Groff</span>
-                  </div>
-                  <div class="text-primary title genres">
-                    Genres : <span class="text-body">Animation</span>
-                  </div>
-                  <div class="text-primary title tag">
-                    Tags :
-                    <span class="text-body">Animation, Adventure, Comedy</span>
-                  </div>
-                </div>
-                <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
-                  <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Watch Trailer</a>
-                  <a href="#" class="btn btn-link">More Details</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="slide slick-bg s-bg-3">
-        <div class="container-fluid position-relative h-100">
-          <div class="slider-inner h-100">
-            <div class="row align-items-center h--100">
-              <div class="col-xl-6 col-lg-12 col-md-12">
-                <a href="javascript:void(0)">
-                  <div class="channel-logo" data-animation-in="fadeInLeft" data-delay-in="0.5">
-                    <img src="images/logo.png" class="c-logo" alt="" />
-                  </div>
-                </a>
-                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft"
-                  data-delay-in="0.6">
-                  The Conjuring
-                </h1>
-                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft"
-                  style="opacity: 1">
-                  <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
-                    <ul
-                      class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star-half"></i></li>
-                    </ul>
-                    <span class="text-white ml-2">7.5(imbd)</span>
-                  </div>
-                  <div class="d-flex align-items-center mt-2 mt-md-3">
-                    <span class="badge badge-secondary p-2">16+</span>
-                    <span class="ml-3">1h 52min</span>
-                  </div>
-                </div>
-                <p data-animation-in="fadeInUp">
-                  Paranomal investigators Ed and Lorraine Warren work to help
-                  a family terrorized by a dark presence in their farmhouse.
-                </p>
-                <div class="trending-list" data-animation-in="fadeInUp" data-delay-in="1.2">
-                  <div class="text-primary title starring">
-                    Starring :
-                    <span class="text-body">Patrick Wilson, Vera Farminga, Ron Livingston</span>
-                  </div>
-                  <div class="text-primary title genres">
-                    Genres : <span class="text-body">Horror</span>
-                  </div>
-                  <div class="text-primary title tag">
-                    Tags :
-                    <span class="text-body">Horror, Mystery, Thriller</span>
-                  </div>
-                </div>
-                <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
-                  <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Watch Trailer</a>
-                  <a href="#" class="btn btn-link">More Details</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- slider ends -->
 
   <!-- main content starts  -->
   <div class="main-content">
@@ -347,6 +163,118 @@
 
   <!-- main content ends  -->
 
+
+  <!-- comments and reviews -->
+  <div class="row">
+    <div class="comments col-8">
+      <!-- tabs nav -->
+      <ul class="nav nav-tabs comments__title comments__title--tabs" id="comments__tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link">
+            <h4>Reviews</h4>
+          </a>
+        </li>
+      </ul>
+      <!-- end tabs nav -->
+
+      <!-- tabs -->
+      <div class="tab-content">
+        <!-- reviews -->
+        <div class="tab-pane fade show active" id="tab-1" role="tabpanel">
+          <ul class="reviews__list">
+            <?php foreach ($reviews as $review) : ?>
+              <li class="reviews__item">
+                <div class="reviews__autor">
+                  <span class="reviews__name">
+                    <a href="#"><?= $review['reviewer_name']; ?></a>
+                    <span class="reviews__time">
+                      <?php echo date("F j, Y H:i:s", strtotime($review['review_date'])); ?>
+                    </span>
+                    <span class="reviews__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
+                      </svg><?= $review['rating']; ?>
+                    </span>
+                    <p class="reviews__text"><?= $review['review_text']; ?></p>
+                </div>
+              </li>
+            <?php endforeach; ?>
+            <form action="#" class="reviews__form">
+              <div class="row">
+                <div class="col-12 col-md-9 col-lg-10 col-xl-9">
+                  <div class="sign__group">
+                    <input type="text" name="title" class="sign__input" placeholder="Name">
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-3 col-lg-2 col-xl-3">
+                  <div class="sign__group">
+                    <select name="select" id="select" class="sign__select">
+                      <option value="0">Rating</option>
+                      <option value="5">5</option>
+                      <option value="4">4</option>
+                      <option value="3">3</option>
+                      <option value="2">2</option>
+                      <option value="1">1</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="sign__group">
+                    <textarea id="text2" name="text2" class="sign__textarea" placeholder="Add review"></textarea>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <button type="button" class="sign__btn">Send</button>
+                </div>
+              </div>
+            </form>
+          </ul>
+        </div>
+        <!-- end reviews -->
+      </div>
+      <!-- end tabs -->
+    </div>
+
+    <!-- Recomanded -->
+    <div class="comments col-4">
+      <div class="col-sm-12 overflow-hidden">
+        <div class="iq-main-header d-flex align-items-center justify-content-between">
+          <h4 class="main-title">Recomanded</h4>
+        </div>
+        <div class="row">
+          <?php foreach ($movies as $movie) : ?>
+            <div class="col-md-4">
+              <div class="card mb-4 product-wap rounded-5" style="background-color: black; color: white; position: relative;">
+                <a href="#">
+                  <img class="card-img rounded-5 img-fluid" src="images/img/<?= $movie['cover_image']; ?>" style="width: 100%; height: 350px; object-fit: cover;">
+                </a>
+                <div class="card-body" style="position: absolute; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.7); height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
+                  <a href="#" class="h6 text-decoration-none text-light"><?= $movie['judul']; ?></a>
+                  <div class="movie-time d-flex align-items-center my-2">
+                    <span class="text-white"><?= $movie['durasi']; ?></span>
+                  </div>
+                  <div class="star-rating">
+                    <span class="fa fa-star text-warning"></span>
+                    <span>4 / 5</span>
+                  </div>
+                  <div class="card-boy rounded-5 mt-2">
+                    <a href="detail.php" class="btn btn-hover iq-button" style="font-size: 10px;">
+                      <i class="fa fa-play"></i>
+                      Watch Trailer
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+      <!-- end tabs -->
+    </div>
+  </div>
+  <!-- end Recomanded-->
 
   <footer class="iq-bg-dark">
     <div class="footer-top">

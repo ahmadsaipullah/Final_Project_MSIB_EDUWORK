@@ -28,6 +28,9 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
     <link rel="stylesheet" href="../css/slick-animation.css" />
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css"/>
+</head>
 </head>
 
 <body>
@@ -61,20 +64,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
 
                             <div class="navbar-right menu-right">
                                 <ul class="d-flex align-items-center list-inline m-0">
-                                    <li class="nav-item nav-icon">
-                                        <a href="#" class="search-toggle device-search">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                        <div class="search-box iq-search-bar d-search">
-                                            <form action="#" class="searchbox">
-                                                <div class="form-group position-relative">
-                                                    <input type="text" class="text search-input font-size-12" placeholder="type here to search..." />
-                                                    <i class="search-link fa fa-search"></i>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item nav-icon">
+                                  
                                         <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
                                             <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
                                         </a>
@@ -261,6 +251,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
 
     <!-- main content ends  -->
     <footer class="iq-bg-dark">
+    <footer class="iq-bg-dark">
         <div class="footer-top">
             <div class="container-fluid">
                 <div class="row footer-standard">
@@ -279,7 +270,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                             <div class="textwidget">
                                 <p><small>This is Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, quo tempore. Quasi rem rerum est in nulla atque quibusdam illo. this is footer and simple tsesxij is writen jkd. fsek hello how are you. please like and subscribe. footer ends .</small></p>
                             </div>
-                    
+                        </div>
                     </div>
                     <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
                         <h6 class="footer-link-title">
@@ -290,7 +281,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                         <div class="widget text-left">
                             <div class="textwidget">
                                 <h6 class="footer-link-title">
-                                    NetFlix App
+                                    SAAFilm App
                                 </h6>
                                 <div class="d-flex align-items-center">
                                     <a href="#"><img src="../images/footer/01.jpg" alt=""></a>

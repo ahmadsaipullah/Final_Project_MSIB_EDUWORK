@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btnLogin'])) {
 
     // Query SQL untuk memeriksa apakah data login valid
     $query = "SELECT * FROM admin WHERE nama = '$username' AND password = '$password'";
-    
+
     // Periksa apakah hasil query mengembalikan satu baris (login berhasil)
     $result = mysqli_query($conn, $query);
 

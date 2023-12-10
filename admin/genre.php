@@ -23,15 +23,17 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
     <link rel="stylesheet" href="../css/select2-bootstrap4.min.css" />
     <link rel="stylesheet" href="../css/slick-animation.css" />
     <link rel="stylesheet" href="../style.css" />
-    <!-- <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"> -->
-    <!-- css datatable -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
-    
-    <style>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" />
+</head>
+
+<style>
     /* CSS untuk mengatur lebar kolom nomor */
     table#Table th:first-child,
     table#Table td:first-child {
-        width: 60px; /* Ubah lebar sesuai kebutuhan */
+        width: 60px;
+        /* Ubah lebar sesuai kebutuhan */
         max-width: 60px;
         word-break: break-word;
     }
@@ -44,11 +46,11 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
 
     table#Table th,
     table#Table td {
-        padding: 8px; /* Sesuaikan padding sesuai kebutuhan */
+        padding: 8px;
+        /* Sesuaikan padding sesuai kebutuhan */
         text-align: left;
         border: 1px solid #ddd;
     }
-
 </style>
 </head>
 
@@ -144,20 +146,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
 
                             <div class="navbar-right menu-right">
                                 <ul class="d-flex align-items-center list-inline m-0">
-                                    <li class="nav-item nav-icon">
-                                        <a href="#" class="search-toggle device-search">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                        <div class="search-box iq-search-bar d-search">
-                                            <form action="#" class="searchbox">
-                                                <div class="form-group position-relative">
-                                                    <input type="text" class="text search-input font-size-12" placeholder="type here to search..." />
-                                                    <i class="search-link fa fa-search"></i>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item nav-icon">
+                                    
                                         <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
                                             <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
                                         </a>
@@ -201,9 +190,9 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
     <!-- main content starts  -->
     <div class="main-content">
         <div class="container-fluid" style="margin-top: 70px">
-        <div class="row">
-            <div class="col-md-12">
-                         <button type="button" class="btn btn-hover iq-button" data-toggle="modal" data-target="#tambah" style="margin-bottom: 20px">ADD GENRE</button>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-hover iq-button" data-toggle="modal" data-target="#tambah" style="margin-bottom: 20px">ADD GENRE</button>
                     <table id="Table">
                         <thead>
                             <tr>
@@ -232,9 +221,9 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                             <?php } ?>
                         </tbody>
                     </table>
+                </div>
             </div>
-        </div>
-                   
+
         </div>
     </div>
 
@@ -271,7 +260,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                         <div class="widget text-left">
                             <div class="textwidget">
                                 <h6 class="footer-link-title">
-                                    NetFlix App
+                                    FAAS FILM App
                                 </h6>
                                 <div class="d-flex align-items-center">
                                     <a href="#"><img src="../images/footer/01.jpg" alt=""></a>
