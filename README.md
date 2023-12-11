@@ -24,7 +24,7 @@ Website Film adalah web nonton film online dengan memanfaatkan database yang did
 
 - Arman Supriadi (Leader)
 - Fergi Putra Abiansa
-- Septi Dewi
+- Septi Dewi Yuliana
 - Ahmad Saifullah
 
 
