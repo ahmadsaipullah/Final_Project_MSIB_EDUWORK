@@ -42,7 +42,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="menu-main-menu-container">
                   <ul id="top-menu" class="navbar-nav ml-auto">
-                    <li class="active menu-item"><a href="index.php">Home</a></li>
+                    <li class="active menu-item"><a href="home.php">Home</a></li>
                     <li class="menu-item"><a href="movies.php">Movies</a></li>
                     <li class="menu-item"><a href="about.php">About Us</a></li>
                   </ul>
@@ -324,7 +324,7 @@
                     </div>
                     <div class="block-description">
                       <h6 class="iq-title">
-                        <a href="#"> <?php echo $movie["judul"]; ?> </a>
+                        <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"> <?php echo $movie["judul"]; ?> </a>
                       </h6>
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">16+</div>
@@ -395,7 +395,9 @@
                     </div>
                     <div class="block-description">
                       <h6 class="iq-title">
-                        <a href="#"><?php echo $movie["judul"]; ?></a>
+                          <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>">
+                            <?php echo $movie["judul"]; ?>
+                          </a>
                       </h6>
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">10+</div>
@@ -643,7 +645,7 @@
                     </div>
                     <div class="block-description">
                       <h6 class="iq-title">
-                        <a href="#"><?php echo $movie['judul']; ?></a>
+                        <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"><?php echo $movie['judul']; ?></a>
                       </h6>
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">15+</div>
