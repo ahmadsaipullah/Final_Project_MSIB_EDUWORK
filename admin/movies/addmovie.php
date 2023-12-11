@@ -17,17 +17,21 @@ if (isset($_POST['tambah']) && $_POST['tambah'] == 'simpan') {
     move_uploaded_file($temp_image, $folder . $cover_image);
 
     // Insert data ke database
-    $insert_query = "INSERT INTO movies (judul, deskripsi, director_id, genre_id, movie_link, actor, durasi, cover_image) VALUES ('$judul', '$deskripsi', '$director_id', '$genre_id', '$movie_link', '$actor', '$durasi', '$cover_image')";
+    $insert_query = "INSERT INTO movies (judul, deskripsi, director_id, genre_id, movie_link, actor, durasi, cover_image) 
+    VALUES ('$judul', '$deskripsi', '$director_id', '$genre_id', '$movie_link', '$actor', '$durasi', '$cover_image')";
 
     $result = mysqli_query($conn, $insert_query);
 
     if ($result) {
-        echo "<script>alert('Movie added successfully');</script>";
+        echo  "<script>
+        alert('Movie added successfully');
+        window.location.href = '../movies.php'; 
+      </script>";
     } else {
-        echo "<script>alert('Failed to add movie');</script>";
+        echo"<script>
+        alert('Failed to add movie');
+        window.location.href = '../movies.php'; 
+      </script>";
     }
 }
-
-header("Location: ../movies.php"); // Redirect back to movies.php
-exit();
 ?>

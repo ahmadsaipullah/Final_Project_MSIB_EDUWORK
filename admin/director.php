@@ -233,11 +233,7 @@ $directors = mysqli_query($conn, "SELECT * FROM director");
                                                 <h5 class="modal-title text-dark">DELETE DIRECTOR</h5>
                                             </div>
                                             <form action="director/deletedirector.php" method="POST" enctype="multipart/form-data">
-<<<<<<< HEAD
-                                                <input type="hidden" name="director" value="<?= $director['director_id'] ?>">
-=======
                                                 <input type="hidden" name="director_id" value="<?= $director['director_id'] ?>">
->>>>>>> 4f374f26714ed141a18b9aa668455d160df52c63
                                                 <div class="modal-body">
                                                     <h5 class="text-center text-dark"> Apakah Anda Yakin Akan Hapus <br>
                                                         <span class="text-danger"><?= $director['nama'] ?></span>

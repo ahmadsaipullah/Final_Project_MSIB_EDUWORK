@@ -27,6 +27,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
 
     <link rel="stylesheet" href="../css/slick-animation.css" />
     <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../assets/vendor/sweetalert2/sweetalert2.all.min.js" />
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css"/>
@@ -160,7 +161,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             <form action="movies/editmovie.php" method="POST" enctype="multipart/form-data">
-                                                <input type="hidden" name="id_sepatu" value="<?= $all['movie_id'] ?>">
+                                                <input type="hidden" name="movie_id" value="<?= $all['movie_id'] ?>">
                                                 <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
                                                     <div class="form-group">
                                                         <label class="control-label text-dark" for="judul">Judul</label>
