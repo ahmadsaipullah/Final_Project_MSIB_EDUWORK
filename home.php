@@ -1,3 +1,49 @@
+<?php
+include 'koneksi.php';
+function getAverageRating($movieId, $conn)
+{
+  $query = "SELECT AVG(rating) as avg_rating FROM reviews WHERE movie_id = $movieId";
+  $result = mysqli_query($conn, $query);
+  $row = mysqli_fetch_assoc($result);
+  return $row['avg_rating'];
+}
+$movies = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                                FROM movies 
+                                JOIN reviews ON movies.movie_id = reviews.movie_id 
+                                GROUP BY movies.movie_id 
+                                LIMIT 6 ");
+$dramas = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 1
+                              GROUP BY movies.movie_id");
+$actions = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 2
+                              GROUP BY movies.movie_id");
+$fantasys = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 3
+                              GROUP BY movies.movie_id");
+$comedys = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 4
+                              GROUP BY movies.movie_id");
+$advantures = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 5
+                              GROUP BY movies.movie_id");
+$horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 6
+                              GROUP BY movies.movie_id");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -322,7 +368,7 @@
                     <div class="img-box">
                       <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:275px; width:100%; object-fit: cover;" />
                     </div>
-                    <div class="block-description" style="margin-top: 100px;">
+                    <div class="block-description" style="margin-top: 80px;">
                       <h6 class="iq-title" style="font-size: 15px; margin-right:20px;">
                         <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"> <?php echo $movie["judul"]; ?> </a>
                       </h6>
@@ -331,6 +377,10 @@
                         <span class="text-white">1h 43min</span>
                       </div>
                       <div class="hover-buttons">
+                        <div class="star-rating">
+                            <span class="fa fa-star text-warning"></span>
+                            <span><?= number_format(getAverageRating($movie['movie_id'], $conn), 1); ?></span>
+                        </div>
                         <span class="btn btn-hover iq-button" style="font-size:10px; width:130px;">
                           <i class="fa fa-play mr-1"></i>
                           Watch Trailer
@@ -404,7 +454,11 @@
                         <span class="text-white">2h</span>
                       </div>
                       <div class="hover-buttons">
-                        <span class="btn btn-hover iq-button">
+                        <div class="star-rating">
+                            <span class="fa fa-star text-warning"></span>
+                            <span><?= number_format(getAverageRating($movie['movie_id'], $conn), 1); ?></span>
+                        </div>
+                        <span class="btn btn-hover iq-button" style="font-size:10px; width:130px;">
                           <i class="fa fa-play mr-1"></i>
                           Watch Trailer
                         </span>
@@ -487,6 +541,10 @@
                           <span class="text-white">8 Parts</span>
                         </div>
                         <div class="hover-buttons" style="width: 150px;">
+                          <div class="star-rating">
+                              <span class="fa fa-star text-warning"></span>
+                              <span><?= number_format(getAverageRating($movie['movie_id'], $conn), 1); ?></span>
+                          </div>
                           <a href="#" class="btn btn-hover" tabindex="0">
                             <i class="fa fa-play mr-1" aria-hidden="true"></i>
                             Watch Trailer
@@ -530,6 +588,10 @@
                         <a href="#"><?php echo $movie["judul"]; ?></a>
                       </h6>
                       <div class="hover-buttons">
+                        <div class="star-rating">
+                              <span class="fa fa-star text-warning"></span>
+                              <span><?= number_format(getAverageRating($movie['movie_id'], $conn), 1); ?></span>
+                        </div>
                         <span class="btn btn-hover iq-button" style="font-size:10px; width:130px;">
                           <i class="fa fa-play mr-1"></i>
                           Watch Trailer
@@ -643,7 +705,7 @@
                     <div class="img-box">
                       <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:275px; width:100%; object-fit: cover;" />
                     </div>
-                    <div class="block-description" style="margin-top: 100px;">
+                    <div class="block-description" style="margin-top: 80px;">
                       <h6 class="iq-title" style="font-size: 15px; margin-right:20px;">
                         <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"><?php echo $movie['judul']; ?></a>
                       </h6>
@@ -652,6 +714,10 @@
                         <span class="text-white">2h 45min</span>
                       </div>
                       <div class="hover-buttons">
+                        <div class="star-rating">
+                            <span class="fa fa-star text-warning"></span>
+                            <span><?= number_format(getAverageRating($movie['movie_id'], $conn), 1); ?></span>
+                        </div>
                         <span class="btn btn-hover iq-button" style="font-size:10px; width:130px;">
                           <i class="fa fa-play"></i>
                             Watch Trailer
