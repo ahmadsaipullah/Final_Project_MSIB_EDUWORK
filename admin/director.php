@@ -28,6 +28,26 @@ $directors = mysqli_query($conn, "SELECT * FROM director");
     
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css"/>
+    <style>
+        table#Table th:first-child,
+        table#Table td:first-child {
+            width: 60px;
+            max-width: 60px;
+            word-break: break-word;
+        }
+
+        table#Table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table#Table th,
+        table#Table td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+    </style>
 </head>
 
 <body>

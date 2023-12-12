@@ -35,13 +35,13 @@
                   <span class="navbar-menu-icon navbar-menu-icon--bottom"></span>
                 </div>
               </a>
-              <a href="index.php" class="navbar-brand">
-                <img src="images/logo.png" class="img-fluid logo" alt="" />
+              <a href="home.php" class="navbar-brand">
+                <img src="images/logosaaf.png" class="img-fluid logo" alt="" />
               </a>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="menu-main-menu-container">
                   <ul id="top-menu" class="navbar-nav ml-auto">
-                    <li class="active menu-item"><a href="index.php">Home</a></li>
+                    <li class="active menu-item"><a href="home.php">Home</a></li>
                     <li class="menu-item"><a href="movies.php">Movies</a></li>
                     <li class="menu-item"><a href="about.php">About Us</a></li>
                   </ul>

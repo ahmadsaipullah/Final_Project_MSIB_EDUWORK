@@ -25,8 +25,28 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
     <link rel="stylesheet" href="../css/slick-animation.css" />
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" />
+    <style>
+        table#Table th:first-child,
+        table#Table td:first-child {
+            width: 60px;
+            max-width: 60px;
+            word-break: break-word;
+        }
+
+        table#Table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table#Table th,
+        table#Table td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,7 +64,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                 </div>
                             </a>
                             <a href="movies.php" class="navbar-brand">
-                                <img src="../images/logosaaf.png" class="img-fluid logo" alt="" style="width: 150px; height: 100px;"  />
+                                <img src="../images/logosaaf.png" class="img-fluid logo" alt="" style="width: 150px; height: 100px;" />
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div class="menu-main-menu-container">

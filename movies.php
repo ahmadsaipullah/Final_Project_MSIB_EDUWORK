@@ -1,12 +1,47 @@
 <?php
 include 'koneksi.php';
-$movies = mysqli_query($conn, "SELECT * FROM movies LIMIT 6");
-$dramas = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
-$actions = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 2");
-$fantasys = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 3");
-$comedys = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 4");
-$advantures = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 5");
-$horrors = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 6");
+function getAverageRating($movieId, $conn)
+{
+  $query = "SELECT AVG(rating) as avg_rating FROM reviews WHERE movie_id = $movieId";
+  $result = mysqli_query($conn, $query);
+  $row = mysqli_fetch_assoc($result);
+  return $row['avg_rating'];
+}
+$movies = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                                FROM movies 
+                                JOIN reviews ON movies.movie_id = reviews.movie_id 
+                                GROUP BY movies.movie_id 
+                                LIMIT 6 ");
+$dramas = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 1
+                              GROUP BY movies.movie_id");
+$actions = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 2
+                              GROUP BY movies.movie_id");
+$fantasys = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 3
+                              GROUP BY movies.movie_id");
+$comedys = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 4
+                              GROUP BY movies.movie_id");
+$advantures = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 5
+                              GROUP BY movies.movie_id");
+$horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 6
+                              GROUP BY movies.movie_id");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,8 +80,8 @@ $horrors = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 6");
                   <span class="navbar-menu-icon navbar-menu-icon--bottom"></span>
                 </div>
               </a>
-              <a href="index.php" class="navbar-brand">
-                <img src="images/logo.png" class="img-fluid logo" alt="" />
+              <a href="home.php" class="navbar-brand">
+                <img src="images/logosaaf.png" class="img-fluid logo" alt="" />
               </a>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="menu-main-menu-container">
@@ -103,8 +138,8 @@ $horrors = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 6");
                     </div>
                   </li>
                   <li class="nav-item nav-icon">
-                    <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
-                      <i class="bi bi-person-fill"></i>
+                    <a href="admin/login.php" class="iq-user-dropdown d-flex align-items-center p-0">
+                      <img src="images/users.png" class="img-fluid user-m rounded-circle" alt="User Image" />
                     </a>
                   </li>
                 </ul>
@@ -119,34 +154,32 @@ $horrors = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 6");
 
   <!-- main content starts  -->
   <div class="main-content">
-    <!-- favorite section starts   -->
-
     <section id="iq-favorites">
       <div class="container-fluid" style="margin-top: 80px">
         <div class="row">
           <div class="col-sm-12 overflow-hidden">
             <div class="iq-main-header d-flex align-items-center justify-content-between">
               <h4 class="main-title">Top Picks For You</h4>
-              <a href="#" class="iq-view-all">View All</a>
+              <a href="movie/all.php" class="iq-view-all">View All</a>
             </div>
             <div class="row">
               <?php foreach ($movies as $movie) : ?>
                 <div class="col-md-2">
                   <div class="card mb-4 product-wap rounded-5" style="background-color: black; color: white; position: relative;">
-                    <a href="#">
+                    <a href="detail.php?id=<?= $movie['movie_id']; ?>">
                       <img class="card-img rounded-5 img-fluid" src="images/img/<?= $movie['cover_image']; ?>" style="width: 100%; height: 350px; object-fit: cover;">
                     </a>
                     <div class="card-body" style="position: absolute; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.7); height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
-                      <a href="#" class="h6 text-decoration-none text-light"><?= $movie['judul']; ?></a>
+                      <a href="detail.php?id=<?= $movie['movie_id']; ?>" class="h6 text-decoration-none text-light"><?= $movie['judul']; ?></a>
                       <div class="movie-time d-flex align-items-center my-2">
                         <span class="text-white"><?= $movie['durasi']; ?></span>
                       </div>
                       <div class="star-rating">
                         <span class="fa fa-star text-warning"></span>
-                        <span>4 / 5</span>
+                        <span><?= number_format(getAverageRating($movie['movie_id'], $conn), 1); ?></span>
                       </div>
                       <div class="card-boy rounded-5 mt-2">
-                        <a href="detail.php" class="btn btn-hover iq-button" style="font-size: 10px;">
+                        <a href="detail.php?id=<?= $movie['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 10px;">
                           <i class="fa fa-play"></i>
                           Watch Trailer
                         </a>
@@ -170,26 +203,26 @@ $horrors = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 6");
           <div class="col-sm-12 overflow-hidden">
             <div class="iq-main-header d-flex align-items-center justify-content-between">
               <h4 class="main-title">Drama</h4>
-              <a href="#" class="iq-view-all">View All</a>
+              <a href="movie/drama.php" class="iq-view-all">View All</a>
             </div>
             <div class="row">
               <?php foreach ($dramas as $drama) : ?>
                 <div class="col-md-2">
                   <div class="card mb-4 product-wap rounded-5" style="background-color: black; color: white; position: relative;">
-                    <a href="#">
+                    <a href="detail.php?id=<?= $drama['movie_id']; ?>">
                       <img class="card-img rounded-5 img-fluid" src="images/img/<?= $drama['cover_image']; ?>" style="width: 100%; height: 350px; object-fit: cover;">
                     </a>
                     <div class="card-body" style="position: absolute; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.7); height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
-                      <a href="#" class="h6 text-decoration-none text-light"><?= $drama['judul']; ?></a>
+                      <a href="detail.php?id=<?= $drama['movie_id']; ?>" class="h6 text-decoration-none text-light"><?= $drama['judul']; ?></a>
                       <div class="movie-time d-flex align-items-center my-2">
                         <span class="text-white"><?= $drama['durasi']; ?></span>
                       </div>
                       <div class="star-rating">
                         <span class="fa fa-star text-warning"></span>
-                        <span>4 / 5</span>
+                        <span><?= number_format(getAverageRating($drama['movie_id'], $conn), 1); ?></span>
                       </div>
                       <div class="card-boy rounded-5 mt-2">
-                        <a href="detail.php" class="btn btn-hover iq-button" style="font-size: 10px;">
+                        <a href="detail.php?id=<?= $drama['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 10px;">
                           <i class="fa fa-play"></i>
                           Watch Trailer
                         </a>
@@ -211,26 +244,26 @@ $horrors = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 6");
           <div class="col-sm-12 overflow-hidden">
             <div class="iq-main-header d-flex align-items-center justify-content-between">
               <h4 class="main-title">Action</h4>
-              <a href="#" class="iq-view-all">View All</a>
+              <a href="movie/action.php" class="iq-view-all">View All</a>
             </div>
             <div class="row">
               <?php foreach ($actions as $action) : ?>
                 <div class="col-md-2">
                   <div class="card mb-4 product-wap rounded-5" style="background-color: black; color: white; position: relative;">
-                    <a href="#">
+                    <a href="detail.php?id=<?= $action['movie_id']; ?>">
                       <img class="card-img rounded-5 img-fluid" src="images/img/<?= $action['cover_image']; ?>" style="width: 100%; height: 350px; object-fit: cover;">
                     </a>
                     <div class="card-body" style="position: absolute; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.7); height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
-                      <a href="#" class="h6 text-decoration-none text-light"><?= $action['judul']; ?></a>
+                      <a href="detail.php?id=<?= $action['movie_id']; ?>" class="h6 text-decoration-none text-light"><?= $action['judul']; ?></a>
                       <div class="movie-time d-flex align-items-center my-2">
                         <span class="text-white"><?= $action['durasi']; ?></span>
                       </div>
                       <div class="star-rating">
                         <span class="fa fa-star text-warning"></span>
-                        <span>4 / 5</span>
+                        <span><?= number_format(getAverageRating($action['movie_id'], $conn), 1); ?></span>
                       </div>
                       <div class="card-boy rounded-5 mt-2">
-                        <a href="detail.php" class="btn btn-hover iq-button" style="font-size: 10px;">
+                        <a href="detail.php?id=<?= $action['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 10px;">
                           <i class="fa fa-play"></i>
                           Watch Trailer
                         </a>
@@ -251,26 +284,26 @@ $horrors = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 6");
           <div class="col-sm-12 overflow-hidden">
             <div class="iq-main-header d-flex align-items-center justify-content-between">
               <h4 class="main-title">Fantasy</h4>
-              <a href="#" class="iq-view-all">View All</a>
+              <a href="movie/fantasy.php" class="iq-view-all">View All</a>
             </div>
             <div class="row">
               <?php foreach ($fantasys as $fantasy) : ?>
                 <div class="col-md-2">
                   <div class="card mb-4 product-wap rounded-5" style="background-color: black; color: white; position: relative;">
-                    <a href="#">
+                    <a href="detail.php?id=<?= $fantasy['movie_id']; ?>">
                       <img class="card-img rounded-5 img-fluid" src="images/img/<?= $fantasy['cover_image']; ?>" style="width: 100%; height: 350px; object-fit: cover;">
                     </a>
                     <div class="card-body" style="position: absolute; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.7); height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
-                      <a href="#" class="h6 text-decoration-none text-light"><?= $fantasy['judul']; ?></a>
+                      <a href="detail.php?id=<?= $fantasy['movie_id']; ?>" class="h6 text-decoration-none text-light"><?= $fantasy['judul']; ?></a>
                       <div class="movie-time d-flex align-items-center my-2">
                         <span class="text-white"><?= $fantasy['durasi']; ?></span>
                       </div>
                       <div class="star-rating">
                         <span class="fa fa-star text-warning"></span>
-                        <span>4 / 5</span>
+                        <span><?= number_format(getAverageRating($fantasy['movie_id'], $conn), 1); ?></span>
                       </div>
                       <div class="card-boy rounded-5 mt-2">
-                        <a href="detail.php" class="btn btn-hover iq-button" style="font-size: 10px;">
+                        <a href="detail.php?id=<?= $fantasy['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 10px;">
                           <i class="fa fa-play"></i>
                           Watch Trailer
                         </a>
@@ -291,26 +324,26 @@ $horrors = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 6");
           <div class="col-sm-12 overflow-hidden">
             <div class="iq-main-header d-flex align-items-center justify-content-between">
               <h4 class="main-title">Comedy</h4>
-              <a href="#" class="iq-view-all">View All</a>
+              <a href="movie/comedy.php" class="iq-view-all">View All</a>
             </div>
             <div class="row">
               <?php foreach ($comedys as $comedy) : ?>
                 <div class="col-md-2">
                   <div class="card mb-4 product-wap rounded-5" style="background-color: black; color: white; position: relative;">
-                    <a href="#">
+                    <a href="detail.php?id=<?= $comedy['movie_id']; ?>">
                       <img class="card-img rounded-5 img-fluid" src="images/img/<?= $comedy['cover_image']; ?>" style="width: 100%; height: 350px; object-fit: cover;">
                     </a>
                     <div class="card-body" style="position: absolute; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.7); height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
-                      <a href="#" class="h6 text-decoration-none text-light"><?= $comedy['judul']; ?></a>
+                      <a href="detail.php?id=<?= $comedy['movie_id']; ?>" class="h6 text-decoration-none text-light"><?= $comedy['judul']; ?></a>
                       <div class="movie-time d-flex align-items-center my-2">
                         <span class="text-white"><?= $comedy['durasi']; ?></span>
                       </div>
                       <div class="star-rating">
                         <span class="fa fa-star text-warning"></span>
-                        <span>4 / 5</span>
+                        <span><?= number_format(getAverageRating($comedy['movie_id'], $conn), 1); ?></span>
                       </div>
                       <div class="card-boy rounded-5 mt-2">
-                        <a href="detail.php" class="btn btn-hover iq-button" style="font-size: 10px;">
+                        <a href="detail.php?id=<?= $comedy['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 10px;">
                           <i class="fa fa-play"></i>
                           Watch Trailer
                         </a>
@@ -331,26 +364,26 @@ $horrors = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 6");
           <div class="col-sm-12 overflow-hidden">
             <div class="iq-main-header d-flex align-items-center justify-content-between">
               <h4 class="main-title">Advanture</h4>
-              <a href="#" class="iq-view-all">View All</a>
+              <a href="movie/advanture.php" class="iq-view-all">View All</a>
             </div>
             <div class="row">
               <?php foreach ($advantures as $advanture) : ?>
                 <div class="col-md-2">
                   <div class="card mb-4 product-wap rounded-5" style="background-color: black; color: white; position: relative;">
-                    <a href="#">
+                    <a href="detail.php?id=<?= $advanture['movie_id']; ?>">
                       <img class="card-img rounded-5 img-fluid" src="images/img/<?= $advanture['cover_image']; ?>" style="width: 100%; height: 350px; object-fit: cover;">
                     </a>
                     <div class="card-body" style="position: absolute; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.7); height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
-                      <a href="#" class="h6 text-decoration-none text-light"><?= $advanture['judul']; ?></a>
+                      <a href="detail.php?id=<?= $advanture['movie_id']; ?>" class="h6 text-decoration-none text-light"><?= $advanture['judul']; ?></a>
                       <div class="movie-time d-flex align-items-center my-2">
                         <span class="text-white"><?= $advanture['durasi']; ?></span>
                       </div>
                       <div class="star-rating">
                         <span class="fa fa-star text-warning"></span>
-                        <span>4 / 5</span>
+                        <span><?= number_format(getAverageRating($advanture['movie_id'], $conn), 1); ?></span>
                       </div>
                       <div class="card-boy rounded-5 mt-2">
-                        <a href="detail.php" class="btn btn-hover iq-button" style="font-size: 10px;">
+                        <a href="detail.php?id=<?= $advanture['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 10px;">
                           <i class="fa fa-play"></i>
                           Watch Trailer
                         </a>
@@ -371,26 +404,26 @@ $horrors = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 6");
           <div class="col-sm-12 overflow-hidden">
             <div class="iq-main-header d-flex align-items-center justify-content-between">
               <h4 class="main-title">Horror</h4>
-              <a href="#" class="iq-view-all">View All</a>
+              <a href="movie/horror.php" class="iq-view-all">View All</a>
             </div>
             <div class="row">
               <?php foreach ($horrors as $horror) : ?>
                 <div class="col-md-2">
                   <div class="card mb-4 product-wap rounded-5" style="background-color: black; color: white; position: relative;">
-                    <a href="#">
+                    <a href="detail.php?id=<?= $horror['movie_id']; ?>">
                       <img class="card-img rounded-5 img-fluid" src="images/img/<?= $horror['cover_image']; ?>" style="width: 100%; height: 350px; object-fit: cover;">
                     </a>
                     <div class="card-body" style="position: absolute; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.7); height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
-                      <a href="#" class="h6 text-decoration-none text-light"><?= $horror['judul']; ?></a>
+                      <a href="detail.php?id=<?= $horror['movie_id']; ?>" class="h6 text-decoration-none text-light"><?= $horror['judul']; ?></a>
                       <div class="movie-time d-flex align-items-center my-2">
                         <span class="text-white"><?= $horror['durasi']; ?></span>
                       </div>
                       <div class="star-rating">
                         <span class="fa fa-star text-warning"></span>
-                        <span>4 / 5</span>
+                        <span><?= number_format(getAverageRating($horror['movie_id'], $conn), 1); ?></span>
                       </div>
                       <div class="card-boy rounded-5 mt-2">
-                        <a href="detail.php" class="btn btn-hover iq-button" style="font-size: 10px;">
+                        <a href="detail.php?id=<?= $horror['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 10px;">
                           <i class="fa fa-play"></i>
                           Watch Trailer
                         </a>
