@@ -390,7 +390,11 @@
               <ul class="favorites-slider list-inline row p-0 mb-0">
                 <!-- slide item 1 -->
                 <?php
+<<<<<<< HEAD
                 $movies = mysqli_query($con, "SELECT * FROM movies WHERE genre_id = 1");
+=======
+                $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
+>>>>>>> f36aa1b10cc5e481a193f044c36e17ef7dc876a5
 
                 foreach ($movies as $movie) {
                 ?>
@@ -475,7 +479,11 @@
               </h4>
               <ul id="top-ten-slider" class="list-inline p-0 m-0 d-flex align-items-center">
                 <?php
+<<<<<<< HEAD
                 $movies = mysqli_query($con, "SELECT * FROM movies WHERE genre_id = 3");
+=======
+                $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 3");
+>>>>>>> f36aa1b10cc5e481a193f044c36e17ef7dc876a5
 
                 foreach ($movies as $movie) {
                 ?>
@@ -490,7 +498,11 @@
               <div class="vertical_s">
                 <ul id="top-ten-slider-nav" class="list-inline p-0 m-0 d-flex align-items-center">
                   <?php
+<<<<<<< HEAD
                   $movies = mysqli_query($con, "SELECT * FROM movies WHERE genre_id = 3");
+=======
+                  $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 3");
+>>>>>>> f36aa1b10cc5e481a193f044c36e17ef7dc876a5
 
                   foreach ($movies as $movie) {
                   ?>
@@ -641,6 +653,7 @@
       </div>
     </section>
     <!-- trending section  -->
+<<<<<<< HEAD
     <section id="iq-trending" class="s-margin">
       <div class="container-fluid">
         <div class="row">
@@ -3526,6 +3539,9 @@
     </section>
 
 
+=======
+
+>>>>>>> f36aa1b10cc5e481a193f044c36e17ef7dc876a5
     <section id="iq-suggested" class="s-margin">
       <div class="container-fluid">
         <div class="row">
@@ -3540,6 +3556,9 @@
                 $movies = mysqli_query($conn, "SELECT * FROM movies ");
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f36aa1b10cc5e481a193f044c36e17ef7dc876a5
                 foreach ($movies as $movie) {
                 ?>
                   <!-- slide item 1 -->
@@ -3547,6 +3566,7 @@
                     <div class="block-images position-relative">
                       <div class="img-box">
                         <img src="images/img/<?php echo $movie["cover_image"]; ?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
+<<<<<<< HEAD
 =======
                     foreach ($movies as $movie) {
               ?>
@@ -3564,6 +3584,8 @@
                         <div class="badge badge-secondary p-1 mr-2">15+</div>
                         <span class="text-white">2h 45min</span>
 >>>>>>> 8f0d2c69178983facacb3059517979cf258f599d
+=======
+>>>>>>> f36aa1b10cc5e481a193f044c36e17ef7dc876a5
                       </div>
                       <div class="block-description">
                         <h6 class="iq-title">

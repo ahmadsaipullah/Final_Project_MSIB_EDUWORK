@@ -218,6 +218,66 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                         </a>
                                     </td>
                                 </tr>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                                <!-- Modal Edit -->
+                                <div id="edit<?= $no ?>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-dark">EDIT GENRE</h5>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <form action="genre/editgenre.php" method="POST">
+                                                <input type="hidden" name="genre_id" value="<?= $genre['genre_id'] ?>">
+                                                <div class="modal-body" style="max-height: calc(100vh -  200px); overflow-y: auto;">
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="genre_name">NAME</label>
+                                                        <input type="text" name="genre_name" class="form-control" id="genre_name" value="<?= $genre['genre_name'] ?>" required>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="reset" class="btn btn-secondary">Reset</button>
+                                                        <button type="submit" class="btn btn-primary" name="tambah" value="simpan">Save</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Modal Edit Akhir -->
+                                <!-- Modal Hapus -->
+                                <div id="hapus<?= $no ?>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-dark">DELETE GENRE</h5>
+                                            </div>
+                                            <form action="genre/delete.php" method="POST" enctype="multipart/form-data">
+                                                <input type="hidden" name="genre_id" value="<?= $genre['genre_id'] ?>">
+                                                <div class="modal-body">
+                                                    <h5 class="text-center text-dark"> Apakah Anda Yakin Akan Hapus <br>
+                                                        <span class="text-danger"><?= $genre['genre_name'] ?></span>
+                                                    </h5>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-danger" name="hapus">Hapus</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Keluar</button>
+                                                </div>
+                                            </form>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal Hapus Akhir -->
+<<<<<<< HEAD
+
+=======
+>>>>>>> 03acf66e23b6df5fc0b123905a5034ac206d5d63
+=======
+>>>>>>> 558133d5fa95ced5d458f174b23971a8861bc4cd
+=======
+>>>>>>> 87312c90d02fff2c9a3c464d0d8b18560126a474
                             <?php } ?>
                         </tbody>
                     </table>
