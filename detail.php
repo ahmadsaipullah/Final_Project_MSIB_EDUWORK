@@ -1,7 +1,11 @@
 <?php
 include 'koneksi.php';
+<<<<<<< HEAD
 $reviews = mysqli_query($conn, "SELECT * FROM reviews");
 $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
+=======
+
+>>>>>>> 8f0d2c69178983facacb3059517979cf258f599d
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +34,7 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
 <body>
   <header id="main-header">
     <div class="main-header">
-      <div class="container-fluid">
+      <div class="container-fluid" >
         <div class="row">
           <div class="col-sm-12">
             <nav class="navbar navbar-expand-lg navbar-light p-0">
@@ -47,7 +51,7 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="menu-main-menu-container">
                   <ul id="top-menu" class="navbar-nav ml-auto">
-                    <li class="active menu-item"><a href="index.php">Home</a></li>
+                    <li class="active menu-item"><a href="home.php">Home</a></li>
                     <li class="menu-item"><a href="movies.php">Movies</a></li>
                     <li class="menu-item"><a href="about.php">About Us</a></li>
                   </ul>
@@ -116,18 +120,26 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
     <!-- detail movies -->
 
 
-    <div class="container">
+    <?php
+      $movie_id = $_GET['movie_id'];
+
+      $movies = mysqli_query($conn, "SELECT * FROM movies JOIN director ON movies.director_id = director.director_id
+      JOIN genres ON movies.genre_id = genres.genre_id WHERE movie_id = $movie_id");
+
+      foreach ($movies as $movie) {
+    ?>
+    <div class="container" style="margin-top: 80px">
       <div class="header">
         <h2 class="text-center">Detail Movies</h2>
       </div>
       <div class="row my-5">
         <div class="col-md-6">
-          <img src="images/episodes/m1.jpg" alt="gambar" width="550px" height="550px">
+          <img src="images/img/<?php echo $movie["cover_image"];?>" alt="gambar" width="550px" height="550px">
         </div>
         <div class="col-md-6">
-          <h1 class="bold">Mirzapur Season 2</h1>
+          <h1 class="bold"><?php echo $movie['judul']; ?></h1>
           <article class="text-justify pt-2">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor quis in suscipit quae voluptates illum harum, cupiditate mollitia modi commodi corporis, odio quibusdam! Corporis itaque ad quibusdam voluptatum deleniti esse sequi placeat rem soluta, in eaque et! Corrupti impedit atque vel perferendis nihil quam laborum! Dolores eaque tenetur expedita quae voluptate voluptatibus nisi odit quod amet incidunt excepturi mollitia saepe neque, ut accusantium exercitationem! Blanditiis maxime provident consequatur perferendis. Maxime, hic mollitia pariatur dolorem magni cum! Neque accusamus assumenda error qui quam omnis quisquam similique optio, iusto molestias perferendis nisi aspernatur ipsam adipisci ipsum molestiae velit laboriosam, delectus asperiores tenetur.
+           <?php echo $movie['deskripsi'];?>
           </article>
           <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft" style="opacity: 1">
             <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
@@ -149,15 +161,16 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
           <div class="trending-list" data-animation-in="fadeInUp" data-delay-in="1.2">
             <div class="text-primary title starring">
               Director :
-              <span class="text-body">Lorenzo Castelo</span>
+              <span class="text-body"><?php echo $movie['nama']; ?></span>
             </div>
             <div class="text-primary title genres">
-              Genres : <span class="text-body">Animation</span>
+              Genres : <span class="text-body"><?php echo $movie['genre_name'] ?></span>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <?php } ?>
 
   </div>
 
@@ -182,7 +195,13 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
         <!-- reviews -->
         <div class="tab-pane fade show active" id="tab-1" role="tabpanel">
           <ul class="reviews__list">
+<<<<<<< HEAD
             <?php foreach ($reviews as $review) : ?>
+=======
+            <?php 
+            $reviews = mysqli_query($conn, "SELECT * FROM reviews");
+            foreach ($reviews as $review) : ?>
+>>>>>>> 8f0d2c69178983facacb3059517979cf258f599d
               <li class="reviews__item">
                 <div class="reviews__autor">
                   <span class="reviews__name">
@@ -244,7 +263,13 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
           <h4 class="main-title">Recomanded</h4>
         </div>
         <div class="row">
+<<<<<<< HEAD
           <?php foreach ($movies as $movie) : ?>
+=======
+          <?php 
+          $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
+          foreach ($movies as $movie) : ?>
+>>>>>>> 8f0d2c69178983facacb3059517979cf258f599d
             <div class="col-md-4">
               <div class="card mb-4 product-wap rounded-5" style="background-color: black; color: white; position: relative;">
                 <a href="#">

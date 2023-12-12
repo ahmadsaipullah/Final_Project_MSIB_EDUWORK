@@ -41,7 +41,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="menu-main-menu-container">
                   <ul id="top-menu" class="navbar-nav ml-auto">
-                    <li class="active menu-item"><a href="index.php">Home</a></li>
+                    <li class="active menu-item"><a href="home.php">Home</a></li>
                     <li class="menu-item"><a href="movies.php">Movies</a></li>
                     <li class="menu-item"><a href="about.php">About Us</a></li>
                   </ul>
@@ -304,12 +304,29 @@
                 $movies = mysqli_query($conn, "SELECT * FROM movies LIMIT 5");
 
                 foreach ($movies as $movie) {
+<<<<<<< HEAD
                 ?>
                   <!-- slide item 1 -->
                   <li class="slide-item">
                     <div class="block-images position-relative">
                       <div class="img-box">
                         <img src="images/img/<?php echo $movie["cover_image"]; ?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
+=======
+              ?>
+                <!-- slide item 1 -->
+                <li class="slide-item">
+                  <div class="block-images position-relative">
+                    <div class="img-box">
+                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
+                    </div>
+                    <div class="block-description">
+                      <h6 class="iq-title">
+                        <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"> <?php echo $movie["judul"]; ?> </a>
+                      </h6>
+                      <div class="movie-time d-flex align-items-center my-2">
+                        <div class="badge badge-secondary p-1 mr-2">16+</div>
+                        <span class="text-white">1h 43min</span>
+>>>>>>> 8f0d2c69178983facacb3059517979cf258f599d
                       </div>
                       <div class="block-description">
                         <h6 class="iq-title">
@@ -377,10 +394,27 @@
 
                 foreach ($movies as $movie) {
                 ?>
+<<<<<<< HEAD
                   <li class="slide-item">
                     <div class="block-images position-relative">
                       <div class="img-box">
                         <img src="images/img/<?php echo $movie["cover_image"]; ?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
+=======
+                <li class="slide-item">
+                  <div class="block-images position-relative">
+                    <div class="img-box">
+                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
+                    </div>
+                    <div class="block-description">
+                      <h6 class="iq-title">
+                          <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>">
+                            <?php echo $movie["judul"]; ?>
+                          </a>
+                      </h6>
+                      <div class="movie-time d-flex align-items-center my-2">
+                        <div class="badge badge-secondary p-1 mr-2">10+</div>
+                        <span class="text-white">2h</span>
+>>>>>>> 8f0d2c69178983facacb3059517979cf258f599d
                       </div>
                       <div class="block-description">
                         <h6 class="iq-title">
@@ -3505,6 +3539,7 @@
                 <?php
                 $movies = mysqli_query($conn, "SELECT * FROM movies ");
 
+<<<<<<< HEAD
                 foreach ($movies as $movie) {
                 ?>
                   <!-- slide item 1 -->
@@ -3512,6 +3547,23 @@
                     <div class="block-images position-relative">
                       <div class="img-box">
                         <img src="images/img/<?php echo $movie["cover_image"]; ?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
+=======
+                    foreach ($movies as $movie) {
+              ?>
+                <!-- slide item 1 -->
+                <li class="slide-item">
+                  <div class="block-images position-relative">
+                    <div class="img-box">
+                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
+                    </div>
+                    <div class="block-description">
+                      <h6 class="iq-title">
+                        <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"><?php echo $movie['judul']; ?></a>
+                      </h6>
+                      <div class="movie-time d-flex align-items-center my-2">
+                        <div class="badge badge-secondary p-1 mr-2">15+</div>
+                        <span class="text-white">2h 45min</span>
+>>>>>>> 8f0d2c69178983facacb3059517979cf258f599d
                       </div>
                       <div class="block-description">
                         <h6 class="iq-title">

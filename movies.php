@@ -152,7 +152,7 @@
                     </div>
                     <div class="block-description">
                       <h6 class="iq-title">
-                        <a href="#"> <?php echo $movie['judul'];?> </a>
+                        <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"> <?php echo $movie['judul'];?> </a>
                       </h6>
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">16+</div>
@@ -232,7 +232,7 @@
                     </div>
                     <div class="block-description">
                       <h6 class="iq-title">
-                        <a href="#"> <?php echo $movie['judul'];?> </a>
+                        <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"> <?php echo $movie['judul'];?> </a>
                       </h6>
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">16+</div>
@@ -310,7 +310,7 @@
                     </div>
                     <div class="block-description">
                       <h6 class="iq-title">
-                        <a href="#"> <?php echo $movie['judul'];?> </a>
+                        <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"> <?php echo $movie['judul'];?> </a>
                       </h6>
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">16+</div>
@@ -387,7 +387,7 @@
                     </div>
                     <div class="block-description">
                       <h6 class="iq-title">
-                        <a href="#"> <?php echo $movie['judul'];?> </a>
+                        <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"> <?php echo $movie['judul'];?> </a>
                       </h6>
                       <div class="movie-time d-flex align-items-center my-2">
                         <div class="badge badge-secondary p-1 mr-2">16+</div>

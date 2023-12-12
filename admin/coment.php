@@ -25,14 +25,15 @@ $coments = mysqli_query($conn, "SELECT * FROM reviews JOIN movies ON reviews.mov
     <link rel="stylesheet" href="../css/slick-animation.css" />
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" />
 </head>
-    <style>
+<style>
     /* CSS untuk mengatur lebar kolom nomor */
     table#Table th:first-child,
     table#Table td:first-child {
-        width: 60px; /* Ubah lebar sesuai kebutuhan */
+        width: 60px;
+        /* Ubah lebar sesuai kebutuhan */
         max-width: 60px;
         word-break: break-word;
     }
@@ -45,11 +46,11 @@ $coments = mysqli_query($conn, "SELECT * FROM reviews JOIN movies ON reviews.mov
 
     table#Table th,
     table#Table td {
-        padding: 8px; /* Sesuaikan padding sesuai kebutuhan */
+        padding: 8px;
+        /* Sesuaikan padding sesuai kebutuhan */
         text-align: left;
         border: 1px solid #ddd;
     }
-
 </style>
 </head>
 
@@ -145,36 +146,36 @@ $coments = mysqli_query($conn, "SELECT * FROM reviews JOIN movies ON reviews.mov
 
                             <div class="navbar-right menu-right">
                                 <ul class="d-flex align-items-center list-inline m-0">
-                                    
-                                        <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
-                                            <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
-                                        </a>
-                                        <div class="iq-sub-dropdown iq-user-dropdown">
-                                            <div class="iq-card shadow-none m-0">
-                                                <div class="iq-card-body p-0 pl-3 pr-3">
-                                                    <a href="#" class="iq-sub-card setting-dropdown">
-                                                        <div class="media align-items-center">
-                                                            <div class="right-icon">
-                                                                <i class="fa fa-user text-primary"></i>
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Manage Profile</h6>
-                                                            </div>
+
+                                    <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
+                                        <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
+                                    </a>
+                                    <div class="iq-sub-dropdown iq-user-dropdown">
+                                        <div class="iq-card shadow-none m-0">
+                                            <div class="iq-card-body p-0 pl-3 pr-3">
+                                                <a href="#" class="iq-sub-card setting-dropdown">
+                                                    <div class="media align-items-center">
+                                                        <div class="right-icon">
+                                                            <i class="fa fa-user text-primary"></i>
                                                         </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card setting-dropdown">
-                                                        <div class="media align-items-center">
-                                                            <div class="right-icon">
-                                                                <i class="fa fa-sign-out text-primary"></i>
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Logout</h6>
-                                                            </div>
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-0">Manage Profile</h6>
                                                         </div>
-                                                    </a>
-                                                </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="iq-sub-card setting-dropdown">
+                                                    <div class="media align-items-center">
+                                                        <div class="right-icon">
+                                                            <i class="fa fa-sign-out text-primary"></i>
+                                                        </div>
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-0">Logout</h6>
+                                                        </div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
+                                    </div>
                                     </li>
                                 </ul>
                             </div>
@@ -191,37 +192,62 @@ $coments = mysqli_query($conn, "SELECT * FROM reviews JOIN movies ON reviews.mov
         <div class="container-fluid" style="margin-top: 70px">
             <div class="row">
                 <div class="col-sm-12 overflow-hidden">
-                    <table class="table table-bordered" id="Table">
-                        <thead>
-                            <tr>
-                                <th scope="col-2">NO</th>
-                                <th scope="col">TITLE</th>
-                                <th scope="col">COMENT</th>
-                                <th scope="col">RATE</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $no = 1;
-                            while ($coment = mysqli_fetch_array($coments)) {
-                            ?>
+                    <button type="button" class="btn btn-hover iq-button" data-toggle="modal" data-target="#tambah" style="margin-bottom: 20px">ADD kOMENTAR</button>
+                    <table id="Table">
+                        <table class="table table-bordered" id="Table">
+                            <thead>
                                 <tr>
-                                    <td><?php echo $no++ ?></td>
-                                    <td><?php echo $coment['judul'] ?></td>
-                                    <td><?php echo $coment['review_text'] ?></td>
-                                    <td><?php echo $coment['rating'] ?></td>
+                                    <th scope="col-2">NO</th>
+                                    <th scope="col">TITLE</th>
+                                    <th scope="col">COMENT</th>
+                                    <th scope="col">RATE</th>
                                 </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $no = 1;
+                                while ($coment = mysqli_fetch_array($coments)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $no++ ?></td>
+                                        <td><?php echo $coment['judul'] ?></td>
+                                        <td><?php echo $coment['review_text'] ?></td>
+                                        <td><?php echo $coment['rating'] ?></td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Modal Tambah -->
+    <div id="tambah" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark">ADD KOMENTAR</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <form action="genre/addgenre.php" method="POST">
+                    <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="genre_name">GENRE</label>
+                            <input type="text" name="genre_name" class="form-control" id="genre_name" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-secondary">Reset</button>
+                            <button type="submit" class="btn btn-primary" name="tambah" value="simpan">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Tambah Akhir -->
+
     <!-- main content ends  -->
-
-
     <footer class="iq-bg-dark">
         <div class="footer-top">
             <div class="container-fluid">
