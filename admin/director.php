@@ -25,31 +25,18 @@ $directors = mysqli_query($conn, "SELECT * FROM director");
     <link rel="stylesheet" href="../css/slick-animation.css" />
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" />
 </head>
-    <style>
+<style>
     /* CSS untuk mengatur lebar kolom nomor */
     table#Table th:first-child,
     table#Table td:first-child {
-        width: 60px; /* Ubah lebar sesuai kebutuhan */
+        width: 60px;
+        /* Ubah lebar sesuai kebutuhan */
         max-width: 60px;
         word-break: break-word;
     }
-
-    /* CSS untuk mengatur tampilan tabel secara keseluruhan */
-    table#Table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    table#Table th,
-    table#Table td {
-        padding: 8px; /* Sesuaikan padding sesuai kebutuhan */
-        text-align: left;
-        border: 1px solid #ddd;
-    }
-
 </style>
 
 </head>
@@ -69,15 +56,7 @@ $directors = mysqli_query($conn, "SELECT * FROM director");
                                 </div>
                             </a>
                             <a href="movies.php" class="navbar-brand">
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                <img src="../images/logo2.png" class="img-fluid logo" alt="" style="width: 100px; height: 100px;" />
-=======
-                                <img src="../images/logo2.png" class="img-fluid logo" alt="" />
->>>>>>> 03acf66e23b6df5fc0b123905a5034ac206d5d63
-=======
-                                <img src="../images/logo2.png" class="img-fluid logo" alt="" style="width: 100px; height: 100px;" />
->>>>>>> 87312c90d02fff2c9a3c464d0d8b18560126a474
+                                <img src="../images/logo.png" class="img-fluid logo" alt="" />
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div class="menu-main-menu-container">
@@ -154,36 +133,36 @@ $directors = mysqli_query($conn, "SELECT * FROM director");
 
                             <div class="navbar-right menu-right">
                                 <ul class="d-flex align-items-center list-inline m-0">
-                                   
-                                        <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
-                                            <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
-                                        </a>
-                                        <div class="iq-sub-dropdown iq-user-dropdown">
-                                            <div class="iq-card shadow-none m-0">
-                                                <div class="iq-card-body p-0 pl-3 pr-3">
-                                                    <a href="#" class="iq-sub-card setting-dropdown">
-                                                        <div class="media align-items-center">
-                                                            <div class="right-icon">
-                                                                <i class="fa fa-user text-primary"></i>
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Manage Profile</h6>
-                                                            </div>
+
+                                    <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
+                                        <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
+                                    </a>
+                                    <div class="iq-sub-dropdown iq-user-dropdown">
+                                        <div class="iq-card shadow-none m-0">
+                                            <div class="iq-card-body p-0 pl-3 pr-3">
+                                                <a href="#" class="iq-sub-card setting-dropdown">
+                                                    <div class="media align-items-center">
+                                                        <div class="right-icon">
+                                                            <i class="fa fa-user text-primary"></i>
                                                         </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card setting-dropdown">
-                                                        <div class="media align-items-center">
-                                                            <div class="right-icon">
-                                                                <i class="fa fa-sign-out text-primary"></i>
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Logout</h6>
-                                                            </div>
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-0">Manage Profile</h6>
                                                         </div>
-                                                    </a>
-                                                </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="iq-sub-card setting-dropdown">
+                                                    <div class="media align-items-center">
+                                                        <div class="right-icon">
+                                                            <i class="fa fa-sign-out text-primary"></i>
+                                                        </div>
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-0">Logout</h6>
+                                                        </div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
+                                    </div>
                                     </li>
                                 </ul>
                             </div>
@@ -265,21 +244,7 @@ $directors = mysqli_query($conn, "SELECT * FROM director");
                                                 <h5 class="modal-title text-dark">DELETE DIRECTOR</h5>
                                             </div>
                                             <form action="director/deletedirector.php" method="POST" enctype="multipart/form-data">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 87312c90d02fff2c9a3c464d0d8b18560126a474
-<<<<<<< HEAD
                                                 <input type="hidden" name="director" value="<?= $director['director_id'] ?>">
-=======
-                                                <input type="hidden" name="director_id" value="<?= $director['director_id'] ?>">
->>>>>>> 4f374f26714ed141a18b9aa668455d160df52c63
-<<<<<<< HEAD
-=======
-                                                <input type="hidden" name="director_id" value="<?= $director['director_id'] ?>">
->>>>>>> 03acf66e23b6df5fc0b123905a5034ac206d5d63
-=======
->>>>>>> 87312c90d02fff2c9a3c464d0d8b18560126a474
                                                 <div class="modal-body">
                                                     <h5 class="text-center text-dark"> Apakah Anda Yakin Akan Hapus <br>
                                                         <span class="text-danger"><?= $director['nama'] ?></span>

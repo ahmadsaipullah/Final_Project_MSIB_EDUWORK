@@ -146,36 +146,36 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
 
                             <div class="navbar-right menu-right">
                                 <ul class="d-flex align-items-center list-inline m-0">
-                                    
-                                        <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
-                                            <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
-                                        </a>
-                                        <div class="iq-sub-dropdown iq-user-dropdown">
-                                            <div class="iq-card shadow-none m-0">
-                                                <div class="iq-card-body p-0 pl-3 pr-3">
-                                                    <a href="#" class="iq-sub-card setting-dropdown">
-                                                        <div class="media align-items-center">
-                                                            <div class="right-icon">
-                                                                <i class="fa fa-user text-primary"></i>
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Manage Profile</h6>
-                                                            </div>
+
+                                    <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
+                                        <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
+                                    </a>
+                                    <div class="iq-sub-dropdown iq-user-dropdown">
+                                        <div class="iq-card shadow-none m-0">
+                                            <div class="iq-card-body p-0 pl-3 pr-3">
+                                                <a href="#" class="iq-sub-card setting-dropdown">
+                                                    <div class="media align-items-center">
+                                                        <div class="right-icon">
+                                                            <i class="fa fa-user text-primary"></i>
                                                         </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card setting-dropdown">
-                                                        <div class="media align-items-center">
-                                                            <div class="right-icon">
-                                                                <i class="fa fa-sign-out text-primary"></i>
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Logout</h6>
-                                                            </div>
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-0">Manage Profile</h6>
                                                         </div>
-                                                    </a>
-                                                </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="iq-sub-card setting-dropdown">
+                                                    <div class="media align-items-center">
+                                                        <div class="right-icon">
+                                                            <i class="fa fa-sign-out text-primary"></i>
+                                                        </div>
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-0">Logout</h6>
+                                                        </div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
+                                    </div>
                                     </li>
                                 </ul>
                             </div>
@@ -218,9 +218,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                         </a>
                                     </td>
                                 </tr>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                <!-- Modal Edit -->
+
                                 <div id="edit<?= $no ?>" class="modal fade" role="dialog">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
@@ -270,14 +268,6 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                     </div>
                                 </div>
                                 <!-- Modal Hapus Akhir -->
-<<<<<<< HEAD
-
-=======
->>>>>>> 03acf66e23b6df5fc0b123905a5034ac206d5d63
-=======
->>>>>>> 558133d5fa95ced5d458f174b23971a8861bc4cd
-=======
->>>>>>> 87312c90d02fff2c9a3c464d0d8b18560126a474
                             <?php } ?>
                         </tbody>
                     </table>

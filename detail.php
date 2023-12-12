@@ -1,11 +1,9 @@
 <?php
 include 'koneksi.php';
-<<<<<<< HEAD
+
 $reviews = mysqli_query($conn, "SELECT * FROM reviews");
 $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
-=======
 
->>>>>>> 8f0d2c69178983facacb3059517979cf258f599d
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +32,7 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
 <body>
   <header id="main-header">
     <div class="main-header">
-      <div class="container-fluid" >
+      <div class="container-fluid">
         <div class="row">
           <div class="col-sm-12">
             <nav class="navbar navbar-expand-lg navbar-light p-0">
@@ -121,55 +119,55 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
 
 
     <?php
-      $movie_id = $_GET['movie_id'];
+    $movie_id = $_GET['movie_id'];
 
-      $movies = mysqli_query($conn, "SELECT * FROM movies JOIN director ON movies.director_id = director.director_id
+    $movies = mysqli_query($conn, "SELECT * FROM movies JOIN director ON movies.director_id = director.director_id
       JOIN genres ON movies.genre_id = genres.genre_id WHERE movie_id = $movie_id");
 
-      foreach ($movies as $movie) {
+    foreach ($movies as $movie) {
     ?>
-    <div class="container" style="margin-top: 80px">
-      <div class="header">
-        <h2 class="text-center">Detail Movies</h2>
-      </div>
-      <div class="row my-5">
-        <div class="col-md-6">
-          <img src="images/img/<?php echo $movie["cover_image"];?>" alt="gambar" width="550px" height="550px">
+      <div class="container" style="margin-top: 80px">
+        <div class="header">
+          <h2 class="text-center">Detail Movies</h2>
         </div>
-        <div class="col-md-6">
-          <h1 class="bold"><?php echo $movie['judul']; ?></h1>
-          <article class="text-justify pt-2">
-           <?php echo $movie['deskripsi'];?>
-          </article>
-          <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft" style="opacity: 1">
-            <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
-              <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+        <div class="row my-5">
+          <div class="col-md-6">
+            <img src="images/img/<?php echo $movie["cover_image"]; ?>" alt="gambar" width="550px" height="550px">
+          </div>
+          <div class="col-md-6">
+            <h1 class="bold"><?php echo $movie['judul']; ?></h1>
+            <article class="text-justify pt-2">
+              <?php echo $movie['deskripsi']; ?>
+            </article>
+            <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft" style="opacity: 1">
+              <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
+                <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
 
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star-half"></i></li>
-              </ul>
-              <span class="text-white ml-2">7.5(imbd)</span>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star-half"></i></li>
+                </ul>
+                <span class="text-white ml-2">7.5(imbd)</span>
+              </div>
+              <div class="d-flex align-items-center mt-2 mt-md-3">
+                <span class="badge badge-secondary p-2">16+</span>
+                <span class="ml-3">1h 52min</span>
+              </div>
             </div>
-            <div class="d-flex align-items-center mt-2 mt-md-3">
-              <span class="badge badge-secondary p-2">16+</span>
-              <span class="ml-3">1h 52min</span>
-            </div>
-          </div>
-          <div class="trending-list" data-animation-in="fadeInUp" data-delay-in="1.2">
-            <div class="text-primary title starring">
-              Director :
-              <span class="text-body"><?php echo $movie['nama']; ?></span>
-            </div>
-            <div class="text-primary title genres">
-              Genres : <span class="text-body"><?php echo $movie['genre_name'] ?></span>
+            <div class="trending-list" data-animation-in="fadeInUp" data-delay-in="1.2">
+              <div class="text-primary title starring">
+                Director :
+                <span class="text-body"><?php echo $movie['nama']; ?></span>
+              </div>
+              <div class="text-primary title genres">
+                Genres : <span class="text-body"><?php echo $movie['genre_name'] ?></span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     <?php } ?>
 
   </div>
@@ -195,13 +193,7 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
         <!-- reviews -->
         <div class="tab-pane fade show active" id="tab-1" role="tabpanel">
           <ul class="reviews__list">
-<<<<<<< HEAD
             <?php foreach ($reviews as $review) : ?>
-=======
-            <?php 
-            $reviews = mysqli_query($conn, "SELECT * FROM reviews");
-            foreach ($reviews as $review) : ?>
->>>>>>> 8f0d2c69178983facacb3059517979cf258f599d
               <li class="reviews__item">
                 <div class="reviews__autor">
                   <span class="reviews__name">
@@ -217,35 +209,42 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
                 </div>
               </li>
             <?php endforeach; ?>
-            <form action="#" class="reviews__form">
+            <form action="review_users.php" class="reviews__form" method="post">
               <div class="row">
+                <div class="col-12 col-md-9 col-lg-10 col-xl-9 mb-4">
+                  <input type="text" name="movie_id" id="movie_id" class="sign__input" value="<?= $movie['movie_id']; ?>" readonly>
+                </div>
                 <div class="col-12 col-md-9 col-lg-10 col-xl-9">
                   <div class="sign__group">
-                    <input type="text" name="title" class="sign__input" placeholder="Name">
+                    <input type="text" name="reviewer_name" id="reviewer_name" class="sign__input" placeholder="Name">
                   </div>
                 </div>
-
                 <div class="col-12 col-md-3 col-lg-2 col-xl-3">
                   <div class="sign__group">
-                    <select name="select" id="select" class="sign__select">
-                      <option value="0">Rating</option>
-                      <option value="5">5</option>
-                      <option value="4">4</option>
-                      <option value="3">3</option>
-                      <option value="2">2</option>
-                      <option value="1">1</option>
+                    <select name="rating" id="rating" class="sign__select" required>
+                      <option selected>Pilih Rating</option>
+                      <option value="1.0">1.0</option>
+                      <option value="2.0">2.0</option>
+                      <option value="3.0">3.0</option>
+                      <option value="4.0">4.0</option>
+                      <option value="5.0">5.0</option>
                     </select>
                   </div>
                 </div>
 
-                <div class="col-12">
+                <div class="col-12 col-md-9 col-lg-10 col-xl-9">
                   <div class="sign__group">
-                    <textarea id="text2" name="text2" class="sign__textarea" placeholder="Add review"></textarea>
+                    <textarea id="review_text" name="review_text" class="sign__textarea" placeholder="Add review"></textarea>
                   </div>
                 </div>
 
-                <div class="col-12">
-                  <button type="button" class="sign__btn">Send</button>
+                <div class="col-12 col-md-3 col-lg-2 col-xl-3">
+                  <input type="date" name="review_date" id="review_date" class="sign__input">
+                </div>
+
+
+                <div class="col-12 d-flex justify-content-end">
+                  <button type="submit" class="btn btn-primary" name="tambah" value="simpan">Save</button>
                 </div>
               </div>
             </form>
@@ -263,13 +262,7 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
           <h4 class="main-title">Recomanded</h4>
         </div>
         <div class="row">
-<<<<<<< HEAD
           <?php foreach ($movies as $movie) : ?>
-=======
-          <?php 
-          $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
-          foreach ($movies as $movie) : ?>
->>>>>>> 8f0d2c69178983facacb3059517979cf258f599d
             <div class="col-md-4">
               <div class="card mb-4 product-wap rounded-5" style="background-color: black; color: white; position: relative;">
                 <a href="#">

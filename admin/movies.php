@@ -28,8 +28,8 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
     <link rel="stylesheet" href="../css/slick-animation.css" />
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" />
 </head>
 </head>
 
@@ -64,36 +64,36 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
 
                             <div class="navbar-right menu-right">
                                 <ul class="d-flex align-items-center list-inline m-0">
-                                  
-                                        <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
-                                            <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
-                                        </a>
-                                        <div class="iq-sub-dropdown iq-user-dropdown">
-                                            <div class="iq-card shadow-none m-0">
-                                                <div class="iq-card-body p-0 pl-3 pr-3">
-                                                    <a href="#" class="iq-sub-card setting-dropdown">
-                                                        <div class="media align-items-center">
-                                                            <div class="right-icon">
-                                                                <i class="fa fa-user text-primary"></i>
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Manage Profile</h6>
-                                                            </div>
+
+                                    <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
+                                        <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
+                                    </a>
+                                    <div class="iq-sub-dropdown iq-user-dropdown">
+                                        <div class="iq-card shadow-none m-0">
+                                            <div class="iq-card-body p-0 pl-3 pr-3">
+                                                <a href="#" class="iq-sub-card setting-dropdown">
+                                                    <div class="media align-items-center">
+                                                        <div class="right-icon">
+                                                            <i class="fa fa-user text-primary"></i>
                                                         </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card setting-dropdown">
-                                                        <div class="media align-items-center">
-                                                            <div class="right-icon">
-                                                                <i class="fa fa-sign-out text-primary"></i>
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Logout</h6>
-                                                            </div>
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-0">Manage Profile</h6>
                                                         </div>
-                                                    </a>
-                                                </div>
+                                                    </div>
+                                                </a>
+                                                <a href="#" class="iq-sub-card setting-dropdown">
+                                                    <div class="media align-items-center">
+                                                        <div class="right-icon">
+                                                            <i class="fa fa-sign-out text-primary"></i>
+                                                        </div>
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-0">Logout</h6>
+                                                        </div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
+                                    </div>
                                     </li>
                                 </ul>
                             </div>
@@ -135,30 +135,18 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                     <td><?php echo $no++ ?></td>
                                     <td><img src="../images/img/<?php echo $all['cover_image']; ?>" class="img-thumbnail" alt="Image" style="width: 80px; height: 100px; object-fit: cover;"></td>
                                     <td><?php echo $all['judul'] ?></td>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                    <td><?php echo substr($all['deskripsi'], 0 , 180) .'...'; ?></td>
-=======
-                                    <td><?php echo $all['deskripsi'] ?></td>
->>>>>>> 558133d5fa95ced5d458f174b23971a8861bc4cd
-=======
-                                    <td><?php echo $all['deskripsi'] ?></td>
->>>>>>> 87312c90d02fff2c9a3c464d0d8b18560126a474
+                                    <td><?php echo substr($all['deskripsi'], 0, 100) . '...'; ?></td>
                                     <td><?php echo $all['genre_name'] ?></td>
                                     <td><?php echo $all['nama'] ?></td>
                                     <td><?php echo $all['movie_link'] ?></td>
                                     <td><?php echo $all['actor'] ?></td>
                                     <td><?php echo $all['durasi'] ?></td>
                                     <td>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                    <div class="d-flex">
-=======
+
+
+
+
                                         <div class="d-flex">
->>>>>>> 558133d5fa95ced5d458f174b23971a8861bc4cd
-=======
-                                        <div class="d-flex">
->>>>>>> 87312c90d02fff2c9a3c464d0d8b18560126a474
                                             <a class="btn btn-hover iq-button" data-toggle="modal" name="edit" data-target="#edit<?= $no ?>">
                                                 <i class="fa fa-pencil mr-1"></i>
                                             </a>
@@ -220,18 +208,15 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label text-dark" for="cover_image">Cover Image:</label>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                                        <img src="../images/img/<?php echo $all ['cover_image']; ?> " width="100px";> 
-                                                        <input type="file" class="form-control border-0" id="cover_image" name="cover_image" >
-=======
+
                                                         <img src="../images/img/<?php echo $all['cover_image']; ?> " width="100px" ;>
                                                         <input type="file" class="form-control border-0" id="cover_image" name="cover_image">
->>>>>>> 558133d5fa95ced5d458f174b23971a8861bc4cd
-=======
+
                                                         <img src="../images/img/<?php echo $all['cover_image']; ?> " width="100px" ;>
                                                         <input type="file" class="form-control border-0" id="cover_image" name="cover_image">
->>>>>>> 87312c90d02fff2c9a3c464d0d8b18560126a474
+
+                                                        <img src="../images/img/<?php echo $all['cover_image']; ?> " width="100px" ;>
+                                                        <input type="file" class="form-control border-0" id="cover_image" name="cover_image">
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="reset" class="btn btn-secondary">Reset</button>
@@ -277,133 +262,133 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
 
     <!-- main content ends  -->
     <footer class="iq-bg-dark">
-    <footer class="iq-bg-dark">
-        <div class="footer-top">
-            <div class="container-fluid">
-                <div class="row footer-standard">
-                    <div class="col-lg-5">
-                        <div class="widget text-left">
-                            <div>
-                                <ul class="menu p-0">
-                                    <li><a href="#">Terms of Use</a></li>
-                                    <li><a href="#">Privacy-Policy</a></li>
-                                    <li><a href="#">FAQ</a></li>
-                                    <li><a href="#">Watch List</a></li>
-                                </ul>
+        <footer class="iq-bg-dark">
+            <div class="footer-top">
+                <div class="container-fluid">
+                    <div class="row footer-standard">
+                        <div class="col-lg-5">
+                            <div class="widget text-left">
+                                <div>
+                                    <ul class="menu p-0">
+                                        <li><a href="#">Terms of Use</a></li>
+                                        <li><a href="#">Privacy-Policy</a></li>
+                                        <li><a href="#">FAQ</a></li>
+                                        <li><a href="#">Watch List</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="widget text-left">
+                                <div class="textwidget">
+                                    <p><small>This is Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, quo tempore. Quasi rem rerum est in nulla atque quibusdam illo. this is footer and simple tsesxij is writen jkd. fsek hello how are you. please like and subscribe. footer ends .</small></p>
+                                </div>
                             </div>
                         </div>
-                        <div class="widget text-left">
-                            <div class="textwidget">
-                                <p><small>This is Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, quo tempore. Quasi rem rerum est in nulla atque quibusdam illo. this is footer and simple tsesxij is writen jkd. fsek hello how are you. please like and subscribe. footer ends .</small></p>
-                            </div>
+                        <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+                            <h6 class="footer-link-title">
+                                Follow Us:
+                            </h6>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-                        <h6 class="footer-link-title">
-                            Follow Us:
-                        </h6>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-                        <div class="widget text-left">
-                            <div class="textwidget">
-                                <h6 class="footer-link-title">
-                                    SAAFilm App
-                                </h6>
-                                <div class="d-flex align-items-center">
-                                    <a href="#"><img src="../images/footer/01.jpg" alt=""></a>
-                                    <br>
-                                    <a href="#" class="ml-3"><img src="../images/footer/02.jpg" alt=""></a>
+                        <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+                            <div class="widget text-left">
+                                <div class="textwidget">
+                                    <h6 class="footer-link-title">
+                                        SAAFilm App
+                                    </h6>
+                                    <div class="d-flex align-items-center">
+                                        <a href="#"><img src="../images/footer/01.jpg" alt=""></a>
+                                        <br>
+                                        <a href="#" class="ml-3"><img src="../images/footer/02.jpg" alt=""></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <!-- Modal Tambah -->
-    <div id="tambah" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-dark">ADD MOVIES</h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <form action="movies/addmovie.php" method="POST" enctype="multipart/form-data">
-                    <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
-                        <div class="form-group">
-                            <label class="control-label text-dark" for="judul">Judul</label>
-                            <input type="text" name="judul" class="form-control" id="judul" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label text-dark" for="deskripsi">Deskripsi</label>
-                            <textarea class="form-control" name="deskripsi" rows="4" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label text-dark" for="director_id">Director</label>
-                            <select class="form-control" name="director_id">
-                                <option selected>Pilih Director</option>
-                                <?php foreach ($directors as $director) { ?>
-                                    <option value="<?php echo $director['director_id'] ?>"><?php echo $director['nama'] ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label text-dark" for="genre_id">Genre</label>
-                            <select class="form-control" name="genre_id">
-                                <option selected>Pilih Genre</option>
-                                <?php foreach ($genres as $genre) { ?>
-                                    <option value="<?php echo $genre['genre_id'] ?>"><?php echo $genre['genre_name'] ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label text-dark" for="movie_link">Movie Link</label>
-                            <input type="text" name="movie_link" class="form-control" id="movie_link">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label text-dark" for="actor">Actor</label>
-                            <textarea class="form-control" name="actor" rows="2" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label text-dark" for="durasi">Durasi</label>
-                            <input type="text" name="durasi" class="form-control" id="durasi" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label text-dark" for="cover_image">Cover Image:</label>
-                            <input type="file" class="form-control border-0" id="cover_image" name="cover_image" required>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="reset" class="btn btn-secondary">Reset</button>
-                            <button type="submit" class="btn btn-primary" name="tambah" value="simpan">Save</button>
-                        </div>
+        <!-- Modal Tambah -->
+        <div id="tambah" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-dark">ADD MOVIES</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
-                </form>
+                    <form action="movies/addmovie.php" method="POST" enctype="multipart/form-data">
+                        <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
+                            <div class="form-group">
+                                <label class="control-label text-dark" for="judul">Judul</label>
+                                <input type="text" name="judul" class="form-control" id="judul" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label text-dark" for="deskripsi">Deskripsi</label>
+                                <textarea class="form-control" name="deskripsi" rows="4" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label text-dark" for="director_id">Director</label>
+                                <select class="form-control" name="director_id">
+                                    <option selected>Pilih Director</option>
+                                    <?php foreach ($directors as $director) { ?>
+                                        <option value="<?php echo $director['director_id'] ?>"><?php echo $director['nama'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label text-dark" for="genre_id">Genre</label>
+                                <select class="form-control" name="genre_id">
+                                    <option selected>Pilih Genre</option>
+                                    <?php foreach ($genres as $genre) { ?>
+                                        <option value="<?php echo $genre['genre_id'] ?>"><?php echo $genre['genre_name'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label text-dark" for="movie_link">Movie Link</label>
+                                <input type="text" name="movie_link" class="form-control" id="movie_link">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label text-dark" for="actor">Actor</label>
+                                <textarea class="form-control" name="actor" rows="2" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label text-dark" for="durasi">Durasi</label>
+                                <input type="text" name="durasi" class="form-control" id="durasi" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label text-dark" for="cover_image">Cover Image:</label>
+                                <input type="file" class="form-control border-0" id="cover_image" name="cover_image" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                                <button type="submit" class="btn btn-primary" name="tambah" value="simpan">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Modal Tambah Akhir -->
+        <!-- Modal Tambah Akhir -->
 
 
 
 
-    <!-- js files  -->
-    <script src="../js/jquery-3.4.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/slick.min.js"></script>
-    <script src="../js/owl.carousel.min.js"></script>
-    <script src="../js/select2.min.js"></script>
-    <script src="../js/jquery.magnific-popup.min.js"></script>
-    <script src="../js/slick-animation.min.js"></script>
-    <script src="../main.js"></script>
-    <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#Table').DataTable();
-        });
-    </script>
+        <!-- js files  -->
+        <script src="../js/jquery-3.4.1.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/slick.min.js"></script>
+        <script src="../js/owl.carousel.min.js"></script>
+        <script src="../js/select2.min.js"></script>
+        <script src="../js/jquery.magnific-popup.min.js"></script>
+        <script src="../js/slick-animation.min.js"></script>
+        <script src="../main.js"></script>
+        <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#Table').DataTable();
+            });
+        </script>
 </body>
 
 </html>

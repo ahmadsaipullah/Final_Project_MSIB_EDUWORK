@@ -1,6 +1,9 @@
 <?php
 include '../koneksi.php';
-$coments = mysqli_query($conn, "SELECT * FROM reviews JOIN movies ON reviews.movie_id = movies.movie_id");
+
+$alls = mysqli_query($conn, "SELECT * FROM reviews
+    LEFT JOIN movies ON reviews.movie_id = movies.movie_id");
+$coments = mysqli_query($conn, "SELECT * FROM movies");
 
 ?>
 <!DOCTYPE html>
@@ -69,15 +72,7 @@ $coments = mysqli_query($conn, "SELECT * FROM reviews JOIN movies ON reviews.mov
                                 </div>
                             </a>
                             <a href="movies.php" class="navbar-brand">
-<<<<<<< HEAD
-<<<<<<< HEAD
                                 <img src="../images/logo.png" class="img-fluid logo" alt="" />
-=======
-                                <img src="../images/logo2.png" class="img-fluid logo" alt="" />
->>>>>>> 03acf66e23b6df5fc0b123905a5034ac206d5d63
-=======
-                                <img src="../images/logo.png" class="img-fluid logo" alt="" />
->>>>>>> 87312c90d02fff2c9a3c464d0d8b18560126a474
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div class="menu-main-menu-container">
@@ -201,30 +196,129 @@ $coments = mysqli_query($conn, "SELECT * FROM reviews JOIN movies ON reviews.mov
             <div class="row">
                 <div class="col-sm-12 overflow-hidden">
                     <button type="button" class="btn btn-hover iq-button" data-toggle="modal" data-target="#tambah" style="margin-bottom: 20px">ADD kOMENTAR</button>
-                    <table id="Table">
-                        <table class="table table-bordered" id="Table">
-                            <thead>
+                    <table class="table table-bordered" id="Table">
+                        <thead>
+                            <tr>
+                                <th scope="col-2">NO</th>
+                                <th scope="col">NAME</th>
+                                <th scope="col">TITLE</th>
+                                <th scope="col">DATE</th>
+                                <th scope="col">COMENT</th>
+                                <th scope="col">RATE</th>
+                                <th scope="col">ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $no = 1;
+                            while ($coment = mysqli_fetch_array($alls)) {
+                            ?>
                                 <tr>
-                                    <th scope="col-2">NO</th>
-                                    <th scope="col">TITLE</th>
-                                    <th scope="col">COMENT</th>
-                                    <th scope="col">RATE</th>
+                                    <td><?php echo $no++ ?></td>
+                                    <td><?php echo $coment['reviewer_name'] ?></td>
+                                    <td><?php echo $coment['judul'] ?></td>
+                                    <td><?php echo date('d-m-Y', strtotime($coment['review_date'])); ?></td>
+                                    <td><?php echo $coment['review_text'] ?></td>
+                                    <td><?php echo $coment['rating'] ?></td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a class="btn btn-hover iq-button" data-toggle="modal" name="edit" data-target="#edit<?= $no ?>">
+                                                <i class="fa fa-pencil mr-1"></i>
+                                            </a>
+                                            <a class="btn btn-hover iq-button ml-2" data-toggle="modal" name="hapus" data-target="#hapus<?= $no ?>">
+                                                <i class="fa fa-trash mr-1"></i>
+                                            </a>
+                                        </div>
+
+
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $no = 1;
-                                while ($coment = mysqli_fetch_array($coments)) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $no++ ?></td>
-                                        <td><?php echo $coment['judul'] ?></td>
-                                        <td><?php echo $coment['review_text'] ?></td>
-                                        <td><?php echo $coment['rating'] ?></td>
-                                    </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
+                                <!-- Modal Edit -->
+                                <div id="edit<?= $no ?>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-dark">EDIT COMENTAR</h5>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <form action="komentar/edit.php" method="POST">
+                                                <input type="hidden" name="review_id" value="<?= $coment['review_id'] ?>">
+                                                <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="reviewer_name">NAMA</label>
+                                                        <input type="text" name="reviewer_name" class="form-control" id="reviewer_name" value="<?= $coment['reviewer_name'] ?>" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="review_date">DATE</label>
+                                                        <input type="date" name="review_date" class="form-control" id="review_date" value="<?= $coment['review_date'] ?>" required>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="rating">RATING</label>
+                                                        <select class="form-control" name="rating">
+                                                            <option selected><?= $coment['rating'] ?></option>
+                                                            <option value="1.0">1.0</option>
+                                                            <option value="2.0">2.0</option>
+                                                            <option value="3.0">3.0</option>
+                                                            <option value="4.0">4.0</option>
+                                                            <option value="5.0">5.0</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="movie_id">MOVIE</label>
+                                                        <select class="form-control" name="movie_id">
+                                                            <?php foreach ($coments as $movie) { ?>
+                                                                <option value="<?php echo $movie['movie_id'] ?>" <?php if ($movie['movie_id'] == $coment['movie_id']) echo 'selected'; ?>>
+                                                                    <?php echo $movie['judul'] ?>
+                                                                </option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="review_text">REVIEW</label>
+                                                        <textarea class="form-control" name="review_text" rows="4" required><?php echo $coment['review_text'] ?></textarea>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="reset" class="btn btn-secondary">Reset</button>
+                                                        <button type="submit" class="btn btn-primary" name="tambah" value="simpan">Save</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal Edit Akhir -->
+
+                                <!-- Modal Hapus -->
+                                <div id="hapus<?= $no ?>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-dark">DELETE MOVIE</h5>
+                                            </div>
+                                            <form action="komentar/destroy.php" method="POST">
+                                                <input type="hidden" name="review_id" id="review_id" value="<?= $coment['review_id'] ?>">
+                                                <div class="modal-body">
+                                                    <h5 class="text-center text-dark"> Apakah Anda Yakin Akan Hapus <br>
+                                                        <span class="text-danger"><?= $coment['reviewer_name'] ?></span>
+                                                    </h5>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-danger" name="hapus">Hapus</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Keluar</button>
+                                                </div>
+                                            </form>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal Hapus Akhir -->
+                            <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -238,11 +332,39 @@ $coments = mysqli_query($conn, "SELECT * FROM reviews JOIN movies ON reviews.mov
                     <h5 class="modal-title text-dark">ADD KOMENTAR</h5>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <form action="genre/addgenre.php" method="POST">
+                <form action="komentar/create.php" method="POST">
                     <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
                         <div class="form-group">
-                            <label class="control-label text-dark" for="genre_name">GENRE</label>
-                            <input type="text" name="genre_name" class="form-control" id="genre_name" required>
+                            <label class="control-label text-dark" for="reviewer_name">NAME</label>
+                            <input type="text" name="reviewer_name" class="form-control" id="reviewer_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="movie_id">JUDUL</label>
+                            <select class="form-control" name="movie_id">
+                                <option selected>Pilih Judul</option>
+                                <?php foreach ($coments as $coment) { ?>
+                                    <option value="<?php echo $coment['movie_id'] ?>"><?php echo $coment['judul'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="actor">COMENTAR</label>
+                            <textarea class="form-control" name="review_text" id="review_text" rows="2" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="reviewer_name">DATE</label>
+                            <input type="date" name="review_date" class="form-control" id="review_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="rating">RATING</label>
+                            <select class="form-control" name="rating" id="rating">
+                                <option selected>Pilih Rating</option>
+                                <option value="1.0">1.0</option>
+                                <option value="2.0">2.0</option>
+                                <option value="3.0">3.0</option>
+                                <option value="4.0">4.0</option>
+                                <option value="5.0">5.0</option>
+                            </select>
                         </div>
                         <div class="modal-footer">
                             <button type="reset" class="btn btn-secondary">Reset</button>

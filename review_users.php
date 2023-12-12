@@ -1,5 +1,5 @@
 <?php
-include '../../koneksi.php';
+include 'koneksi.php';
 
 //get data dari form
 $movie_id = $_POST['movie_id'];
@@ -13,7 +13,7 @@ $query = "INSERT INTO reviews (movie_id, reviewer_name, review_date, review_text
 
 //kondisi pengecekan apakah data berhasil dimasukkan atau tidak
 if ($conn->query($query)) {
-  header("location: ../coment.php");
+  header("location: home.php ");
 } else {
   echo "Data Gagal Disimpan!";
 }
