@@ -318,12 +318,12 @@
               ?>
                 <!-- slide item 1 -->
                 <li class="slide-item">
-                  <div class="block-images position-relative">
+                  <div class="block-images position-relative" style="width: 80%;">
                     <div class="img-box">
-                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
+                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:275px; width:100%; object-fit: cover;" />
                     </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
+                    <div class="block-description" style="margin-top: 100px;">
+                      <h6 class="iq-title" style="font-size: 15px; margin-right:20px;">
                         <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"> <?php echo $movie["judul"]; ?> </a>
                       </h6>
                       <div class="movie-time d-flex align-items-center my-2">
@@ -331,7 +331,7 @@
                         <span class="text-white">1h 43min</span>
                       </div>
                       <div class="hover-buttons">
-                        <span class="btn btn-hover iq-button">
+                        <span class="btn btn-hover iq-button" style="font-size:10px; width:130px;">
                           <i class="fa fa-play mr-1"></i>
                           Watch Trailer
                         </span>
@@ -342,7 +342,7 @@
                         <li class="share">
                           <span><i class="fa fa-share-alt"></i></span>
                           <div class="share-box">
-                            <div class="d-flex align-items-center">
+                            <div class="d-flex align-items-center" style="size:10px; margin-left:100px;">
                               <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
                               <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
                               <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
@@ -389,17 +389,17 @@
                   foreach ($movies as $movie) {
                 ?>
                 <li class="slide-item">
-                  <div class="block-images position-relative">
+                  <div class="block-images position-relative" style="width: 80%;">
                     <div class="img-box">
-                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
+                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:275px; width:100%; object-fit: cover;" />
                     </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
+                    <div class="block-description" style="margin-top: 100px;">
+                      <h6 class="iq-title" style="font-size: 15px; margin-right:20px;">
                           <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>">
                             <?php echo $movie["judul"]; ?>
                           </a>
                       </h6>
-                      <div class="movie-time d-flex align-items-center my-2">
+                      <div class="movie-time d-flex align-items-center my-2" style="font-size:10px;">
                         <div class="badge badge-secondary p-1 mr-2">10+</div>
                         <span class="text-white">2h</span>
                       </div>
@@ -454,14 +454,14 @@
               </h4>
               <ul id="top-ten-slider" class="list-inline p-0 m-0 d-flex align-items-center">
                 <?php 
-                  $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 3");
+                  $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 3 LIMIT 5");
 
                   foreach ($movies as $movie) {
                 ?>
                 <li class="slick-bg">
                   <a href="#">
                     <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid w-100" alt=""  />
-                    <h6 class="iq-title"><a href="#"><?php echo $movie["judul"]; ?></a></h6>
+                    <h6 class="iq-title"><a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"><?php echo $movie["judul"]; ?></a></h6>
                   </a>
                 </li>
                 <?php } ?>
@@ -476,17 +476,17 @@
                   <li>
                     <div class="block-images position-relative">
                       <a href="#">
-                        <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid w-100" alt=""  style="weight :300px; height:169px;" />
+                        <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid w-100" alt=""  style="width :300px; height:169px;" />
                       </a>
                       <div class="block-description">
-                        <h5><?php echo $movie["judul"]; ?></h5>
-                        <div class="movie-time d-flex align-items-center my-2">
+                        <h5 style="font-size:15px;"><?php echo $movie["judul"]; ?></h5>
+                        <div class="movie-time d-flex align-items-center my-2" style="font-size:10px;">
                           <div class="badge badge-secondary p-1 mr-2">
                             10+
                           </div>
                           <span class="text-white">8 Parts</span>
                         </div>
-                        <div class="hover-buttons">
+                        <div class="hover-buttons" style="width: 150px;">
                           <a href="#" class="btn btn-hover" tabindex="0">
                             <i class="fa fa-play mr-1" aria-hidden="true"></i>
                             Watch Trailer
@@ -521,16 +521,16 @@
                   ?>
                 <!-- slide item 1 -->
                 <li class="slide-item">
-                  <div class="block-images position-relative">
+                  <div class="block-images position-relative" style="width: 80%;">
                     <div class="img-box">
-                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
+                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:275px; width:750%; object-fit: cover;" />
                     </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
+                    <div class="block-description" style="margin-top: 100px;">
+                      <h6 class="iq-title" style="font-size: 15px; margin-right:20px;">
                         <a href="#"><?php echo $movie["judul"]; ?></a>
                       </h6>
                       <div class="hover-buttons">
-                        <span class="btn btn-hover iq-button">
+                        <span class="btn btn-hover iq-button" style="font-size:10px; width:130px;">
                           <i class="fa fa-play mr-1"></i>
                           Watch Trailer
                         </span>
@@ -541,7 +541,7 @@
                         <li class="share">
                           <span><i class="fa fa-share-alt"></i></span>
                           <div class="share-box">
-                            <div class="d-flex align-items-center">
+                            <div class="d-flex " style="size:10px; margin-left:100px;">
                               <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
                               <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
                               <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
@@ -639,22 +639,22 @@
               ?>
                 <!-- slide item 1 -->
                 <li class="slide-item">
-                  <div class="block-images position-relative">
+                  <div class="block-images position-relative" style="width:80%;">
                     <div class="img-box">
-                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
+                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:275px; width:100%; object-fit: cover;" />
                     </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
+                    <div class="block-description" style="margin-top: 100px;">
+                      <h6 class="iq-title" style="font-size: 15px; margin-right:20px;">
                         <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"><?php echo $movie['judul']; ?></a>
                       </h6>
-                      <div class="movie-time d-flex align-items-center my-2">
+                      <div class="movie-time d-flex align-items-center my-2 " style="font-size:10px;">
                         <div class="badge badge-secondary p-1 mr-2">15+</div>
                         <span class="text-white">2h 45min</span>
                       </div>
                       <div class="hover-buttons">
-                        <span class="btn btn-hover iq-button">
-                          <i class="fa fa-play mr-1"></i>
-                          Watch Trailer
+                        <span class="btn btn-hover iq-button" style="font-size:10px; width:130px;">
+                          <i class="fa fa-play"></i>
+                            Watch Trailer
                         </span>
                       </div>
                     </div>
