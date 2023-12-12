@@ -1,5 +1,7 @@
 <?php
 include '../koneksi.php';
+include '../admin/auth/index.php';
+
 $genres = mysqli_query($conn, "SELECT * FROM genres");
 
 ?>
@@ -81,68 +83,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                     </ul>
                                 </div>
                             </div>
-                            <div class="mobile-more-menu">
-                                <a href="../javascript:void(0);" class="more-toggle" id="dropdownMenuButton" data-toggle="more-toggle" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-ellipsis-h"></i>
-                                </a>
-                                <div class="more-menu" aria-labelledby="dropdownMenuButton">
-                                    <div class="navbar-right position-relative">
-                                        <ul class="d-flex align-items-center justify-content-end list-inline m-0">
-                                            <li>
-                                                <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center">
-                                                    <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
-                                                </a>
-                                                <div class="iq-sub-dropdown iq-user-dropdown">
-                                                    <div class="iq-card shadow-none m-0">
-                                                        <div class="iq-card-body p-0 pl-3 pr-3">
-                                                            <a href="#" class="iq-sub-card setting-dropdown">
-                                                                <div class="media align-items-center">
-                                                                    <div class="right-icon">
-                                                                        <i class="fa fa-user text-primary"></i>
-                                                                    </div>
-                                                                    <div class="media-body ml-3">
-                                                                        <h6 class="mb-0">Manage Profile</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#" class="iq-sub-card setting-dropdown">
-                                                                <div class="media align-items-center">
-                                                                    <div class="right-icon">
-                                                                        <i class="fa fa-cog text-primary"></i>
-                                                                    </div>
-                                                                    <div class="media-body ml-3">
-                                                                        <h6 class="mb-0">Settings</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#" class="iq-sub-card setting-dropdown">
-                                                                <div class="media align-items-center">
-                                                                    <div class="right-icon">
-                                                                        <i class="fa fa-inr text-primary"></i>
-                                                                    </div>
-                                                                    <div class="media-body ml-3">
-                                                                        <h6 class="mb-0">Pricing Plan</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#" class="iq-sub-card setting-dropdown">
-                                                                <div class="media align-items-center">
-                                                                    <div class="right-icon">
-                                                                        <i class="fa fa-sign-out text-primary"></i>
-                                                                    </div>
-                                                                    <div class="media-body ml-3">
-                                                                        <h6 class="mb-0">Logout</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+
 
                             <div class="navbar-right menu-right">
                                 <ul class="d-flex align-items-center list-inline m-0">
@@ -153,7 +94,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                     <div class="iq-sub-dropdown iq-user-dropdown">
                                         <div class="iq-card shadow-none m-0">
                                             <div class="iq-card-body p-0 pl-3 pr-3">
-                                                <a href="#" class="iq-sub-card setting-dropdown">
+                                                <!-- <a href="#" class="iq-sub-card setting-dropdown">
                                                     <div class="media align-items-center">
                                                         <div class="right-icon">
                                                             <i class="fa fa-user text-primary"></i>
@@ -162,9 +103,9 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                                             <h6 class="mb-0">Manage Profile</h6>
                                                         </div>
                                                     </div>
-                                                </a>
-                                                <a href="#" class="iq-sub-card setting-dropdown">
-                                                    <div class="media align-items-center">
+                                                </a> -->
+                                                <a href="#" class="iq-sub-card setting-dropdown" data-toggle="modal" data-target="#exampleModal">
+                                                    <div class="media align-items-center pt-4">
                                                         <div class="right-icon">
                                                             <i class="fa fa-sign-out text-primary"></i>
                                                         </div>
@@ -180,13 +121,32 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                 </ul>
                             </div>
                         </nav>
+
                         <div class="nav-overlay"></div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Yakin Ingin Keluar?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body text-dark">Pilih "Logout" jika anda ingin mengakhiri sesi.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-close card-shadow-2 btn-sm" type="button" data-dismiss="modal">Batal</button>
+                    <a class="btn btn-primary btn-sm card-shadow-2" href="../admin/auth/destroy.php">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main content starts  -->
     <!-- main content starts  -->
     <div class="main-content">
         <div class="container-fluid" style="margin-top: 70px">

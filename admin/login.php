@@ -1,26 +1,39 @@
 <?php
+session_start();
 include '../koneksi.php';
 
+// Start the session
+$_SESSION["admin"] = true;
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btnLogin'])) {
     // Ambil data yang dikirimkan melalui form
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
+    $captcha = $_POST['captcha'];
+
+
 
     // Query SQL untuk memeriksa apakah data login valid
     $query = "SELECT * FROM admin WHERE nama = '$username' AND password = '$password'";
 
     // Periksa apakah hasil query mengembalikan satu baris (login berhasil)
     $result = mysqli_query($conn, $query);
-
-    if ($result && mysqli_num_rows($result) == 1) {
-        // Login berhasil, redirect ke halaman admin
-        header("Location: movies.php"); // Ganti halaman_admin.php dengan halaman yang sesuai
-        exit();
+    if ($captcha == $_SESSION['bilangan']) {
+        if ($result && mysqli_num_rows($result) == 1) {
+            $_SESSION["username"] = $username;
+            // Login berhasil, redirect ke halaman admin
+            header("Location: movies.php"); // Ganti halaman_admin.php dengan halaman yang sesuai
+            exit();
+        } else {
+            // Login gagal, tampilkan pesan error
+            echo '<script>alert("Username atau Password salah. Silakan coba lagi.");</script>';
+        }
     } else {
-        // Login gagal, tampilkan pesan error
-        echo '<script>alert("Username atau Password salah. Silakan coba lagi.");</script>';
+        // Login gagal, tampilkan pesan captcha error
+        echo '<script>alert("Captcha Salah Silakan coba lagi.");</script>';
     }
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -87,6 +100,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btnLogin'])) {
                     <div class="form-group">
                         <label for="password"><i class="fas fa-fw fa-lock"></i> Password</label>
                         <input required class="form-control rounded-pill" type="password" name="password" id="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="captcha"><i class="fas fa-fw fa-code"></i> Captcha</label>
+                        <img src="../admin/auth/captcha.php" alt="gambar">
+                    </div>
+                    <div class="form-group">
+                        <label for="captcha"><i class="fas fa-fw fa-lock"></i>Masukan Captcha</label>
+                        <input type="number" class="form-control rounded-pill" name="captcha" required>
+
                     </div>
                     <div class="form-group">
                         <a href="../index.php" class="btn btn-info rounded-pill text-left"><i class="fas fa-fw fa-arrow-left"></i> Back</a>

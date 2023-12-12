@@ -1,5 +1,7 @@
 <?php
 include '../koneksi.php';
+include '../admin/auth/index.php';
+
 $alls = mysqli_query($conn, "SELECT * FROM movies
     LEFT JOIN director ON movies.director_id = director.director_id
     LEFT JOIN genres ON movies.genre_id = genres.genre_id");
@@ -71,7 +73,7 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                     <div class="iq-sub-dropdown iq-user-dropdown">
                                         <div class="iq-card shadow-none m-0">
                                             <div class="iq-card-body p-0 pl-3 pr-3">
-                                                <a href="#" class="iq-sub-card setting-dropdown">
+                                                <!-- <a href="#" class="iq-sub-card setting-dropdown">
                                                     <div class="media align-items-center">
                                                         <div class="right-icon">
                                                             <i class="fa fa-user text-primary"></i>
@@ -80,9 +82,9 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                                             <h6 class="mb-0">Manage Profile</h6>
                                                         </div>
                                                     </div>
-                                                </a>
-                                                <a href="#" class="iq-sub-card setting-dropdown">
-                                                    <div class="media align-items-center">
+                                                </a> -->
+                                                <a href="#" class="iq-sub-card setting-dropdown" data-toggle="modal" data-target="#exampleModal">
+                                                    <div class="media align-items-center pt-4">
                                                         <div class="right-icon">
                                                             <i class="fa fa-sign-out text-primary"></i>
                                                         </div>
@@ -98,13 +100,31 @@ $genres = mysqli_query($conn, "SELECT * FROM genres");
                                 </ul>
                             </div>
                         </nav>
+
                         <div class="nav-overlay"></div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Yakin Ingin Keluar?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body text-dark">Pilih "Logout" jika anda ingin mengakhiri sesi.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-close card-shadow-2 btn-sm" type="button" data-dismiss="modal">Batal</button>
+                    <a class="btn btn-primary btn-sm card-shadow-2" href="../admin/auth/destroy.php">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- main content starts  -->
     <div class="main-content">
         <div class="container-fluid" style="margin-top: 70px">
