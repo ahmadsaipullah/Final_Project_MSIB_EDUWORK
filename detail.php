@@ -1,6 +1,49 @@
 <?php
 include 'koneksi.php';
 
+function getAverageRating($movieId, $conn)
+{
+  $query = "SELECT AVG(rating) as avg_rating FROM reviews WHERE movie_id = $movieId";
+  $result = mysqli_query($conn, $query);
+  $row = mysqli_fetch_assoc($result);
+  return $row['avg_rating'];
+}
+$movies = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                                FROM movies 
+                                JOIN reviews ON movies.movie_id = reviews.movie_id 
+                                GROUP BY movies.movie_id 
+                                LIMIT 6 ");
+$dramas = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 1
+                              GROUP BY movies.movie_id");
+$actions = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 2
+                              GROUP BY movies.movie_id");
+$fantasys = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 3
+                              GROUP BY movies.movie_id");
+$comedys = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 4
+                              GROUP BY movies.movie_id");
+$advantures = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 5
+                              GROUP BY movies.movie_id");
+$horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 6
+                              GROUP BY movies.movie_id");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -141,10 +184,7 @@ include 'koneksi.php';
               <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
 
                 <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star-half"></i></li>
+                <li><?= number_format(getAverageRating($movie['movie_id'], $conn), 1); ?></li>
               </ul>
               <span class="text-white ml-2">7.5(imbd)</span>
             </div>
@@ -212,13 +252,13 @@ include 'koneksi.php';
               <div class="row">
                 <div class="col-12 col-md-9 col-lg-10 col-xl-9">
                   <div class="sign__group">
-                    <input type="text" name="title" class="sign__input" placeholder="Name">
+                    <input type="text" name="review_name" class="sign__input" placeholder="Name">
                   </div>
                 </div>
 
                 <div class="col-12 col-md-3 col-lg-2 col-xl-3">
                   <div class="sign__group">
-                    <select name="select" id="select" class="sign__select">
+                    <select name="rating" id="select" class="sign__select">
                       <option value="0">Rating</option>
                       <option value="5">5</option>
                       <option value="4">4</option>
@@ -231,7 +271,7 @@ include 'koneksi.php';
 
                 <div class="col-12">
                   <div class="sign__group">
-                    <textarea id="text2" name="text2" class="sign__textarea" placeholder="Add review"></textarea>
+                    <textarea id="text2" name="review_text" class="sign__textarea" placeholder="Add review"></textarea>
                   </div>
                 </div>
 
@@ -258,9 +298,9 @@ include 'koneksi.php';
           $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
           foreach ($movies as $movie) : ?>
             <div class="col-md-4">
-              <div class="card mb-4 product-wap rounded-5" style="background-color: black; color: white; position: relative;">
+              <div class="card mb-4 product-wap rounded-5" style="background-color: black; color: white; position: relative; width:120%;">
                 <a href="#">
-                  <img class="card-img rounded-5 img-fluid" src="images/img/<?= $movie['cover_image']; ?>" style="width: 100%; height: 350px; object-fit: cover;">
+                  <img class="card-img rounded-5 img-fluid" src="images/img/<?= $movie['cover_image']; ?>" style="height:275px; width:100%; object-fit: cover;">
                 </a>
                 <div class="card-body" style="position: absolute; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.7); height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
                   <a href="#" class="h6 text-decoration-none text-light"><?= $movie['judul']; ?></a>
@@ -269,7 +309,7 @@ include 'koneksi.php';
                   </div>
                   <div class="star-rating">
                     <span class="fa fa-star text-warning"></span>
-                    <span>4 / 5</span>
+                    <span><?= number_format(getAverageRating($movie['movie_id'], $conn), 1); ?></span>
                   </div>
                   <div class="card-boy rounded-5 mt-2">
                     <a href="detail.php" class="btn btn-hover iq-button" style="font-size: 10px;">

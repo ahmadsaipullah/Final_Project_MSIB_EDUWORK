@@ -1,3 +1,50 @@
+<?php
+include 'koneksi.php';
+function getAverageRating($movieId, $conn)
+{
+  $query = "SELECT AVG(rating) as avg_rating FROM reviews WHERE movie_id = $movieId";
+  $result = mysqli_query($conn, $query);
+  $row = mysqli_fetch_assoc($result);
+  return $row['avg_rating'];
+}
+$movies = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                                FROM movies 
+                                JOIN reviews ON movies.movie_id = reviews.movie_id 
+                                GROUP BY movies.movie_id 
+                                LIMIT 6 ");
+$dramas = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 1
+                              GROUP BY movies.movie_id");
+$actions = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 2
+                              GROUP BY movies.movie_id");
+$fantasys = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 3
+                              GROUP BY movies.movie_id");
+$comedys = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 4
+                              GROUP BY movies.movie_id");
+$advantures = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 5
+                              GROUP BY movies.movie_id");
+$horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rating 
+                              FROM movies 
+                              JOIN reviews ON movies.movie_id = reviews.movie_id 
+                              WHERE genre_id = 6
+                              GROUP BY movies.movie_id");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -146,53 +193,28 @@
               ?>
                 <!-- slide item 1 -->
                 <li class="slide-item">
-                  <div class="block-images position-relative">
+                  <div class="block-images position-relative" style="width: 80%;">
                     <div class="img-box">
-                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
+                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:275px; width:100%; object-fit: cover;" />
                     </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
+                    <div class="block-description" style="margin-top: 80px;">
+                      <h6 class="iq-title" style="font-size: 15px; margin-right:20px;">
                         <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"> <?php echo $movie['judul'];?> </a>
                       </h6>
-                      <div class="movie-time d-flex align-items-center my-2">
+                      <div class="movie-time d-flex align-items-center my-2" style="font-size: 10px;">
                         <div class="badge badge-secondary p-1 mr-2">16+</div>
                         <span class="text-white">1h 43min</span>
                       </div>
                       <div class="hover-buttons">
                         <div class="star-rating">
                           <span class="fa fa-star text-warning"></span>
-                          <span class="fa fa-star text-warning"></span>
-                          <span class="fa fa-star text-warning"></span>
-                          <span class="fa fa-star text-warning"></span>
-                          <span class="fa fa-star"></span>
-                          <span>4 / 5</span>
+                          <span><?= number_format(getAverageRating($movie['movie_id'], $conn), 1); ?></span>
                         </div>
-                        <span class="btn btn-hover iq-button">
+                        <span class="btn btn-hover iq-button" style="font-size:10px; width:130px;">
                           <i class="fa fa-play mr-1"></i>
                           Watch Trailer
                         </span>
                       </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">19+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
                     </div>
                   </div>
                 </li>
@@ -226,53 +248,28 @@
               ?>
                 <!-- slide item 1 -->
                 <li class="slide-item">
-                  <div class="block-images position-relative">
+                  <div class="block-images position-relative" style="width: 80%;">
                     <div class="img-box">
-                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
+                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:275px; width:100%; object-fit: cover;" />
                     </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
+                    <div class="block-description" style="margin-top: 80px;">
+                      <h6 class="iq-title" style="font-size: 15px; margin-right:20px;">
                         <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"> <?php echo $movie['judul'];?> </a>
                       </h6>
-                      <div class="movie-time d-flex align-items-center my-2">
+                      <div class="movie-time d-flex align-items-center my-2" style="font-size:10px;">
                         <div class="badge badge-secondary p-1 mr-2">16+</div>
                         <span class="text-white">1h 43min</span>
                       </div>
                       <div class="hover-buttons">
                         <div class="star-rating">
                           <span class="fa fa-star text-warning"></span>
-                          <span class="fa fa-star text-warning"></span>
-                          <span class="fa fa-star text-warning"></span>
-                          <span class="fa fa-star text-warning"></span>
-                          <span class="fa fa-star"></span>
-                          <span>4 / 5</span>
+                          <span><?= number_format(getAverageRating($movie['movie_id'], $conn), 1); ?></span>
                         </div>
-                        <span class="btn btn-hover iq-button">
+                        <span class="btn btn-hover iq-button" style="font-size:10px; width:130px;">
                           <i class="fa fa-play mr-1"></i>
                           Watch Trailer
                         </span>
                       </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">19+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
                     </div>
                   </div>
                 </li>
@@ -304,53 +301,28 @@
               ?>
                 <!-- slide item 1 -->
                 <li class="slide-item">
-                  <div class="block-images position-relative">
+                  <div class="block-images position-relative" style="width: 80%;">
                     <div class="img-box">
-                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
+                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:275px; width:100%; object-fit: cover;" />
                     </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
+                    <div class="block-description" style="margin-top: 80px;">
+                      <h6 class="iq-title" style="font-size: 15px; margin-right:20px;">
                         <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"> <?php echo $movie['judul'];?> </a>
                       </h6>
-                      <div class="movie-time d-flex align-items-center my-2">
+                      <div class="movie-time d-flex align-items-center my-2" style="font-size:10px;">
                         <div class="badge badge-secondary p-1 mr-2">16+</div>
                         <span class="text-white">1h 43min</span>
                       </div>
                       <div class="hover-buttons">
                         <div class="star-rating">
                           <span class="fa fa-star text-warning"></span>
-                          <span class="fa fa-star text-warning"></span>
-                          <span class="fa fa-star text-warning"></span>
-                          <span class="fa fa-star text-warning"></span>
-                          <span class="fa fa-star"></span>
-                          <span>4 / 5</span>
+                          <span><?= number_format(getAverageRating($movie['movie_id'], $conn), 1); ?></span>
                         </div>
-                        <span class="btn btn-hover iq-button">
+                        <span class="btn btn-hover iq-button" style="font-size:10px; width:130px;">
                           <i class="fa fa-play mr-1"></i>
                           Watch Trailer
                         </span>
                       </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">19+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
                     </div>
                   </div>
                 </li>
@@ -381,53 +353,28 @@
               ?>
                 <!-- slide item 1 -->
                 <li class="slide-item">
-                  <div class="block-images position-relative">
+                  <div class="block-images position-relative" style="width: 80%;">
                     <div class="img-box">
-                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:300px; width:285px;" />
+                      <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid" alt="" style="height:275px; width:100%; object-fit: cover;" />
                     </div>
-                    <div class="block-description">
-                      <h6 class="iq-title">
+                    <div class="block-description" style="margin-top: 80px;">
+                      <h6 class="iq-title" style="font-size: 15px; margin-right:20px;">
                         <a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"> <?php echo $movie['judul'];?> </a>
                       </h6>
-                      <div class="movie-time d-flex align-items-center my-2">
+                      <div class="movie-time d-flex align-items-center my-2" style="font-size:10px;">
                         <div class="badge badge-secondary p-1 mr-2">16+</div>
                         <span class="text-white">1h 43min</span>
                       </div>
                       <div class="hover-buttons">
                         <div class="star-rating">
                           <span class="fa fa-star text-warning"></span>
-                          <span class="fa fa-star text-warning"></span>
-                          <span class="fa fa-star text-warning"></span>
-                          <span class="fa fa-star text-warning"></span>
-                          <span class="fa fa-star"></span>
-                          <span>4 / 5</span>
+                          <span><?= number_format(getAverageRating($movie['movie_id'], $conn), 1); ?></span>
                         </div>
-                        <span class="btn btn-hover iq-button">
+                        <span class="btn btn-hover iq-button" style="font-size:10px; width:130px;">
                           <i class="fa fa-play mr-1"></i>
                           Watch Trailer
                         </span>
                       </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">19+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
                     </div>
                   </div>
                 </li>

@@ -387,27 +387,6 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                         </span>
                       </div>
                     </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center" style="size:10px; margin-left:100px;">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">19+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
-                    </div>
                   </div>
                 </li>
               <?php } ?>
@@ -464,27 +443,6 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                         </span>
                       </div>
                     </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">89+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
-                    </div>
                   </div>
                 </li>
                 <?php } ?>
@@ -506,16 +464,17 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
               <h4 class="main-title iq-title topten-title">
                 Trending Movies
               </h4>
-              <ul id="top-ten-slider" class="list-inline p-0 m-0 d-flex align-items-center">
+              <ul id="top-ten-slider" class="list-inline p-0 m-0 d-flex align-items-center" >
                 <?php 
-                  $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 3 LIMIT 5");
+                  $movies = mysqli_query($conn, "SELECT * FROM movies LIMIT 5");
 
                   foreach ($movies as $movie) {
                 ?>
                 <li class="slick-bg">
                   <a href="#">
-                    <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid w-100" alt=""  />
-                    <h6 class="iq-title"><a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>"><?php echo $movie["judul"]; ?></a></h6>
+                    <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid w-100" alt=""  style="width:70px; height:100px%;" />
+                    <h6 class="iq-title"><a href="detail.php?movie_id=<?php echo $movie['movie_id']; ?>">
+                    <?php echo $movie["judul"]; ?></a></h6>
                   </a>
                 </li>
                 <?php } ?>
@@ -523,12 +482,12 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
               <div class="vertical_s">
                 <ul id="top-ten-slider-nav" class="list-inline p-0 m-0 d-flex align-items-center">
                   <?php 
-                    $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 3");
+                    $movies = mysqli_query($conn, "SELECT * FROM movies LIMIT 5");
 
                     foreach ($movies as $movie) {
                   ?>
                   <li>
-                    <div class="block-images position-relative">
+                    <div class="block-images position-relative" style="height: auto; width:auto;">
                       <a href="#">
                         <img src="images/img/<?php echo $movie["cover_image"];?>" class="img-fluid w-100" alt=""  style="width :300px; height:169px;" />
                       </a>
@@ -597,27 +556,6 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                           Watch Trailer
                         </span>
                       </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex " style="size:10px; margin-left:100px;">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">89+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
                     </div>
                   </div>
                 </li>
@@ -723,27 +661,6 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                             Watch Trailer
                         </span>
                       </div>
-                    </div>
-                    <div class="block-social-info">
-                      <ul class="list-inline p-0 m-0 music-play-lists">
-                        <li class="share">
-                          <span><i class="fa fa-share-alt"></i></span>
-                          <div class="share-box">
-                            <div class="d-flex align-items-center">
-                              <a href="#" class="share-ico"><i class="fa fa-share-alt"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-youtube"></i></a>
-                              <a href="#" class="share-ico"><i class="fa fa-instagram"></i></a>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-heart"></i></span>
-                          <span class="count-box">89+</span>
-                        </li>
-                        <li>
-                          <span><i class="fa fa-plus"></i></span>
-                        </li>
-                      </ul>
                     </div>
                   </div>
                 </li>
