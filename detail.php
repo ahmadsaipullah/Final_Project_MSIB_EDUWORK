@@ -311,8 +311,8 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                     <span class="fa fa-star text-warning"></span>
                     <span><?= number_format(getAverageRating($movie['movie_id'], $conn), 1); ?></span>
                   </div>
-                  <div class="card-boy rounded-5 mt-2">
-                    <a href="detail.php" class="btn btn-hover iq-button" style="font-size: 10px;">
+                  <div class="card-boy rounded-5 mt-2" style="margin-right: 80px;">
+                    <a href="detail.php" class="btn btn-hover iq-button" style="font-size: 10px; width:130px;">
                       <i class="fa fa-play"></i>
                       Watch Trailer
                     </a>
