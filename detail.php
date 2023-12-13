@@ -1,5 +1,11 @@
 <?php
 include 'koneksi.php';
+include 'hitCounter.php';
+
+$hit = new HitCounter();
+
+//cek dan simpan
+$hit->Hitung();
 
 $reviews = mysqli_query($conn, "SELECT * FROM reviews");
 $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
@@ -163,6 +169,17 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
               </div>
               <div class="text-primary title genres">
                 Genres : <span class="text-body"><?php echo $movie['genre_name'] ?></span>
+              </div>
+              <div class="text-primary title genres">
+                Jumlah Pengunjung : <span class="text-body"><?php echo $hit->tampil(); ?></span>
+              </div>
+              <div class="text-primary">
+                <!-- tampilkan history kunjungan -->
+                <?php $h = $hit->waktu();
+                if (!empty($h)) {
+                  echo '<br>Anda telah mengunjungi halaman ini pada : ' . $h;
+                }
+                ?>
               </div>
             </div>
           </div>
