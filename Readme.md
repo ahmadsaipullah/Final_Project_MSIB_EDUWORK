@@ -27,13 +27,6 @@ Website Film adalah web nonton film online dengan memanfaatkan database yang did
 - Septi Dewi Yuliana
 - Ahmad Saifullah
 
-## :photo: users
-
-<img src="images\user\ipul.png" alt="logo team" width="100"/>
-<img src="images\user\arman.jpg" alt="logo team" width="150"/>
-<img src="images\user\fergi.jpg" alt="logo team" width="150"/>
-<img src="images\user\septi.jpg" alt="logo team" width="150"/>
-
 ## :memo: Checklist
 
 - Panduan App di Dalam Readme :heavy_check_mark:
