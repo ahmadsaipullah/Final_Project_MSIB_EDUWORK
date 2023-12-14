@@ -115,6 +115,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btnLogin'])) {
                         <button class="btn btn-success rounded-pill float-right" type="submit" name="btnLogin"><i class="fas fa-fw fa-sign-in-alt"></i> Login</button>
                     </div>
                 </form>
+                <div class="text-center">
+                    <a href="forgotPassword.php" class="btn btn-warning btn-xs rounded-pill text-left">Forgot Password?</a>
+                </div>
             </div>
         </div>
     </div>

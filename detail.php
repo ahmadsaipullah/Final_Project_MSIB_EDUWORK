@@ -18,8 +18,12 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Video Streaming</title>
+  <title>Detail Streaming</title>
   <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- i will provide this in description  -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <!-- i will provide this in description  -->
   <link rel="stylesheet" href="css/slick.css" />
@@ -33,6 +37,32 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
 
   <link rel="stylesheet" href="css/slick-animation.css" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .star {
+      width: 120px;
+      position: relative;
+      color: #bdbdbd;
+    }
+
+    .rating span {
+      font-size: 30px;
+      margin-left: -4px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .rating span:before {
+      content: "\2605";
+      position: absolute;
+      color: gray;
+    }
+
+    .rating span.fill:before {
+      content: "\2605";
+      position: absolute;
+      color: gold;
+    }
+  </style>
 </head>
 
 <body>
@@ -146,7 +176,7 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
               <?php echo $movie['deskripsi']; ?>
             </article>
             <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft" style="opacity: 1">
-              <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
+              <!-- <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
                 <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
 
                   <li><i class="fa fa-star"></i></li>
@@ -156,7 +186,7 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
                   <li><i class="fa fa-star-half"></i></li>
                 </ul>
                 <span class="text-white ml-2">7.5(imbd)</span>
-              </div>
+              </div> -->
               <div class="d-flex align-items-center mt-2 mt-md-3">
                 <span class="badge badge-secondary p-2">16+</span>
                 <span class="ml-3">1h 52min</span>
@@ -177,7 +207,7 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
                 <!-- tampilkan history kunjungan -->
                 <?php $h = $hit->waktu();
                 if (!empty($h)) {
-                  echo '<br>Anda telah mengunjungi halaman ini pada : ' . $h;
+                  echo '<br>Kunjungan : ' . $h;
                 }
                 ?>
               </div>
@@ -214,54 +244,49 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
               <li class="reviews__item">
                 <div class="reviews__autor">
                   <span class="reviews__name">
-                    <a href="#"><?= $review['reviewer_name']; ?></a>
-                    <span class="reviews__time">
-                      <?php echo date("F j, Y H:i:s", strtotime($review['review_date'])); ?>
-                    </span>
-                    <span class="reviews__rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M22,9.67A1,1,0,0,0,21.14,9l-5.69-.83L12.9,3a1,1,0,0,0-1.8,0L8.55,8.16,2.86,9a1,1,0,0,0-.81.68,1,1,0,0,0,.25,1l4.13,4-1,5.68A1,1,0,0,0,6.9,21.44L12,18.77l5.1,2.67a.93.93,0,0,0,.46.12,1,1,0,0,0,.59-.19,1,1,0,0,0,.4-1l-1-5.68,4.13-4A1,1,0,0,0,22,9.67Zm-6.15,4a1,1,0,0,0-.29.88l.72,4.2-3.76-2a1.06,1.06,0,0,0-.94,0l-3.76,2,.72-4.2a1,1,0,0,0-.29-.88l-3-3,4.21-.61a1,1,0,0,0,.76-.55L12,5.7l1.88,3.82a1,1,0,0,0,.76.55l4.21.61Z" />
-                      </svg><?= $review['rating']; ?>
-                    </span>
-                    <p class="reviews__text"><?= $review['review_text']; ?></p>
+                    <a style="font-size: 18px; color:white; padding-bottom:100px;" href="#"><?= $review['reviewer_name']; ?></a>
+                  </span>
+                  <span class="reviews__time pt-2 text-danger">
+                    <?php echo date('d-M-Y', strtotime($review['review_date'])); ?>
+                  </span>
+                  <span class="reviews__rating"><?php
+
+                                                $stars = "";
+                                                for ($i = 1; $i < 6; $i++) {
+                                                  $stars .= '<span' . (($i <= $review["rating"]) ? ' class="fill"' : '') . '>';
+                                                  $stars .= '&#9733;</span>';
+                                                }
+                                                echo '<div class="star"><div class="rating">' . $stars . '</div></div>'; ?>
+                  </span>
+                  <p class="pt-2" style="font-size: 14px;"><?= $review['review_text']; ?></p>
                 </div>
               </li>
             <?php endforeach; ?>
             <form action="review_users.php" class="reviews__form" method="post">
+              <input type="hidden" name="movie_id" value="<?= $movie_id; ?>">
               <div class="row">
-                <div class="col-12 col-md-9 col-lg-10 col-xl-9 mb-4">
-                  <input type="text" name="movie_id" id="movie_id" class="sign__input" value="<?= $movie['movie_id']; ?>" readonly>
-                </div>
                 <div class="col-12 col-md-9 col-lg-10 col-xl-9">
                   <div class="sign__group">
-                    <input type="text" name="reviewer_name" id="reviewer_name" class="sign__input" placeholder="Name">
-                  </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-2 col-xl-3">
-                  <div class="sign__group">
-                    <select name="rating" id="rating" class="sign__select" required>
-                      <option selected>Pilih Rating</option>
-                      <option value="1.0">1.0</option>
-                      <option value="2.0">2.0</option>
-                      <option value="3.0">3.0</option>
-                      <option value="4.0">4.0</option>
-                      <option value="5.0">5.0</option>
-                    </select>
+                    <input type="text" name="reviewer_name" class="sign__input" id="reviewer_name" placeholder="Name">
                   </div>
                 </div>
 
-                <div class="col-12 col-md-9 col-lg-10 col-xl-9">
+                <div class="col-12 col-md-3 col-lg-2 col-xl-3">
+                  <div class="sign__group">
+                    <input type="hidden" id="rating" name="rating" value="0">
+                    <div class="rateYo" id="rating" data-rateyo-rating="0" data-rateyo-num-stars="5" data-rateyo-score="3">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
                   <div class="sign__group">
                     <textarea id="review_text" name="review_text" class="sign__textarea" placeholder="Add review"></textarea>
                   </div>
                 </div>
 
-                <div class="col-12 col-md-3 col-lg-2 col-xl-3">
-                  <input type="date" name="review_date" id="review_date" class="sign__input">
-                </div>
-
-
-                <div class="col-12 d-flex justify-content-end">
-                  <button type="submit" class="btn btn-primary" name="tambah" value="simpan">Save</button>
+                <div class="col-12">
+                  <button type="submit" class="sign__btn" name="tambah" value="simpan">Send</button>
                 </div>
               </div>
             </form>
@@ -377,7 +402,7 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
   </footer>
 
   <!-- js files  -->
-  <script src="js/jquery-3.4.1.min.js"></script>
+  < <script src="js/jquery-3.4.1.min.js"></>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/slick.min.js"></script>
@@ -385,8 +410,23 @@ $movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
   <script src="js/select2.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/slick-animation.min.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
   <script src="main.js"></script>
+
+  <script>
+    $(function() {
+      var $rateYo = $(".rateYo").rateYo({
+        "rating": 0.7
+      });
+
+      $rateYo.rateYo("option", "onChange", function(rating, rateYoInstance) {
+        // Update the hidden input value with the selected rating
+        $("#rating").val(rating);
+      });
+
+      $rateYo.rateYo("option", "multiColor", true);
+    });
+  </script>
 </body>
 
 </html>
