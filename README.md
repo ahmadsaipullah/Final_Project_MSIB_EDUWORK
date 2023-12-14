@@ -3,8 +3,8 @@
 ## _Final Project 1_
 
 <img src="https://eduwork.id/assets/favicon.png" alt="Eduwork" width="250"/>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/2560px-PHP-logo.svg.png" alt="React" width="100"/>
-<img src="images\logo.png" alt="News API" width="100"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/2560px-PHP-logo.svg.png" alt="PHP" width="100"/>
+<img src="images\logo.png" alt="logo team" width="100"/>
 
 ### EDUWORK - FULLSTACK DEVELOPER BASICS - KELOMPOK 1
 
@@ -14,9 +14,9 @@ Website Film adalah web nonton film online dengan memanfaatkan database yang did
 
 ## :rocket: Kelompok 1
 
-[![Status](https://img.shields.io/badge/Status-Sedang_Mentoring-green)]()
+[![Status](https://img.shields.io/badge/Status-Selesai_Mentoring-green)]()
 
-<!-- :date: 26 Oktober 2022 - :clock7: 19.00 -->
+<!-- :date: 14 Desember 2023 - :clock7: 19.00 -->
 
 #### :crown: Pelita Nur Najmina
 
@@ -26,7 +26,6 @@ Website Film adalah web nonton film online dengan memanfaatkan database yang did
 - Fergi Putra Abiansa
 - Septi Dewi Yuliana
 - Ahmad Saifullah
-
 
 ## :memo: Checklist
 
@@ -47,6 +46,9 @@ Website Film adalah web nonton film online dengan memanfaatkan database yang did
 - Fitur Movies
 - Fitur About Us
 - Fitur Detail Movies
+- Fitur Forgot Password with mailtrap.io
+- Fitur view pengujung halaman
+- Fitur login with captcha
 
 
 ## :link: Instalasi
