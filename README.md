@@ -16,7 +16,7 @@ Website Film adalah web nonton film online dengan memanfaatkan database yang did
 
 [![Status](https://img.shields.io/badge/Status-Selesai_Mentoring-green)]()
 
-<!-- :date: 26 Oktober 2022 - :clock7: 19.00 -->
+<!-- :date: 14 Desember 2023 - :clock7: 19.00 -->
 
 #### :crown: Pelita Nur Najmina
 
@@ -26,13 +26,6 @@ Website Film adalah web nonton film online dengan memanfaatkan database yang did
 - Fergi Putra Abiansa
 - Septi Dewi Yuliana
 - Ahmad Saifullah
-
-## :photo: users
-
-<img src="images\user\ipul.png" alt="logo team" width="100"/>
-<img src="images\user\arman.jpg" alt="logo team" width="150"/>
-<img src="images\user\fergi.jpg" alt="logo team" width="150"/>
-<img src="images\user\septi.jpg" alt="logo team" width="150"/>
 
 ## :memo: Checklist
 
