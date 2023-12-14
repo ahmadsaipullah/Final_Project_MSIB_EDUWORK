@@ -1,5 +1,8 @@
 <?php
 include 'koneksi.php';
+include 'hitCounter.php';
+
+$hit = new HitCounter();
 function getAverageRating($movieId, $conn)
 {
   $query = "SELECT AVG(rating) as avg_rating FROM reviews WHERE movie_id = $movieId";
@@ -179,10 +182,16 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                         <span><?= number_format(getAverageRating($movie['movie_id'], $conn), 1); ?></span>
                       </div>
                       <div class="card-boy rounded-5 mt-2">
-                        <a href="detail.php?id=<?= $movie['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 10px;">
-                          <i class="fa fa-play"></i>
-                          Watch Trailer
-                        </a>
+                        <div class="d-flex align-items-center justify-content-between">
+                          <a href="detail.php?id=<?= $movie['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 9px;">
+                            <i class="fa fa-play"></i>
+                            Watch Trailer
+                          </a>
+                          <div class="d-flex align-items-center">
+                            <i class="fa fa-eye text-light mr-1"></i>
+                            <span class="text-light"><?php echo $hit->tampil(); ?></span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -222,10 +231,16 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                         <span><?= number_format(getAverageRating($drama['movie_id'], $conn), 1); ?></span>
                       </div>
                       <div class="card-boy rounded-5 mt-2">
-                        <a href="detail.php?id=<?= $drama['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 10px;">
-                          <i class="fa fa-play"></i>
-                          Watch Trailer
-                        </a>
+                        <div class="d-flex align-items-center justify-content-between">
+                          <a href="detail.php?id=<?= $drama['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 9px;">
+                            <i class="fa fa-play"></i>
+                            Watch Trailer
+                          </a>
+                          <div class="d-flex align-items-center">
+                            <i class="fa fa-eye text-light mr-1"></i>
+                            <span class="text-light"><?php echo $hit->tampil(); ?></span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -263,10 +278,16 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                         <span><?= number_format(getAverageRating($action['movie_id'], $conn), 1); ?></span>
                       </div>
                       <div class="card-boy rounded-5 mt-2">
-                        <a href="detail.php?id=<?= $action['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 10px;">
-                          <i class="fa fa-play"></i>
-                          Watch Trailer
-                        </a>
+                        <div class="d-flex align-items-center justify-content-between">
+                          <a href="detail.php?id=<?= $action['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 9px;">
+                            <i class="fa fa-play"></i>
+                            Watch Trailer
+                          </a>
+                          <div class="d-flex align-items-center">
+                            <i class="fa fa-eye text-light mr-1"></i>
+                            <span class="text-light"><?php echo $hit->tampil(); ?></span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -303,10 +324,16 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                         <span><?= number_format(getAverageRating($fantasy['movie_id'], $conn), 1); ?></span>
                       </div>
                       <div class="card-boy rounded-5 mt-2">
-                        <a href="detail.php?id=<?= $fantasy['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 10px;">
-                          <i class="fa fa-play"></i>
-                          Watch Trailer
-                        </a>
+                        <div class="d-flex align-items-center justify-content-between">
+                          <a href="detail.php?id=<?= $fantasy['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 9px;">
+                            <i class="fa fa-play"></i>
+                            Watch Trailer
+                          </a>
+                          <div class="d-flex align-items-center">
+                            <i class="fa fa-eye text-light mr-1"></i>
+                            <span class="text-light"><?php echo $hit->tampil(); ?></span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -343,10 +370,16 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                         <span><?= number_format(getAverageRating($comedy['movie_id'], $conn), 1); ?></span>
                       </div>
                       <div class="card-boy rounded-5 mt-2">
-                        <a href="detail.php?id=<?= $comedy['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 10px;">
-                          <i class="fa fa-play"></i>
-                          Watch Trailer
-                        </a>
+                        <div class="d-flex align-items-center justify-content-between">
+                          <a href="detail.php?id=<?= $comedy['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 9px;">
+                            <i class="fa fa-play"></i>
+                            Watch Trailer
+                          </a>
+                          <div class="d-flex align-items-center">
+                            <i class="fa fa-eye text-light mr-1"></i>
+                            <span class="text-light"><?php echo $hit->tampil(); ?></span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -383,10 +416,16 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                         <span><?= number_format(getAverageRating($advanture['movie_id'], $conn), 1); ?></span>
                       </div>
                       <div class="card-boy rounded-5 mt-2">
-                        <a href="detail.php?id=<?= $advanture['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 10px;">
-                          <i class="fa fa-play"></i>
-                          Watch Trailer
-                        </a>
+                        <div class="d-flex align-items-center justify-content-between">
+                          <a href="detail.php?id=<?= $advanture['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 9px;">
+                            <i class="fa fa-play"></i>
+                            Watch Trailer
+                          </a>
+                          <div class="d-flex align-items-center">
+                            <i class="fa fa-eye text-light mr-1"></i>
+                            <span class="text-light"><?php echo $hit->tampil(); ?></span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -423,10 +462,16 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                         <span><?= number_format(getAverageRating($horror['movie_id'], $conn), 1); ?></span>
                       </div>
                       <div class="card-boy rounded-5 mt-2">
-                        <a href="detail.php?id=<?= $horror['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 10px;">
-                          <i class="fa fa-play"></i>
-                          Watch Trailer
-                        </a>
+                        <div class="d-flex align-items-center justify-content-between">
+                          <a href="detail.php?id=<?= $horror['movie_id']; ?>" class="btn btn-hover iq-button" style="font-size: 9px;">
+                            <i class="fa fa-play"></i>
+                            Watch Trailer
+                          </a>
+                          <div class="d-flex align-items-center">
+                            <i class="fa fa-eye text-light mr-1"></i>
+                            <span class="text-light"><?php echo $hit->tampil(); ?></span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

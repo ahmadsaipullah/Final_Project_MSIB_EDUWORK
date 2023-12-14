@@ -1,24 +1,26 @@
 <?php
+session_start();
 include '../koneksi.php';
 
+$_SESSION["admin"] = true;
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btnLogin'])) {
-    // Ambil data yang dikirimkan melalui form
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $captcha = $_POST['captcha'];
 
-    // Query SQL untuk memeriksa apakah data login valid
     $query = "SELECT * FROM admin WHERE nama = '$username' AND password = '$password'";
     
-    // Periksa apakah hasil query mengembalikan satu baris (login berhasil)
     $result = mysqli_query($conn, $query);
-
-    if ($result && mysqli_num_rows($result) == 1) {
-        // Login berhasil, redirect ke halaman admin
-        header("Location: movies.php"); // Ganti halaman_admin.php dengan halaman yang sesuai
-        exit();
+    if ($captcha == $_SESSION['bilangan']) {
+        if ($result && mysqli_num_rows($result) == 1) {
+            $_SESSION["username"] = $username;
+            header("Location: movies.php"); 
+            exit();
+        } else {
+            echo '<script>alert("Username atau Password salah. Silakan coba lagi.");</script>';
+        }
     } else {
-        // Login gagal, tampilkan pesan error
-        echo '<script>alert("Username atau Password salah. Silakan coba lagi.");</script>';
+        echo '<script>alert("Captcha Salah Silakan coba lagi.");</script>';
     }
 }
 ?>
@@ -78,7 +80,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btnLogin'])) {
         <div class="row justify-content-center">
             <div class="col-lg-4 mx-5 py-4 px-5 text-dark rounded border border-dark" style="background-color: rgba(180,190,196,.6);">
                 <h2 class="text-center">Selamat Datang</h2>
-                <h3 class="text-center">Administrator</h3>
                 <form method="post">
                     <div class="form-group">
                         <label for="username"><i class="fas fa-fw fa-user"></i> Username</label>
@@ -89,7 +90,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btnLogin'])) {
                         <input required class="form-control rounded-pill" type="password" name="password" id="password">
                     </div>
                     <div class="form-group">
-                        <a href="../index.php" class="btn btn-info rounded-pill text-left"><i class="fas fa-fw fa-arrow-left"></i> Back</a>
+                        <label for="captcha"><i class="fas fa-fw "></i></label>
+                        <img src="../admin/auth/captcha.php" alt="gambar">
+                    </div>
+                    <div class="form-group">
+                        <label for="captcha"><i class="fas fa-fw fa-lock"></i>Masukan Captcha</label>
+                        <input type="number" class="form-control rounded-pill" name="captcha" required>
+                    </div>
+                    <div class="form-group">
+                        <a href="../home.php" class="btn btn-info rounded-pill text-left"><i class="fas fa-fw fa-arrow-left"></i> Back</a>
                         <button class="btn btn-success rounded-pill float-right" type="submit" name="btnLogin"><i class="fas fa-fw fa-sign-in-alt"></i> Login</button>
                     </div>
                 </form>

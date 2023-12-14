@@ -2,7 +2,8 @@
 include 'koneksi.php';
 $movie_id = $_GET['id'];
 
-$movies = mysqli_query($conn, "SELECT * FROM movies 
+$movies = mysqli_query($conn, "SELECT movies.*, director.nama, genres.genre_name, AVG(reviews.rating) AS avg_rating 
+FROM movies 
 LEFT JOIN director ON movies.director_id = director.director_id
 LEFT JOIN genres ON movies.genre_id = genres.genre_id
 JOIN reviews ON movies.movie_id = reviews.movie_id
@@ -102,13 +103,23 @@ if (isset($_POST['tambah'])) {
           <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft" style="opacity: 1">
             <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
               <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star-half"></i></li>
+                <?php
+                $avgRating = $movie['avg_rating'];
+                $fullStars = floor($avgRating);
+                $halfStar = ceil($avgRating - $fullStars);
+
+                // Display full stars
+                for ($i = 1; $i <= $fullStars; $i++) {
+                  echo '<li><i class="fa fa-star"></i></li>';
+                }
+
+                // Display half star if applicable
+                if ($halfStar > 0) {
+                  echo '<li><i class="fa fa-star-half"></i></li>';
+                }
+                ?>
               </ul>
-              <span class="text-white ml-2"><?php echo $movie['rating']; ?></span>
+              <span class="text-white ml-2"><?= number_format($avgRating, 1); ?></span>
             </div>
           </div>
           <div class="trending-list" data-animation-in="fadeInUp" data-delay-in="1.2">
