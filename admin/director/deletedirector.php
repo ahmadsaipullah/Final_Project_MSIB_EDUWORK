@@ -1,18 +1,23 @@
 <?php
 include '../../koneksi.php';
 
-$director_id = $_POST['director_id'];
+//Update di barang
 
-$updateQuery = "UPDATE movies SET director_id = NULL WHERE director_id = $director_id";
+if (isset($_POST['director_id'])) {
+  $updateQuery = "UPDATE movies SET director_id = NULL WHERE director_id = $director_id";
+  $director_id = $_POST['director_id'];
 
-if (mysqli_query($conn, $updateQuery)) {
+  $director_id = $_POST['director_id'];
+
+  $updateQuery = "UPDATE movies SET director_id = NULL WHERE director_id = $director_id";
+
+  if (mysqli_query($conn, $updateQuery)) {
+
     $deleteQuery = "DELETE FROM director WHERE director_id = $director_id";
     if (mysqli_query($conn, $deleteQuery)) {
-        header("location: ../director.php");
+      header("location: ../director.php");
     } else {
-        echo "Data Gagal Hapus!";
+      echo "Data Gagal Hapus!";
     }
-} else {
-    echo "Gagal menghapus";
+  }
 }
-?>

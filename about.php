@@ -153,7 +153,7 @@
              </li>
             <li class="col-12 col-md-6 col-lg-3">
                 <div class="cnt-block equal-hight" style="height: 349px;">
-                  <figure><img src="images/person.jpg" class="img-responsive" alt=""></figure>
+                  <figure><img src="images/user/septi.jpg" class="img-responsive" alt=""></figure>
                   <h3><a href="http://www.webcoderskull.com/">Septi Dewi </a></h3>
                   <p>Freelance Web Developer</p>
                   <ul class="follow-us clearfix">

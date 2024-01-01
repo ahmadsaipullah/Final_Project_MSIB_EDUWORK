@@ -1,5 +1,14 @@
 <?php
 include 'koneksi.php';
+include 'hitCounter.php';
+
+$hit = new HitCounter();
+
+//cek dan simpan
+$hit->Hitung();
+
+$reviews = mysqli_query($conn, "SELECT * FROM reviews");
+$movies = mysqli_query($conn, "SELECT * FROM movies WHERE genre_id = 1");
 
 function getAverageRating($movieId, $conn)
 {
@@ -72,7 +81,7 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
 <body>
   <header id="main-header">
     <div class="main-header">
-      <div class="container-fluid" >
+      <div class="container-fluid">
         <div class="row">
           <div class="col-sm-12">
             <nav class="navbar navbar-expand-lg navbar-light p-0">
@@ -172,12 +181,12 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
       </div>
       <div class="row my-5">
         <div class="col-md-6">
-          <img src="images/img/<?php echo $movie["cover_image"];?>" alt="gambar" width="550px" height="550px">
+          <img src="images/img/<?php echo $movie["cover_image"]; ?>" alt="gambar" width="550px" height="550px">
         </div>
         <div class="col-md-6">
           <h1 class="bold"><?php echo $movie['judul']; ?></h1>
           <article class="text-justify pt-2">
-           <?php echo $movie['deskripsi'];?>
+           <?php echo $movie['deskripsi']; ?>
           </article>
           <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft" style="opacity: 1">
             <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
@@ -201,6 +210,17 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
             <div class="text-primary title genres">
               Genres : <span class="text-body"><?php echo $movie['genre_name'] ?></span>
             </div>
+<div class="text-primary title genres">
+                Jumlah Pengunjung : <span class="text-body"><?php echo $hit->tampil(); ?></span>
+              </div>
+              <div class="text-primary">
+                <!-- tampilkan history kunjungan -->
+                <?php $h = $hit->waktu();
+                if (!empty($h)) {
+                  echo '<br>Anda telah mengunjungi halaman ini pada : ' . $h;
+                }
+                ?>
+              </div>
           </div>
         </div>
       </div>
@@ -248,8 +268,11 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                 </div>
               </li>
             <?php endforeach; ?>
-            <form action="#" class="reviews__form">
+            <form action="review_users.php" class="reviews__form" method="post">
               <div class="row">
+<div class="col-12 col-md-9 col-lg-10 col-xl-9 mb-4">
+                  <input type="text" name="movie_id" id="movie_id" class="sign__input" value="<?= $movie['movie_id']; ?>" readonly>
+                </div>
                 <div class="col-12 col-md-9 col-lg-10 col-xl-9">
                   <div class="sign__group">
                     <input type="text" name="review_name" class="sign__input" placeholder="Name">
@@ -265,18 +288,32 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                       <option value="3">3</option>
                       <option value="2">2</option>
                       <option value="1">1</option>
+
+                    <select name="rating" id="rating" class="sign__select" required>
+                      <option selected>Pilih Rating</option>
+                      <option value="1.0">1.0</option>
+                      <option value="2.0">2.0</option>
+                      <option value="3.0">3.0</option>
+                      <option value="4.0">4.0</option>
+                      <option value="5.0">5.0</option>
+
                     </select>
                   </div>
                 </div>
 
-                <div class="col-12">
+                <div class="col-12 col-md-9 col-lg-10 col-xl-9">
                   <div class="sign__group">
                     <textarea id="text2" name="review_text" class="sign__textarea" placeholder="Add review"></textarea>
                   </div>
                 </div>
 
-                <div class="col-12">
-                  <button type="button" class="sign__btn">Send</button>
+                <div class="col-12 col-md-3 col-lg-2 col-xl-3">
+                  <input type="date" name="review_date" id="review_date" class="sign__input">
+                </div>
+
+
+                <div class="col-12 d-flex justify-content-end">
+                  <button type="submit" class="btn btn-primary" name="tambah" value="simpan">Save</button>
                 </div>
               </div>
             </form>
@@ -311,7 +348,7 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                     <span class="fa fa-star text-warning"></span>
                     <span><?= number_format(getAverageRating($movie['movie_id'], $conn), 1); ?></span>
                   </div>
-                  <div class="card-boy rounded-5 mt-2" style="margin-right: 80px;">
+                  <div class="card-boy rounded-5 mt-2">
                     <a href="detail.php" class="btn btn-hover iq-button" style="font-size: 10px; width:130px;">
                       <i class="fa fa-play"></i>
                       Watch Trailer

@@ -1,6 +1,10 @@
 <?php
 include '../koneksi.php';
-$coments = mysqli_query($conn, "SELECT * FROM reviews JOIN movies ON reviews.movie_id = movies.movie_id");
+include '../admin/auth/index.php';
+
+$alls = mysqli_query($conn, "SELECT * FROM reviews
+    LEFT JOIN movies ON reviews.movie_id = movies.movie_id");
+$coments = mysqli_query($conn, "SELECT * FROM movies");
 
 ?>
 <!DOCTYPE html>
@@ -25,6 +29,33 @@ $coments = mysqli_query($conn, "SELECT * FROM reviews JOIN movies ON reviews.mov
     <link rel="stylesheet" href="../css/slick-animation.css" />
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" />
+</head>
+<style>
+    /* CSS untuk mengatur lebar kolom nomor */
+    table#Table th:first-child,
+    table#Table td:first-child {
+        width: 60px;
+        /* Ubah lebar sesuai kebutuhan */
+        max-width: 60px;
+        word-break: break-word;
+    }
+
+    /* CSS untuk mengatur tampilan tabel secara keseluruhan */
+    table#Table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table#Table th,
+    table#Table td {
+        padding: 8px;
+        /* Sesuaikan padding sesuai kebutuhan */
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+</style>
 </head>
 
 <body>
@@ -42,7 +73,7 @@ $coments = mysqli_query($conn, "SELECT * FROM reviews JOIN movies ON reviews.mov
                                 </div>
                             </a>
                             <a href="movies.php" class="navbar-brand">
-                                <img src="../images/logo2.png" class="img-fluid logo" alt="" />
+                                <img src="../images/logo.png" class="img-fluid logo" alt="" />
                             </a>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <div class="menu-main-menu-container">
@@ -54,150 +85,196 @@ $coments = mysqli_query($conn, "SELECT * FROM reviews JOIN movies ON reviews.mov
                                     </ul>
                                 </div>
                             </div>
-                            <div class="mobile-more-menu">
-                                <a href="../javascript:void(0);" class="more-toggle" id="dropdownMenuButton" data-toggle="more-toggle" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-ellipsis-h"></i>
-                                </a>
-                                <div class="more-menu" aria-labelledby="dropdownMenuButton">
-                                    <div class="navbar-right position-relative">
-                                        <ul class="d-flex align-items-center justify-content-end list-inline m-0">
-                                            <li>
-                                                <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center">
-                                                    <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
-                                                </a>
-                                                <div class="iq-sub-dropdown iq-user-dropdown">
-                                                    <div class="iq-card shadow-none m-0">
-                                                        <div class="iq-card-body p-0 pl-3 pr-3">
-                                                            <a href="#" class="iq-sub-card setting-dropdown">
-                                                                <div class="media align-items-center">
-                                                                    <div class="right-icon">
-                                                                        <i class="fa fa-user text-primary"></i>
-                                                                    </div>
-                                                                    <div class="media-body ml-3">
-                                                                        <h6 class="mb-0">Manage Profile</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#" class="iq-sub-card setting-dropdown">
-                                                                <div class="media align-items-center">
-                                                                    <div class="right-icon">
-                                                                        <i class="fa fa-cog text-primary"></i>
-                                                                    </div>
-                                                                    <div class="media-body ml-3">
-                                                                        <h6 class="mb-0">Settings</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#" class="iq-sub-card setting-dropdown">
-                                                                <div class="media align-items-center">
-                                                                    <div class="right-icon">
-                                                                        <i class="fa fa-inr text-primary"></i>
-                                                                    </div>
-                                                                    <div class="media-body ml-3">
-                                                                        <h6 class="mb-0">Pricing Plan</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#" class="iq-sub-card setting-dropdown">
-                                                                <div class="media align-items-center">
-                                                                    <div class="right-icon">
-                                                                        <i class="fa fa-sign-out text-primary"></i>
-                                                                    </div>
-                                                                    <div class="media-body ml-3">
-                                                                        <h6 class="mb-0">Logout</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+
 
                             <div class="navbar-right menu-right">
                                 <ul class="d-flex align-items-center list-inline m-0">
-                                    <li class="nav-item nav-icon">
-                                        <a href="#" class="search-toggle device-search">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                        <div class="search-box iq-search-bar d-search">
-                                            <form action="#" class="searchbox">
-                                                <div class="form-group position-relative">
-                                                    <input type="text" class="text search-input font-size-12" placeholder="type here to search..." />
-                                                    <i class="search-link fa fa-search"></i>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item nav-icon">
-                                        <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
-                                            <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
-                                        </a>
-                                        <div class="iq-sub-dropdown iq-user-dropdown">
-                                            <div class="iq-card shadow-none m-0">
-                                                <div class="iq-card-body p-0 pl-3 pr-3">
-                                                    <a href="#" class="iq-sub-card setting-dropdown">
-                                                        <div class="media align-items-center">
-                                                            <div class="right-icon">
-                                                                <i class="fa fa-user text-primary"></i>
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Manage Profile</h6>
-                                                            </div>
+
+                                    <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
+                                        <img src="../images/user/user.png" class="img-fluid user-m rounded-circle" alt="" />
+                                    </a>
+                                    <div class="iq-sub-dropdown iq-user-dropdown">
+                                        <div class="iq-card shadow-none m-0">
+                                            <div class="iq-card-body p-0 pl-3 pr-3">
+                                                <!-- <a href="#" class="iq-sub-card setting-dropdown">
+                                                    <div class="media align-items-center">
+                                                        <div class="right-icon">
+                                                            <i class="fa fa-user text-primary"></i>
                                                         </div>
-                                                    </a>
-                                                    <a href="#" class="iq-sub-card setting-dropdown">
-                                                        <div class="media align-items-center">
-                                                            <div class="right-icon">
-                                                                <i class="fa fa-sign-out text-primary"></i>
-                                                            </div>
-                                                            <div class="media-body ml-3">
-                                                                <h6 class="mb-0">Logout</h6>
-                                                            </div>
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-0">Manage Profile</h6>
                                                         </div>
-                                                    </a>
-                                                </div>
+                                                    </div>
+                                                </a> -->
+                                                <a href="#" class="iq-sub-card setting-dropdown" data-toggle="modal" data-target="#exampleModal">
+                                                    <div class="media align-items-center pt-4">
+                                                        <div class="right-icon">
+                                                            <i class="fa fa-sign-out text-primary"></i>
+                                                        </div>
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-0">Logout</h6>
+                                                        </div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
+                                    </div>
                                     </li>
                                 </ul>
                             </div>
                         </nav>
+
                         <div class="nav-overlay"></div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Yakin Ingin Keluar?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body text-dark">Pilih "Logout" jika anda ingin mengakhiri sesi.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-close card-shadow-2 btn-sm" type="button" data-dismiss="modal">Batal</button>
+                    <a class="btn btn-primary btn-sm card-shadow-2" href="../admin/auth/destroy.php">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main content starts  -->
     <!-- main content starts  -->
     <div class="main-content">
         <div class="container-fluid" style="margin-top: 70px">
             <div class="row">
                 <div class="col-sm-12 overflow-hidden">
+                    <button type="button" class="btn btn-hover iq-button" data-toggle="modal" data-target="#tambah" style="margin-bottom: 20px">ADD kOMENTAR</button>
                     <table class="table table-bordered" id="Table">
                         <thead>
                             <tr>
                                 <th scope="col-2">NO</th>
+                                <th scope="col">NAME</th>
                                 <th scope="col">TITLE</th>
+                                <th scope="col">DATE</th>
                                 <th scope="col">COMENT</th>
                                 <th scope="col">RATE</th>
+                                <th scope="col">ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $no = 1;
-                            while ($coment = mysqli_fetch_array($coments)) {
+                            while ($coment = mysqli_fetch_array($alls)) {
                             ?>
                                 <tr>
                                     <td><?php echo $no++ ?></td>
+                                    <td><?php echo $coment['reviewer_name'] ?></td>
                                     <td><?php echo $coment['judul'] ?></td>
+                                    <td><?php echo date('d-m-Y', strtotime($coment['review_date'])); ?></td>
                                     <td><?php echo $coment['review_text'] ?></td>
                                     <td><?php echo $coment['rating'] ?></td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a class="btn btn-hover iq-button" data-toggle="modal" name="edit" data-target="#edit<?= $no ?>">
+                                                <i class="fa fa-pencil mr-1"></i>
+                                            </a>
+                                            <a class="btn btn-hover iq-button ml-2" data-toggle="modal" name="hapus" data-target="#hapus<?= $no ?>">
+                                                <i class="fa fa-trash mr-1"></i>
+                                            </a>
+                                        </div>
+
+
+                                    </td>
                                 </tr>
+                                <!-- Modal Edit -->
+                                <div id="edit<?= $no ?>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-dark">EDIT COMENTAR</h5>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <form action="komentar/edit.php" method="POST">
+                                                <input type="hidden" name="review_id" value="<?= $coment['review_id'] ?>">
+                                                <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="reviewer_name">NAMA</label>
+                                                        <input type="text" name="reviewer_name" class="form-control" id="reviewer_name" value="<?= $coment['reviewer_name'] ?>" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="review_date">DATE</label>
+                                                        <input type="date" name="review_date" class="form-control" id="review_date" value="<?= $coment['review_date'] ?>" required>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="rating">RATING</label>
+                                                        <select class="form-control" name="rating">
+                                                            <option selected><?= $coment['rating'] ?></option>
+                                                            <option value="1.0">1.0</option>
+                                                            <option value="2.0">2.0</option>
+                                                            <option value="3.0">3.0</option>
+                                                            <option value="4.0">4.0</option>
+                                                            <option value="5.0">5.0</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="movie_id">MOVIE</label>
+                                                        <select class="form-control" name="movie_id">
+                                                            <?php foreach ($coments as $movie) { ?>
+                                                                <option value="<?php echo $movie['movie_id'] ?>" <?php if ($movie['movie_id'] == $coment['movie_id']) echo 'selected'; ?>>
+                                                                    <?php echo $movie['judul'] ?>
+                                                                </option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="control-label text-dark" for="review_text">REVIEW</label>
+                                                        <textarea class="form-control" name="review_text" rows="4" required><?php echo $coment['review_text'] ?></textarea>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="reset" class="btn btn-secondary">Reset</button>
+                                                        <button type="submit" class="btn btn-primary" name="tambah" value="simpan">Save</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal Edit Akhir -->
+
+                                <!-- Modal Hapus -->
+                                <div id="hapus<?= $no ?>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-dark">DELETE MOVIE</h5>
+                                            </div>
+                                            <form action="komentar/destroy.php" method="POST">
+                                                <input type="hidden" name="review_id" id="review_id" value="<?= $coment['review_id'] ?>">
+                                                <div class="modal-body">
+                                                    <h5 class="text-center text-dark"> Apakah Anda Yakin Akan Hapus <br>
+                                                        <span class="text-danger"><?= $coment['reviewer_name'] ?></span>
+                                                    </h5>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-danger" name="hapus">Hapus</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Keluar</button>
+                                                </div>
+                                            </form>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal Hapus Akhir -->
                             <?php } ?>
                         </tbody>
                     </table>
@@ -206,9 +283,60 @@ $coments = mysqli_query($conn, "SELECT * FROM reviews JOIN movies ON reviews.mov
         </div>
     </div>
 
+    <!-- Modal Tambah -->
+    <div id="tambah" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark">ADD KOMENTAR</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <form action="komentar/create.php" method="POST">
+                    <div class="modal-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="reviewer_name">NAME</label>
+                            <input type="text" name="reviewer_name" class="form-control" id="reviewer_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="movie_id">JUDUL</label>
+                            <select class="form-control" name="movie_id">
+                                <option selected>Pilih Judul</option>
+                                <?php foreach ($coments as $coment) { ?>
+                                    <option value="<?php echo $coment['movie_id'] ?>"><?php echo $coment['judul'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="actor">COMENTAR</label>
+                            <textarea class="form-control" name="review_text" id="review_text" rows="2" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="reviewer_name">DATE</label>
+                            <input type="date" name="review_date" class="form-control" id="review_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label text-dark" for="rating">RATING</label>
+                            <select class="form-control" name="rating" id="rating">
+                                <option selected>Pilih Rating</option>
+                                <option value="1.0">1.0</option>
+                                <option value="2.0">2.0</option>
+                                <option value="3.0">3.0</option>
+                                <option value="4.0">4.0</option>
+                                <option value="5.0">5.0</option>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-secondary">Reset</button>
+                            <button type="submit" class="btn btn-primary" name="tambah" value="simpan">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Tambah Akhir -->
+
     <!-- main content ends  -->
-
-
     <footer class="iq-bg-dark">
         <div class="footer-top">
             <div class="container-fluid">

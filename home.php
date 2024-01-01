@@ -74,8 +74,7 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
         <div class="row">
           <div class="col-sm-12">
             <nav class="navbar navbar-expand-lg navbar-light p-0">
-              <a href="#" class="navbar-toggler c-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <a href="#" class="navbar-toggler c-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="navbar-toggler-icon" data-toggle="collapse">
                   <span class="navbar-menu-icon navbar-menu-icon--top"></span>
                   <span class="navbar-menu-icon navbar-menu-icon--middle"></span>
@@ -95,8 +94,7 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                 </div>
               </div>
               <div class="mobile-more-menu">
-                <a href="javascript:void(0);" class="more-toggle" id="dropdownMenuButton" data-toggle="more-toggle"
-                  aria-haspopup="true" aria-expanded="false">
+                <a href="javascript:void(0);" class="more-toggle" id="dropdownMenuButton" data-toggle="more-toggle" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-ellipsis-h"></i>
                 </a>
                 <div class="more-menu" aria-labelledby="dropdownMenuButton">
@@ -109,8 +107,7 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                         <div class="search-box iq-search-bar">
                           <form action="#" class="searchbox">
                             <div class="form-group position-relative">
-                              <input type="text" class="text search-input font-size-12"
-                                placeholder="type here to search..." />
+                              <input type="text" class="text search-input font-size-12" placeholder="type here to search..." />
                               <i class="search-link fa fa-search"></i>
                             </div>
                           </form>
@@ -118,7 +115,7 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                       </li>
                       <li>
                         <a href="#" class="iq-user-dropdown search-toggle d-flex align-items-center">
-                        <i class="bi bi-person-fill"></i>
+                          <i class="bi bi-person-fill"></i>
                         </a>
                       </li>
                     </ul>
@@ -135,15 +132,14 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                     <div class="search-box iq-search-bar d-search">
                       <form action="#" class="searchbox">
                         <div class="form-group position-relative">
-                          <input type="text" class="text search-input font-size-12"
-                            placeholder="type here to search..." />
+                          <input type="text" class="text search-input font-size-12" placeholder="type here to search..." />
                           <i class="search-link fa fa-search"></i>
                         </div>
                       </form>
                     </div>
                   </li>
                   <li class="nav-item nav-icon">
-                  <i class="bi bi-person-fill"></i>
+                    <i class="bi bi-person-fill"></i>
                   </li>
                 </ul>
               </div>
@@ -168,15 +164,12 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                     <img src="images/logo2.png" class="c-logo" alt="" />
                   </div>
                 </a>
-                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft"
-                  data-delay-in="0.6">
+                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft" data-delay-in="0.6">
                   Avengers
                 </h1>
-                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft"
-                  style="opacity: 1">
+                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft" style="opacity: 1">
                   <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
-                    <ul
-                      class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+                    <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
@@ -209,10 +202,10 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                     <span class="text-body">Action, Adventure, Horror</span>
                   </div>
                 </div>
-                  <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
-                    <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Watch Trailer</a>
-                    <a href="#" class="btn btn-link">More Details</a>
-                  </div>
+                <div class="d-flex align-items-center r-mb-23 mt-4" data-animation-in="fadeInUp" data-delay-in="1.2">
+                  <a href="#" class="btn btn-hover iq-button"><i class="fa fa-play mr-3"></i>Watch Trailer</a>
+                  <a href="#" class="btn btn-link">More Details</a>
+                </div>
               </div>
             </div>
           </div>
@@ -228,15 +221,12 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                     <img src="images/logo.png" class="c-logo" alt="" />
                   </div>
                 </a>
-                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft"
-                  data-delay-in="0.6">
+                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft" data-delay-in="0.6">
                   Frozen
                 </h1>
-                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft"
-                  style="opacity: 1">
+                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft" style="opacity: 1">
                   <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
-                    <ul
-                      class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+                    <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
@@ -289,15 +279,12 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
                     <img src="images/logo.png" class="c-logo" alt="" />
                   </div>
                 </a>
-                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft"
-                  data-delay-in="0.6">
+                <h1 class="slider-text big-title title text-uppercase" data-animation-in="fadeInLeft" data-delay-in="0.6">
                   The Conjuring
                 </h1>
-                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft"
-                  style="opacity: 1">
+                <div class="d-flex flex-wrap align-items-center fadeInLeft animated" data-animation-in="fadeInLeft" style="opacity: 1">
                   <div class="slider-ratting d-flex align-items-center mr-4 mt-2 mt-md-3">
-                    <ul
-                      class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
+                    <ul class="ratting-start p-0 m-0 list-inline text-primary d-flex align-items-center justify-content-left">
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
@@ -341,8 +328,8 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
   </section>
   <!-- slider ends -->
 
-  <!-- main content starts  -->
-  <div class="main-content">
+    <!-- main content starts  -->
+    <div class="main-content">
     <!-- favorite section starts   -->
 
     <section id="iq-favorites">
@@ -707,19 +694,19 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
               <li>
                 <a href="#">
                   <i>
-                  <fa class="fa fa-facebook"></fa>
+                    <fa class="fa fa-facebook"></fa>
                 </a>
               </li>
               <li>
                 <a href="#">
                   <i>
-                  <fa class="fa fa-youtube"></fa>
+                    <fa class="fa fa-youtube"></fa>
                 </a>
               </li>
               <li>
                 <a href="#">
                   <i>
-                  <fa class="fa fa-instagram"></fa>
+                    <fa class="fa fa-instagram"></fa>
                 </a>
               </li>
             </ul>
@@ -728,7 +715,7 @@ $horrors = mysqli_query($conn, "SELECT movies.*, AVG(reviews.rating) as avg_rati
             <div class="widget text-left">
               <div class="textwidget">
                 <h6 class="footer-link-title">
-                  NetFlix App 
+                  NetFlix App
                 </h6>
                 <div class="d-flex align-items-center">
                   <a href="#"><img src="images/footer/01.jpg" alt=""></a>
